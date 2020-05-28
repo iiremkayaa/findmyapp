@@ -1,42 +1,46 @@
 import React, { useState, useEffect } from "react";
-import {Card} from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import CommentList from './CommentList';
 import CommentInput from './CommentInput';
 import { db } from '../firebase/index';
 
-const SharingList = ()=>{
-	
-
-    const [sharings,setSharings] = useState([]);
-    const [commentList, setCommentList] = useState([]);
-    useEffect(() => {
-		console.log("eee");
+const SharingList = () => {
+	const [sharings, setSharings] = useState([]);
+	const [commentList, setCommentList] = useState([]);
+	useEffect(() => {
 		db.ref('/sharing').on('value', querySnapShot => {
-            let values = [];
-            querySnapShot.forEach((child) => {
-					values.push(child.val())
-					console.log(child.val());
+			let values = [];
+			querySnapShot.forEach((child) => {
+				values.push({sharingId:child.ref.key,sharing:child.val()})
 			});
 			setSharings(values);
 		});
-      }, []);
-	
-		return(	
-				<div>	
-					{sharings.map((sharing,index) => (
-						<Card className={"border border-dark bg-dark text-white"} style={{marginBottom:"10px"}}>
-								<Card.Header key={index} className="row" >
-										<div className="col">From: {sharing.user="" ? "Anonymous":sharing.user}</div>
-										<div className="col">{sharing.description}</div>
-										<div className="col ">{sharing.sharingDate}</div>
-									</Card.Header>
-								<Card.Body key={index}>
-										
-								</Card.Body>
-						</Card>
-					))}
-				</div>
-		);
+	}, []);
+	const makeSuggestion = (event,id) => {
+		event.preventDefault();
+		console.log(id);
+	}
+
+	return (
+		<div style={{ marginTop: "15px" }} >
+			{sharings.map((sharings, index) => (
+				<Container key={index} className={"border border-dark bg-dark text-white"} style={{ borderRadius: "5px", marginTop: "5px", marginBottom: "5px" }}>
+					<Row style={{ marginTop: "0px" }}>
+						<Col style={{ fontSize: "20px" }} >From: {sharings.sharing.user}</Col>
+						<Col style={{ fontSize: "20px" }}>{sharings.sharing.date}</Col>
+					</Row>
+					<Row style={{ marginTop: "10px" }}>
+						<Col style={{ fontSize: "20px" }}>
+							{sharings.sharing.description}
+						</Col>
+						<Col style={{ fontSize: "20px" }}>
+							<button onClick={(event)=> {makeSuggestion(event,sharings.sharingId)}}>Click</button>
+						</Col>
+					</Row>
+				</Container>
+			))}
+		</div>
+	);
 
 }
 export default SharingList;
