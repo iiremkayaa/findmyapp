@@ -3,6 +3,7 @@ import './App.css';
 import NavigationBar from "./components/NavigationBar";
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import Main from './components/Main.js';
+import Register from './components/Register';
 class App extends Component {
   
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
         <NavigationBar />
             <Switch>
               <Route exact path="/" component={Main} />
+              <Route exact path="/signup" component={Register} />
             </Switch>
       </Router>
     )
