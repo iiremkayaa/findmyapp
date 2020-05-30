@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button';
 import Sharing from './Sharing';
 import SharingList from './SharingList';
 import * as firebase from "firebase";
+import { MDBIcon } from "mdbreact";
+
 const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -51,40 +53,40 @@ const Register = () => {
     }
     return (
         <div >
-            <div style={{ margin: "20%", marginTop: "30px", marginBottom: "10px" }}>
-                
-                <Form>
-                    <Form.Group style={{display:"table",width:"100%"}} >
-                        <Form.Label style={{display:"table-cell",width:"15%"}} >Username</Form.Label>
-                        <Form.Control style={{display:"table-cell",width:"85%"}} type="text" placeholder="" onChange={handleUsername} />
-                    </Form.Group>
+            <div style={{ paddingLeft: "15px", paddingRight: "15px", backgroundColor: "white" }}>
+                <div style={{ paddingTop: "30px", paddingBottom: "0px",paddingLeft: "30%", paddingRight: "30%" }}>
+                    <h2 style={{ textAlign: "center", color: "rgb(67,152,232)" }}><MDBIcon icon="users" style={{ color: "rgb(67,152,232)", fontSize: "100px" }} /></h2>
+                </div>
+                <Form style={{ paddingLeft: "30%", paddingRight: "30%" }}>
+                    <div style={{marginTop:"10px",marginBottom:"10px"}} >
+                        <Form.Label style={{  color: "rgb(67,152,232)",fontWeight:"500",fontSize:"20px"}} >Username:</Form.Label>
+                        <Form.Control style={{}} type="text" placeholder="" onChange={handleUsername} />
+                    </div>
 
-                    <Form.Group  style={{display:"table",width:"100%"}}>
-                        <Form.Label style={{display:"table-cell",width:"15%"}}>Email address</Form.Label>
-                        <Form.Control style={{display:"table-cell",width:"85%"}} type="email" placeholder="" onChange={handleEmail} />
-                        <Form.Text style={{ color: "white" }}>
-                            We'll never share your email with anyone else.
-                        </Form.Text>
-                    </Form.Group>
+                    <div style={{marginTop:"10px",marginBottom:"10px"}} >
+                        <Form.Label style={{ color: "rgb(67,152,232)" ,fontWeight:"500",fontSize:"20px"}}>Email:</Form.Label>
+                        <Form.Control style={{ }} type="email" placeholder="" onChange={handleEmail} />
+                        
+                    </div>
 
-                    <Form.Group  style={{display:"table",width:"100%"}} >
-                        <Form.Label style={{display:"table-cell",width:"15%"}}>Password</Form.Label>
-                        <Form.Control style={{display:"table-cell",width:"85%"}} type="password" placeholder="" onChange={handlePassword} />
+                    <div style={{marginTop:"10px",marginBottom:"10px"}} >
+                        <Form.Label style={{  color: "rgb(67,152,232)",fontWeight:"500",fontSize:"20px" }}>Password:</Form.Label>
+                        <Form.Control style={{ }} type="password" placeholder="" onChange={handlePassword} />
                         {charControl && <Form.Text style={{ color: "red" }}>
                             The password field must be at least 5 characters.
                         </Form.Text>}
-                    </Form.Group>
-                    <Form.Group  style={{display:"table",width:"100%"}} >
-                        <Form.Label style={{display:"table-cell",width:"15%"}}>Confirm Password</Form.Label>
-                        <Form.Control style={{display:"table-cell",width:"85%"}} type="password" placeholder="" onChange={handleConfirmPassword} />
+                    </div>
+                    <div style={{marginTop:"10px",marginBottom:"10px"}} >
+                        <Form.Label style={{ color: "rgb(67,152,232)" ,fontWeight:"500",fontSize:"20px"}}>Confirm Password:</Form.Label>
+                        <Form.Control style={{ }} type="password" placeholder="" onChange={handleConfirmPassword} />
                         {passControl && <Form.Text style={{ color: "red" }}>
                             The password must match confirm password.
                         </Form.Text>}
-                    </Form.Group>
-                    <div style={{ textAlign: "center",width:"100%" }}>
-                        <Button variant="link" type="submit" onClick={submit} style={{ color: "white" }}>
-                            Sign Up
-                    </Button>
+                    </div>
+                    <div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
+                    <button  type="submit" onClick={submit} style={{fontWeight:"400",fontSize:"18px",borderRadius:"8px", color:"white",backgroundColor: "rgb(67,152,232)",padding:"5px",paddingLeft:"40px",paddingRight:"40px"}}>
+                            LOGIN
+                    </button>
                     </div>
                 </Form>
 
