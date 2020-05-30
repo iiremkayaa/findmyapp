@@ -54,28 +54,28 @@ const Register = () => {
             <div style={{ margin: "20%", marginTop: "30px", marginBottom: "10px" }}>
                 <Form>
                     <Form.Group style={{display:"table",width:"100%"}} >
-                        <Form.Label style={{display:"table-cell",width:"20%"}} >Username</Form.Label>
-                        <Form.Control style={{display:"table-cell",width:"80%"}} type="text" placeholder="" onChange={handleUsername} />
+                        <Form.Label style={{display:"table-cell",width:"15%"}} >Username</Form.Label>
+                        <Form.Control style={{display:"table-cell",width:"85%"}} type="text" placeholder="" onChange={handleUsername} />
                     </Form.Group>
 
                     <Form.Group  style={{display:"table",width:"100%"}}>
-                        <Form.Label style={{display:"table-cell",width:"20%"}}>Email address</Form.Label>
-                        <Form.Control style={{display:"table-cell",width:"80%"}} type="email" placeholder="" onChange={handleEmail} />
+                        <Form.Label style={{display:"table-cell",width:"15%"}}>Email address</Form.Label>
+                        <Form.Control style={{display:"table-cell",width:"85%"}} type="email" placeholder="" onChange={handleEmail} />
                         <Form.Text style={{ color: "white" }}>
                             We'll never share your email with anyone else.
                         </Form.Text>
                     </Form.Group>
 
                     <Form.Group  style={{display:"table",width:"100%"}} >
-                        <Form.Label style={{display:"table-cell",width:"20%"}}>Password</Form.Label>
-                        <Form.Control style={{display:"table-cell",width:"80%"}} type="password" placeholder="" onChange={handlePassword} />
+                        <Form.Label style={{display:"table-cell",width:"15%"}}>Password</Form.Label>
+                        <Form.Control style={{display:"table-cell",width:"85%"}} type="password" placeholder="" onChange={handlePassword} />
                         {charControl && <Form.Text style={{ color: "red" }}>
                             The password field must be at least 5 characters.
                         </Form.Text>}
                     </Form.Group>
                     <Form.Group  style={{display:"table",width:"100%"}} >
-                        <Form.Label style={{display:"table-cell",width:"20%"}}>Confirm Password</Form.Label>
-                        <Form.Control style={{display:"table-cell",width:"80%"}} type="password" placeholder="" onChange={handleConfirmPassword} />
+                        <Form.Label style={{display:"table-cell",width:"15%"}}>Confirm Password</Form.Label>
+                        <Form.Control style={{display:"table-cell",width:"85%"}} type="password" placeholder="" onChange={handleConfirmPassword} />
                         {passControl && <Form.Text style={{ color: "red" }}>
                             The password must match confirm password.
                         </Form.Text>}
