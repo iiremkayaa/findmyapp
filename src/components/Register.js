@@ -52,6 +52,7 @@ const Register = () => {
     return (
         <div >
             <div style={{ margin: "20%", marginTop: "30px", marginBottom: "10px" }}>
+                
                 <Form>
                     <Form.Group style={{display:"table",width:"100%"}} >
                         <Form.Label style={{display:"table-cell",width:"15%"}} >Username</Form.Label>
