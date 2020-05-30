@@ -35,8 +35,10 @@ const Sharing = () => {
 	const sharingChange = (event) => {
 		setDescription(event.target.value);
 	}
+	
+	
 	return (
-		<div style={{ padding: "30px",borderRadius:"5px",borderColor:"white",border:"solid",borderWidth:"1px" }} >
+		<div style={{ padding: "30px",borderRadius:"5px",borderColor:"white",border:"solid",borderWidth:"1px",backgroundColor:"#6F90AF"}} >
 			<Form style={{textAlign:"center"}}>
 				<Form.Group style={{ paddingLeft: "40px", paddingRight: "40px",textAlign:"center" }}>
 					<Form.Label style={{fontSize:"20px",padding:"5px"}}>Please provide information of application you are looking for... </Form.Label>
@@ -45,7 +47,10 @@ const Sharing = () => {
 				<Form.Group style={{textAlign:"center"}}>
 					<Form.Check id="custom-switch" type="switch" onChange={onSwitchSharing} label="Anonymous" style={{ paddingTop: "10px", paddingBottom: "10px",fontSize:"18px" }} />
 				</Form.Group>
-				<Button onClick={submitSharing} variant="primary" className="btn  btn-lg" style={{padding:"14px",paddingTop:"2px",paddingBottom:"2px",fontSize:"20px" }}>Send</Button>
+				<button  type="submit" onClick={event=>submitSharing(event)} style={{fontWeight:"400",fontSize:"18px",borderRadius:"8px", color:"white",backgroundColor: "#6F90AF",padding:"5px",paddingLeft:"25px",paddingRight:"25px"}}>
+                            SEND
+                </button>
+				
 			</Form>
 			
 		</div>

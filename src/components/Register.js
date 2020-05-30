@@ -20,8 +20,7 @@ const Register = () => {
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
             var errorCode = error.code;
             var errorMessage = error.message;
-            console.log(errorCode);
-            console.log(errorMessage);
+          
         });
         const data={
 			username:username,
@@ -66,37 +65,37 @@ const Register = () => {
         <div >
             <div style={{ paddingLeft: "15px", paddingRight: "15px", backgroundColor: "white" }}>
                 <div style={{ paddingTop: "30px", paddingBottom: "0px",paddingLeft: "30%", paddingRight: "30%" }}>
-                    <h2 style={{ textAlign: "center", color: "rgb(67,152,232)" }}><MDBIcon icon="users" style={{ color: "rgb(67,152,232)", fontSize: "100px" }} /></h2>
+                    <h2 style={{ textAlign: "center", color: "#6F90AF" }}><MDBIcon icon="users" style={{ color: "#6F90AF", fontSize: "100px" }} /></h2>
                 </div>
                 <Form style={{ paddingLeft: "30%", paddingRight: "30%" }}>
                     <div style={{marginTop:"10px",marginBottom:"10px"}} >
-                        <Form.Label style={{  color: "rgb(67,152,232)",fontWeight:"500",fontSize:"20px"}} >Username:</Form.Label>
+                        <Form.Label style={{  color: "#6F90AF",fontWeight:"500",fontSize:"20px"}} >Username:</Form.Label>
                         <Form.Control style={{}} type="text" placeholder="" onChange={handleUsername} />
                     </div>
 
                     <div style={{marginTop:"10px",marginBottom:"10px"}} >
-                        <Form.Label style={{ color: "rgb(67,152,232)" ,fontWeight:"500",fontSize:"20px"}}>Email:</Form.Label>
+                        <Form.Label style={{ color: "#6F90AF" ,fontWeight:"500",fontSize:"20px"}}>Email:</Form.Label>
                         <Form.Control style={{ }} type="email" placeholder="" onChange={handleEmail} />
                         
                     </div>
 
                     <div style={{marginTop:"10px",marginBottom:"10px"}} >
-                        <Form.Label style={{  color: "rgb(67,152,232)",fontWeight:"500",fontSize:"20px" }}>Password:</Form.Label>
+                        <Form.Label style={{  color: "#6F90AF",fontWeight:"500",fontSize:"20px" }}>Password:</Form.Label>
                         <Form.Control style={{ }} type="password" placeholder="" onChange={handlePassword} />
                         {charControl && <Form.Text style={{ color: "red" }}>
                             The password field must be at least 5 characters.
                         </Form.Text>}
                     </div>
                     <div style={{marginTop:"10px",marginBottom:"10px"}} >
-                        <Form.Label style={{ color: "rgb(67,152,232)" ,fontWeight:"500",fontSize:"20px"}}>Confirm Password:</Form.Label>
+                        <Form.Label style={{ color: "#6F90AF" ,fontWeight:"500",fontSize:"20px"}}>Confirm Password:</Form.Label>
                         <Form.Control style={{ }} type="password" placeholder="" onChange={handleConfirmPassword} />
                         {passControl && <Form.Text style={{ color: "red" }}>
                             The password must match confirm password.
                         </Form.Text>}
                     </div>
                     <div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
-                    <button  type="submit" onClick={submit} style={{fontWeight:"400",fontSize:"18px",borderRadius:"8px", color:"white",backgroundColor: "rgb(67,152,232)",padding:"5px",paddingLeft:"25px",paddingRight:"25px"}}>
-                            LOGIN
+                    <button  type="submit" onClick={submit} style={{fontWeight:"400",fontSize:"18px",borderRadius:"8px", color:"white",backgroundColor: "#6F90AF",padding:"5px",paddingLeft:"25px",paddingRight:"25px"}}>
+                            SIGN UP
                     </button>
                     </div>
                 </Form>
