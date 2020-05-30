@@ -6,6 +6,7 @@ import Sharing from './Sharing';
 import SharingList from './SharingList';
 import * as firebase from "firebase";
 import { MDBIcon } from "mdbreact";
+import { db } from '../firebase/index';
 
 const Register = () => {
     const [email, setEmail] = useState("");
@@ -19,7 +20,17 @@ const Register = () => {
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
             var errorCode = error.code;
             var errorMessage = error.message;
+            console.log(errorCode);
+            console.log(errorMessage);
         });
+        const data={
+			username:username,
+			password:password,
+            email: email,
+            sharings:[],
+            comments:[],
+		}
+		db.ref('/user').push(data);
     }
     const handleEmail = (event) => {
         setEmail(event.target.value);
@@ -84,7 +95,7 @@ const Register = () => {
                         </Form.Text>}
                     </div>
                     <div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
-                    <button  type="submit" onClick={submit} style={{fontWeight:"400",fontSize:"18px",borderRadius:"8px", color:"white",backgroundColor: "rgb(67,152,232)",padding:"5px",paddingLeft:"40px",paddingRight:"40px"}}>
+                    <button  type="submit" onClick={submit} style={{fontWeight:"400",fontSize:"18px",borderRadius:"8px", color:"white",backgroundColor: "rgb(67,152,232)",padding:"5px",paddingLeft:"25px",paddingRight:"25px"}}>
                             LOGIN
                     </button>
                     </div>
