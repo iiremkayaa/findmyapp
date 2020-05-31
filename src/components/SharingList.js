@@ -67,9 +67,9 @@ const SharingList = () => {
 		return (
 			<Modal show={show} onHide={handleClose} animation={true} centered backdrop={false} >
 				<Modal.Header closeButton>
-					<Modal.Title style={{ fontSize: "20px" }}>Sharing</Modal.Title>
+					<Modal.Title style={{ fontSize: "20px" }}></Modal.Title>
 				</Modal.Header>
-				<Modal.Body>
+				<Modal.Body >
 					<div style={{}}>
 						<h2 style={{ fontSize: "15px", fontWeight: "400" }}>{selectedComment}</h2>
 					</div>
@@ -91,11 +91,11 @@ const SharingList = () => {
 	return (
 		<div style={{ marginTop: "15px" }} >
 			{sharings.map((sharings, index) => (
-				<div key={index} style={{ backgroundColor: "#6F90AF", borderRadius: "5px", borderColor: "white", border: "solid", marginTop: "5px", marginBottom: "5px", borderWidth: "1px" }}>
+				<div key={index} style={{ backgroundColor: "#6F90AF", borderRadius: "5px", borderColor: "white", border: "solid", marginTop: "5px", marginBottom: "5px", borderWidth: "1px",padding:"15px" }}>
 					{showPopUp()}
 					<div style={{ marginTop: "0px", width: "100%" }}>
 						<div style={{ width: "100%", display: "table" }} >
-							<h1 style={{ fontSize: "20px", fontWeight: "100", display: "table-cell" }}>From: {sharings.sharing.user == "" ? "Anonymous" : sharings.sharing.user}</h1>
+							<h1 style={{ fontSize: "20px", fontWeight: "100", display: "table-cell" }}>From: {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
 							<h1 style={{ fontSize: "20px", fontWeight: "100", display: "table-cell", textAlign: "right" }} >{sharings.sharing.date}</h1>
 						</div>
 					</div>
