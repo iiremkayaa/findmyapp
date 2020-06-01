@@ -58,6 +58,8 @@ const Sharing = () => {
 		db.ref('/sharing').push(data);
 		setIsAnon(false);
 		setDescription("");
+		setStore("AppStore");
+		setPayment("Free");
 	}
 	const sharingChange = (event) => {
 		setDescription(event.target.value);
@@ -83,7 +85,7 @@ const Sharing = () => {
 					<FormControl variant="filled" className={classes.formControl} >
 						<Select
 							labelId="demo-simple-select-filled-label"
-							style={{ color: 'white', minWidth: 160, maxHeight: 50 }}
+							style={{ color: 'white', minWidth: 130, maxHeight: 50 }}
 							value={store}
 							onChange={event => { handleSelectStore(event); }}
 						>
@@ -97,7 +99,7 @@ const Sharing = () => {
 					<FormControl variant="filled" className={classes.formControl} >
 						<Select
 							labelId="demo-simple-select-filled-label"
-							style={{ color: 'white', minWidth: 160, maxHeight: 50 }}
+							style={{ color: 'white', minWidth: 130, maxHeight: 50 }}
 							value={payment}
 							onChange={event => { handleSelectPayment(event); }}
 						>
@@ -110,7 +112,7 @@ const Sharing = () => {
 			</div>
 			<div style={{ textAlign: "center", paddingTop: "20px" }}>
 				<Form>
-					<Form.Check id="custom-switch" type="switch" onChange={onSwitchSharing} label="Anonymous" style={{ fontSize: "18px" }} />
+					<Form.Check id="custom-switch" type="switch" value={isAnon} onChange={onSwitchSharing} label="Anonymous" style={{ fontSize: "18px" }} />
 				</Form>
 			</div>
 
