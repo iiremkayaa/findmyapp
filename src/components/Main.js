@@ -1,5 +1,4 @@
 import React from 'react';
-import {Container,Row,Col} from 'react-bootstrap';
 import Sharing from './Sharing';
 import SharingList from './SharingList';
 const Main=()=> {

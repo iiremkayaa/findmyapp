@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { useState, } from 'react';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Sharing from './Sharing';
-import SharingList from './SharingList';
+
 import * as firebase from "firebase";
 import { MDBIcon } from "mdbreact";
 import { db } from '../firebase/index';
@@ -18,8 +15,8 @@ const Register = () => {
     const submit = (event) => {
         event.preventDefault();
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-            var errorCode = error.code;
-            var errorMessage = error.message;
+            //var errorCode = error.code;
+            //var errorMessage = error.message;
           
         });
         const data={

@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { useState,  } from 'react';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Sharing from './Sharing';
-import SharingList from './SharingList';
+
 import * as firebase from "firebase";
 import { MDBIcon } from "mdbreact";
 
@@ -45,15 +42,7 @@ const Login = () => {
             setPassControl(false);
         }
     }
-    const handleConfirmPassword = (event) => {
-        setConfirmPassword(event.target.value);
-        if (password !== event.target.value) {
-            setPassControl(true);
-        }
-        if (password === event.target.value) {
-            setPassControl(false);
-        }
-    }
+   
     const handleUsername = (event) => {
         setUsername(event.target.value);
     }

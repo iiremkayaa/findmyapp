@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col, Container } from 'react-bootstrap';
 import { db } from '../firebase/index';
 import { MDBIcon } from "mdbreact";
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Form } from 'react-bootstrap';
 
 const SharingList = () => {
 	const [sharings, setSharings] = useState([]);
