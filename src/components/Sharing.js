@@ -74,7 +74,7 @@ const Sharing = () => {
 	}
 	const classes = useStyles();
 	return (
-		<div style={{ padding: "30px", borderRadius: "5px", borderColor: "white", border: "solid", borderWidth: "1px", backgroundColor: "#6F90AF" }} >
+		<div style={{ paddingLeft: "20%",paddingRight:"20%", paddingTop:"50px",paddingBottom:"50px",borderRadius: "5px", borderColor: "white", border: "solid", borderWidth: "1px", backgroundColor: "#6F90AF" }} >
 			<Form style={{ textAlign: "center" }}>
 				<div style={{ paddingLeft: "40px", paddingRight: "40px", textAlign: "center" }}>
 					<Form.Label style={{ fontSize: "20px", padding: "5px" }}>Please provide information of application you are looking for... </Form.Label>

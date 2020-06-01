@@ -5,7 +5,7 @@ const Main=()=> {
 
 	return (
 		<div >
-	        <div style={{ margin:"20%",marginTop:"30px",marginBottom:"10px" }}>
+	        <div style={{ margin:"0px",marginTop:"0px",marginBottom:"0px" }}>
                 <Sharing/>
                 <SharingList/>
 

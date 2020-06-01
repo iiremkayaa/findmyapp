@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { db } from '../firebase/index';
 import { MDBIcon } from "mdbreact";
 import { Modal, Form } from 'react-bootstrap';
-import playStore from '../assets/play-store.png';
+import './SharingList.css';
+
 const SharingList = () => {
 	const [sharings, setSharings] = useState([]);
 
@@ -88,9 +89,10 @@ const SharingList = () => {
 			</Modal>);
 	}
 	return (
-		<div style={{ marginTop: "15px" }} >
+		<div id="sharings">
+		<div  style={{ padding: "30px",paddingLeft:"150px",paddingRight:"150px"}} >
 			{sharings.map((sharings, index) => (
-				<div key={index} style={{ backgroundColor: "#6F90AF", borderRadius: "5px", borderColor: "white", border: "solid", marginTop: "5px", marginBottom: "5px", borderWidth: "1px", padding: "15px" }}>
+				<div key={index} id="sharing" style={{  borderRadius: "5px", borderColor: "white", border: "solid", borderWidth: "1px", padding: "15px", paddingBottom: "0px",marginBottom:"5px" }}>
 					{showPopUp()}
 					<div style={{ marginTop: "0px", width: "100%" }}>
 						<div style={{ width: "100%", display: "table" }} >
@@ -98,26 +100,37 @@ const SharingList = () => {
 							<h1 style={{ fontSize: "20px", fontWeight: "500", display: "table-cell", textAlign: "right" }} >{sharings.sharing.date}</h1>
 						</div>
 					</div>
-					<div style={{ marginTop: "10px", width: "100%" }}>
+					<div style={{ width: "100%", marginTop: "15px", marginBottom: "15px" }}>
 						<div style={{ width: "100%" }}>
 							<h1 style={{ fontSize: "20px", fontWeight: "500", textAlign: "center" }}>{sharings.sharing.description}</h1>
 						</div>
-						<div style={{ width: "100%", display: "flex", justifyContent: "flex-end",paddingTop:"10px" }}>
-							<div style={{paddingRight:"15px"}}>
-								<h2 style={{ fontSize: "18px", fontWeight: "450", marginLeft: "5px",display:"inline", marginRight: "5px" }}>{sharings.sharing.store}</h2>
-								<div style={{fontSize:"18px",display:"inline"}}><i class="fas fa-mobile-alt" style={{width: "25px", height: "25px"}}></i></div> 
+					</div>
+					<div style={{ width: "100%" }}>
+						<div style={{ width: "100%", display: "inline-block" }}>
+
+							<div style={{ display: "flex", float: "left"}}>
+								<button style={{ backgroundColor: "Transparent", border: "none", display: "inline",padding:0 }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}>
+									<h2 style={{ fontSize: "18px", fontWeight: "500",color:"white" }}>Suggestions</h2>
+								</button>
 							</div>
-							<div style={{paddingRight:"15px"}}>
-								<h2 style={{ fontSize: "18px", fontWeight: "450", marginLeft: "5px",display:"inline", marginRight: "5px" }}>{sharings.sharing.payment}</h2>
-								<div style={{fontSize:"18px",display:"inline"}}><i class="fas fa-dollar-sign" style={{width: "25px", height: "25px"}}></i></div>
-							</div>
-							<div>
-							<button style={{ backgroundColor: "Transparent", border: "none",display:"inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{color:"white",fontSize:"20px"}}></i></button>
+							<div style={{ display: "flex", float: "right", margin: 0, padding: 0 }}>
+								<div style={{ paddingRight: "15px" }}>
+									<h2 style={{ fontSize: "18px", fontWeight: "450", marginLeft: "5px", display: "inline", marginRight: "5px" }}>{sharings.sharing.store}</h2>
+									<div style={{ fontSize: "18px", display: "inline" }}><i class="fas fa-mobile-alt" style={{ width: "25px", height: "25px" }}></i></div>
+								</div>
+								<div style={{ paddingRight: "15px" }}>
+									<h2 style={{ fontSize: "18px", fontWeight: "450", marginLeft: "5px", display: "inline", marginRight: "5px" }}>{sharings.sharing.payment}</h2>
+									<div style={{ fontSize: "18px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px" }}></i></div>
+								</div>
+								<div>
+									<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{ color: "white", fontSize: "20px" }}></i></button>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			))}
+		</div>
 		</div>
 	);
 
