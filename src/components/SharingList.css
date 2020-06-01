@@ -1,5 +1,5 @@
 #sharing{
-    background-color:rgb(255, 248, 248); /*#1a2631;*/
+    background-color:white;
     border: solid;
     border-color: #1a2631;
     border-width: 1px;
@@ -11,4 +11,9 @@
 }
 #sharings{
     background-color: #1a2631;
+}
+#suggestion-header{
+    color:rgb(110, 109, 109);
+    font-size: 18px;
+    font-weight: 500;
 }
