@@ -74,8 +74,8 @@ const Sharing = () => {
 	}
 	const classes = useStyles();
 	return (
-		<div style={{ paddingLeft: "20%",paddingRight:"20%", paddingTop:"50px",paddingBottom:"50px",borderRadius: "5px", borderColor: "white", border: "solid", borderWidth: "1px", backgroundColor: "#6F90AF" }} >
-			<Form style={{ textAlign: "center" }}>
+		<div id="sharing-form" >
+			<Form style={{ textAlign: "center"}}>
 				<div style={{ paddingLeft: "40px", paddingRight: "40px", textAlign: "center" }}>
 					<Form.Label style={{ fontSize: "20px", padding: "5px" }}>Please provide information of application you are looking for... </Form.Label>
 					<Form.Control required as="textarea" rows="3" value={description} onChange={sharingChange} />
@@ -114,7 +114,7 @@ const Sharing = () => {
 			<div style={{ textAlign: "center", paddingTop: "20px" }}>
 
 				<div class="custom-control custom-switch">
-					<input checked={isAnon} type="checkbox" onChange={onSwitchSharing} class="custom-control-input" id="customSwitch1" style={{ background: "#EF476F" }} />
+					<input checked={isAnon} type="checkbox" onChange={onSwitchSharing} class="custom-control-input" id="customSwitch1" />
 					<label class="custom-control-label" for="customSwitch1" style={{ fontSize: "18px" }} >Anonymous</label>
 				</div>
 				{/*<div>
@@ -126,7 +126,7 @@ const Sharing = () => {
 				</div>
 
 				<div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
-					<button type="submit" onClick={event => submitSharing(event)} style={{ fontWeight: "400", fontSize: "18px", borderRadius: "8px", color: "white", backgroundColor: "#6F90AF", padding: "5px", paddingLeft: "25px", paddingRight: "25px" }}>
+					<button type="submit" onClick={event => submitSharing(event)} style={{ fontWeight: "400", fontSize: "18px", borderWidth:"1px",borderRadius: "8px", color: "white", backgroundColor: "#1a2631", padding: "5px", paddingLeft: "25px", paddingRight: "25px" }}>
 						SEND
                 </button>
 				</div>

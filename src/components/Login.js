@@ -50,15 +50,15 @@ const Login = () => {
         <div >
             <div style={{paddingLeft:"15px",paddingRight:"15px", backgroundColor: "white" }}>
                 <div style={{ paddingTop:"30px",paddingBottom:"0px"}}>
-                    <h2 style={{textAlign: "center", color:"#6F90AF"}}><MDBIcon icon="user-circle"  style={{ color: "#6F90AF",fontSize:"100px" }} /></h2>
+                    <h2 style={{textAlign: "center", color:"#1a2631"}}><MDBIcon icon="user-circle"  style={{ color: "#1a2631",fontSize:"100px" }} /></h2>
                 </div>
                 <Form style={{  paddingLeft: "30%", paddingRight: "30%" }}>
                     <div style={{ display: "table", width: "85%", marginTop: "30px" }} >
-                        <div style={{ display: "table-cell",textAlign:"center",paddingLeft:"5px",paddingRight:"5px"  }} ><MDBIcon icon="user"  style={{ color: "#6F90AF",fontSize:"35px" }} /></div>
+                        <div style={{ display: "table-cell",textAlign:"center",paddingLeft:"5px",paddingRight:"5px"  }} ><MDBIcon icon="user"  style={{ color: "#1a2631",fontSize:"35px" }} /></div>
                         <Form.Control style={{ display: "table-cell",height:"35px"}} type="text" placeholder="Email" onChange={handleEmail} />
                     </div>
                     <div style={{ display: "table", width: "85%", marginTop: "30px" }} >
-                        <div style={{ display: "table-cell",textAlign:"center",paddingLeft:"5px",paddingRight:"5px" }}><MDBIcon icon="lock"  style={{ color: "#6F90AF",fontSize:"35px" }} /></div>
+                        <div style={{ display: "table-cell",textAlign:"center",paddingLeft:"5px",paddingRight:"5px" }}><MDBIcon icon="lock"  style={{ color: "#1a2631",fontSize:"35px" }} /></div>
                         <Form.Control style={{ display: "table-cell"}} type="password" placeholder="Password" onChange={handlePassword} />
                         
                     </div>
@@ -68,7 +68,7 @@ const Login = () => {
                         </Form.Text>}
                     </div>
                     <div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
-                        <button  type="submit" onClick={event=>submit(event)} style={{fontWeight:"400",fontSize:"18px",borderRadius:"8px", color:"white",backgroundColor: "#6F90AF",padding:"5px",paddingLeft:"25px",paddingRight:"25px"}}>
+                        <button  type="submit" onClick={event=>submit(event)} style={{fontWeight:"400",fontSize:"18px",borderRadius:"8px", color:"white",backgroundColor: "#1a2631",padding:"5px",paddingLeft:"25px",paddingRight:"25px"}}>
                             SIGN IN
                         </button>
                     </div>

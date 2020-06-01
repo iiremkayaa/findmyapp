@@ -28,3 +28,10 @@
   .checkbox { 
     display : none;
  }
+ #sharing-form{
+  padding-left: 20%;
+  padding-right:20%;
+  padding-top:50px;
+  padding-bottom:50px;
+  background-color: #1a2631;
+ }
