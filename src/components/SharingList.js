@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from '../firebase/index';
 import { MDBIcon } from "mdbreact";
 import { Modal, Form } from 'react-bootstrap';
-
+import playStore from '../assets/play-store.png';
 const SharingList = () => {
 	const [sharings, setSharings] = useState([]);
 
@@ -51,7 +51,7 @@ const SharingList = () => {
 		const data = {
 			comment: comment,
 			sharingId: selectedSharingId,
-			date: convertDateFormatToPost(date), //todo:date will be added
+			date: convertDateFormatToPost(date),
 			time: time
 		}
 		db.ref('/comment').push(data);
@@ -72,11 +72,11 @@ const SharingList = () => {
 					<div style={{}}>
 						<h2 style={{ fontSize: "15px", fontWeight: "400" }}>{selectedComment}</h2>
 					</div>
-					<Form style={{ marginTop: "20px", marginBottom: "20px"}}>
-						<Form.Control  type="text" value={comment} placeholder="Enter your suggestion here" onChange={(event) => { handleCommentChange(event) }} />
+					<Form style={{ marginTop: "20px", marginBottom: "20px" }}>
+						<Form.Control type="text" value={comment} placeholder="Enter your suggestion here" onChange={(event) => { handleCommentChange(event) }} />
 					</Form>
-					{commentMessage && <div style={{textAlign:"center" }}>
-						<h2 style={{ fontSize: "15px", fontWeight: "400",color:"#6F90AF"}}>Your suggestion has been sent!</h2>
+					{commentMessage && <div style={{ textAlign: "center" }}>
+						<h2 style={{ fontSize: "15px", fontWeight: "400", color: "#6F90AF" }}>Your suggestion has been sent!</h2>
 					</div>}
 				</Modal.Body>
 				<Modal.Footer>
@@ -90,20 +90,30 @@ const SharingList = () => {
 	return (
 		<div style={{ marginTop: "15px" }} >
 			{sharings.map((sharings, index) => (
-				<div key={index} style={{ backgroundColor: "#6F90AF", borderRadius: "5px", borderColor: "white", border: "solid", marginTop: "5px", marginBottom: "5px", borderWidth: "1px",padding:"15px" }}>
+				<div key={index} style={{ backgroundColor: "#6F90AF", borderRadius: "5px", borderColor: "white", border: "solid", marginTop: "5px", marginBottom: "5px", borderWidth: "1px", padding: "15px" }}>
 					{showPopUp()}
 					<div style={{ marginTop: "0px", width: "100%" }}>
 						<div style={{ width: "100%", display: "table" }} >
-							<h1 style={{ fontSize: "20px", fontWeight: "100", display: "table-cell" }}>From: {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
-							<h1 style={{ fontSize: "20px", fontWeight: "100", display: "table-cell", textAlign: "right" }} >{sharings.sharing.date}</h1>
+							<h1 style={{ fontSize: "20px", fontWeight: "500", display: "table-cell" }}>From: {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
+							<h1 style={{ fontSize: "20px", fontWeight: "500", display: "table-cell", textAlign: "right" }} >{sharings.sharing.date}</h1>
 						</div>
 					</div>
 					<div style={{ marginTop: "10px", width: "100%" }}>
 						<div style={{ width: "100%" }}>
-							<h1 style={{ fontSize: "20px", fontWeight: "100", textAlign: "center" }}>{sharings.sharing.description}</h1>
+							<h1 style={{ fontSize: "20px", fontWeight: "500", textAlign: "center" }}>{sharings.sharing.description}</h1>
 						</div>
-						<div style={{ width: "100%", display: "flex", justifyContent: "flex-end" }}>
-							<button style={{ backgroundColor: "Transparent", border: "none" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><MDBIcon icon="comment-dots" style={{ width: "25px", height: "25px", color: "white" }} /></button>
+						<div style={{ width: "100%", display: "flex", justifyContent: "flex-end",paddingTop:"10px" }}>
+							<div style={{paddingRight:"15px"}}>
+								<h2 style={{ fontSize: "18px", fontWeight: "450", marginLeft: "5px",display:"inline", marginRight: "5px" }}>{sharings.sharing.store}</h2>
+								<div style={{fontSize:"18px",display:"inline"}}><i class="fas fa-mobile-alt" style={{width: "25px", height: "25px"}}></i></div> 
+							</div>
+							<div style={{paddingRight:"15px"}}>
+								<h2 style={{ fontSize: "18px", fontWeight: "450", marginLeft: "5px",display:"inline", marginRight: "5px" }}>{sharings.sharing.payment}</h2>
+								<div style={{fontSize:"18px",display:"inline"}}><i class="fas fa-dollar-sign" style={{width: "25px", height: "25px"}}></i></div>
+							</div>
+							<div>
+							<button style={{ backgroundColor: "Transparent", border: "none",display:"inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{color:"white",fontSize:"20px"}}></i></button>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -6,6 +6,7 @@ import * as firebase from "firebase";
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import './Sharing.css';
 const useStyles = makeStyles((theme) => ({
 	formControl: {
 		margin: theme.spacing(1),
@@ -18,8 +19,8 @@ const Sharing = () => {
 	const [description, setDescription] = useState('');
 	const [username, setUsername] = useState("");
 	const [isAnon, setIsAnon] = useState(false);
-	const [store,setStore]=useState("AppStore");
-	const [payment,setPayment]=useState("Free");
+	const [store, setStore] = useState("App Store");
+	const [payment, setPayment] = useState("Free App");
 	useEffect(() => {
 		firebase.auth().onAuthStateChanged(userAuth => {
 			db.ref('/user').on('value', querySnapShot => {
@@ -49,17 +50,17 @@ const Sharing = () => {
 		const data = {
 			user: username,
 			description: description,
-			date: convertDateFormatToPost(date), 
+			date: convertDateFormatToPost(date),
 			time: time,
 			isAnon: isAnon,
-			store:store,
-			payment:payment,
+			store: store,
+			payment: payment,
 		}
 		db.ref('/sharing').push(data);
 		setIsAnon(false);
 		setDescription("");
-		setStore("AppStore");
-		setPayment("Free");
+		setStore("App Store");
+		setPayment("Free App");
 	}
 	const sharingChange = (event) => {
 		setDescription(event.target.value);
@@ -89,8 +90,8 @@ const Sharing = () => {
 							value={store}
 							onChange={event => { handleSelectStore(event); }}
 						>
-							<MenuItem style={{ color: '#152c3b' }} value={"AppStore"}> App Store</MenuItem>
-							<MenuItem style={{ color: '#152c3b' }} value={"GooglePlay"}> Google Play</MenuItem>
+							<MenuItem style={{ color: '#152c3b' }} value={"App Store"}> App Store</MenuItem>
+							<MenuItem style={{ color: '#152c3b' }} value={"Google Play"}> Google Play</MenuItem>
 
 						</Select>
 					</FormControl>
@@ -103,25 +104,33 @@ const Sharing = () => {
 							value={payment}
 							onChange={event => { handleSelectPayment(event); }}
 						>
-							<MenuItem style={{ color: '#152c3b' }} value={"Free"}> Free App</MenuItem>
-							<MenuItem style={{ color: '#152c3b' }} value={"Paid"}> Paid App</MenuItem>
-							<MenuItem style={{ color: '#152c3b' }} value={"Both"}> Both</MenuItem>
+							<MenuItem style={{ color: '#152c3b' }} value={"Free App"}> Free App</MenuItem>
+							<MenuItem style={{ color: '#152c3b' }} value={"Paid App"}> Paid App</MenuItem>
+							<MenuItem style={{ color: '#152c3b' }} value={"Free and Paid"}> Both</MenuItem>
 						</Select>
 					</FormControl>
 				</div>
 			</div>
 			<div style={{ textAlign: "center", paddingTop: "20px" }}>
-				<Form>
-					<Form.Check id="custom-switch" type="switch" value={isAnon} onChange={onSwitchSharing} label="Anonymous" style={{ fontSize: "18px" }} />
-				</Form>
-			</div>
 
-			<div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
-				<button type="submit" onClick={event => submitSharing(event)} style={{ fontWeight: "400", fontSize: "18px", borderRadius: "8px", color: "white", backgroundColor: "#6F90AF", padding: "5px", paddingLeft: "25px", paddingRight: "25px" }}>
-					SEND
+				<div class="custom-control custom-switch">
+					<input checked={isAnon} type="checkbox" onChange={onSwitchSharing} class="custom-control-input" id="customSwitch1" style={{ background: "#EF476F" }} />
+					<label class="custom-control-label" for="customSwitch1" style={{ fontSize: "18px" }} >Anonymous</label>
+				</div>
+				{/*<div>
+					<input checked={isAnon} onChange={onSwitchSharing} type="checkbox" id="toggle" class="checkbox" />
+					<label for="toggle" class="switch">Anonymous</label>
+				</div>*/}
+				
+
+				</div>
+
+				<div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
+					<button type="submit" onClick={event => submitSharing(event)} style={{ fontWeight: "400", fontSize: "18px", borderRadius: "8px", color: "white", backgroundColor: "#6F90AF", padding: "5px", paddingLeft: "25px", paddingRight: "25px" }}>
+						SEND
                 </button>
+				</div>
 			</div>
-		</div>
 	);
 
 }
