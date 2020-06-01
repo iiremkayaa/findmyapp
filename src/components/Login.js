@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 
 import * as firebase from "firebase";
 import { MDBIcon } from "mdbreact";
+import './Login.css';
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -48,22 +49,22 @@ const Login = () => {
     }
     return (
         <div >
-            <div style={{paddingLeft:"15px",paddingRight:"15px", backgroundColor: "white" }}>
+            <div style={{paddingLeft:"15px",paddingRight:"15px", backgroundColor: "#1a2631" }}>
                 <div style={{ paddingTop:"30px",paddingBottom:"0px"}}>
-                    <h2 style={{textAlign: "center", color:"#1a2631"}}><MDBIcon icon="user-circle"  style={{ color: "#1a2631",fontSize:"100px" }} /></h2>
+                    <h2 style={{textAlign: "center", color:"white"}}><MDBIcon icon="user-circle"  style={{ color: "white",fontSize:"100px" }} /></h2>
                 </div>
                 <Form style={{  paddingLeft: "30%", paddingRight: "30%" }}>
                     <div style={{ display: "table", width: "85%", marginTop: "30px" }} >
-                        <div style={{ display: "table-cell",textAlign:"center",paddingLeft:"5px",paddingRight:"5px"  }} ><MDBIcon icon="user"  style={{ color: "#1a2631",fontSize:"35px" }} /></div>
+                        <div style={{ display: "table-cell",textAlign:"center",paddingLeft:"5px",paddingRight:"5px"  }} ><MDBIcon icon="user"  style={{ color: "white",fontSize:"35px" }} /></div>
                         <Form.Control style={{ display: "table-cell",height:"35px"}} type="text" placeholder="Email" onChange={handleEmail} />
                     </div>
                     <div style={{ display: "table", width: "85%", marginTop: "30px" }} >
-                        <div style={{ display: "table-cell",textAlign:"center",paddingLeft:"5px",paddingRight:"5px" }}><MDBIcon icon="lock"  style={{ color: "#1a2631",fontSize:"35px" }} /></div>
+                        <div style={{ display: "table-cell",textAlign:"center",paddingLeft:"5px",paddingRight:"5px" }}><MDBIcon icon="lock"  style={{ color: "white",fontSize:"35px" }} /></div>
                         <Form.Control style={{ display: "table-cell"}} type="password" placeholder="Password" onChange={handlePassword} />
                         
                     </div>
                     <div  style={{  width: "100%", marginTop: "10px" }}>
-                    {inCorrectUser && <Form.Text style={{ color: "red",fontSize:"15px",textAlign:"center" }}>
+                    {inCorrectUser && <Form.Text id="message">
                             Username or password is incorrect.
                         </Form.Text>}
                     </div>
