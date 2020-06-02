@@ -6,6 +6,7 @@ import * as firebase from "firebase";
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import { Modal } from 'react-bootstrap';
 import './Sharing.css';
 const useStyles = makeStyles((theme) => ({
 	formControl: {
@@ -21,6 +22,8 @@ const Sharing = () => {
 	const [isAnon, setIsAnon] = useState(false);
 	const [store, setStore] = useState("App Store");
 	const [payment, setPayment] = useState("Free App");
+	const [authUser,setAuthUser]=useState("");
+	const [show, setShow] = useState(false);
 	useEffect(() => {
 		firebase.auth().onAuthStateChanged(userAuth => {
 			db.ref('/user').on('value', querySnapShot => {
@@ -33,6 +36,9 @@ const Sharing = () => {
 		});
 
 	}, []);
+	const handleClose = () => {
+		setShow(false);
+	}
 	const onSwitchSharing = () => {
 		setIsAnon(!isAnon);
 	};
@@ -44,23 +50,36 @@ const Sharing = () => {
 	}
 	const submitSharing = (event) => {
 		event.preventDefault();
-		var today = new Date();
-		var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-		var time = today.getHours() + ":" + today.getMinutes();
-		const data = {
-			user: username,
-			description: description,
-			date: convertDateFormatToPost(date),
-			time: time,
-			isAnon: isAnon,
-			store: store,
-			payment: payment,
+		if(username===""){
+			setShow(true);
 		}
-		db.ref('/sharing').push(data);
-		setIsAnon(false);
-		setDescription("");
-		setStore("App Store");
-		setPayment("Free App");
+		else{
+			if(description===""){
+
+			}
+			else{
+				var today = new Date();
+				var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+				var time = today.getHours() + ":" + today.getMinutes();
+				const data = {
+					user: username,
+					description: description,
+					date: convertDateFormatToPost(date),
+					time: time,
+					isAnon: isAnon,
+					store: store,
+					payment: payment,
+				}
+				db.ref('/sharing').push(data);
+				setIsAnon(false);
+				setDescription("");
+				setStore("App Store");
+				setPayment("Free App");
+			}
+			
+		}
+		
+		
 	}
 	const sharingChange = (event) => {
 		setDescription(event.target.value);
@@ -72,9 +91,27 @@ const Sharing = () => {
 		setPayment(event.target.value);
 
 	}
+	const showPopUp = () => {
+		return (
+			<Modal show={show} onHide={handleClose} animation={true} centered backdrop={false} >
+				<Modal.Header closeButton>
+					<Modal.Title style={{ fontSize: "20px" }}></Modal.Title>
+				</Modal.Header>
+				<Modal.Body >
+					<div style={{}}>
+						
+					</div>}
+				</Modal.Body>
+				<Modal.Footer>
+					
+
+				</Modal.Footer>
+			</Modal>);
+	}
 	const classes = useStyles();
 	return (
 		<div id="sharing-form" >
+			{showPopUp()}
 			<Form style={{ textAlign: "center"}}>
 				<div style={{ paddingLeft: "40px", paddingRight: "40px", textAlign: "center" }}>
 					<Form.Label style={{ fontSize: "20px", padding: "5px" }}>Please provide information of application you are looking for... </Form.Label>
