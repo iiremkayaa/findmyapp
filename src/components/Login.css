@@ -4,3 +4,9 @@
     font-weight:400;
     text-align: center;
 }
+#no-account{
+    display:inline;
+    font-size:16px;
+    font-weight:400;
+    color:rgb(163, 159, 159)
+}

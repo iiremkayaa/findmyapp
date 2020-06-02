@@ -1,11 +1,10 @@
 import React, { useState,  } from 'react';
 import Form from 'react-bootstrap/Form';
-
 import * as firebase from "firebase";
 import { MDBIcon } from "mdbreact";
 import './Login.css';
-
-const Login = () => {
+import { Redirect } from 'react-router-dom'
+const Login = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -47,6 +46,12 @@ const Login = () => {
     const handleUsername = (event) => {
         setUsername(event.target.value);
     }
+    const renderRedirect = () => {
+        props.history.push(`/signup`)
+        /*if (this.state.redirect) {
+          return <Redirect to='/target' />
+        }*/
+      }
     return (
         <div >
             <div style={{paddingLeft:"15px",paddingRight:"15px", backgroundColor: "#1a2631" }}>
@@ -74,7 +79,12 @@ const Login = () => {
                         </button>
                     </div>
                 </Form>
-
+                <div style={{textAlign:"center",paddingTop:"15px"}}>
+                    <h2 id="no-account" >Don't have an account?</h2>
+                    <button  type="button" onClick={renderRedirect} style={{display:"inline",fontWeight:"400",fontSize:"16px",border:"none", color:"white",backgroundColor: "#1a2631"}}>
+                            Sign up here
+                    </button>
+                </div>
             </div>
         </div>
     );

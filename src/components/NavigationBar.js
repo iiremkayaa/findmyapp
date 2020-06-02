@@ -6,7 +6,7 @@ class NavigationBar extends React.Component{
 				 <Navbar style={{backgroundColor:"rgb(26, 38, 49)"}} >
 				 	<Navbar.Brand href="/" style={{color:"white"}}>FindMyApp</Navbar.Brand>
 				 	<Nav className="ml-auto" >
-				      <Nav.Link href="/signup" style={{textAlign:"right",color:"white"}} >Sign Up</Nav.Link>
+				      <Nav.Link href="/login" style={{textAlign:"right",color:"white"}} >Login</Nav.Link>
 				    </Nav>
 				 </Navbar>
 		);
