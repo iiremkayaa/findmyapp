@@ -40,7 +40,6 @@ class NavigationBar extends React.Component {
 
 	}
 	render() {
-		console.log(this.state.user);
 		return (
 			<Navbar style={{ backgroundColor: "rgb(26, 38, 49)" }} >
 				<Navbar.Brand href="/" style={{ color: "white" }}>FindMyApp</Navbar.Brand>

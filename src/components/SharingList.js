@@ -6,7 +6,7 @@ import './SharingList.css';
 import * as firebase from "firebase";
 const SharingList = () => {
 	const [sharings, setSharings] = useState([]);
-	const [userEmail,setUserEmail]=useState("");
+	const [user, setUser] = useState("");
 	const [selectedSharingId, setSelectedSharingId] = useState("");
 	const [show, setShow] = useState(false);
 	const [showComments, setShowComments] = useState(false);
@@ -14,7 +14,7 @@ const SharingList = () => {
 	const [selectedComment, setSelectedComment] = useState("");
 	const [selectedSharing, setSelectedSharing] = useState("");
 	const [commentMessage, setCommentMessage] = useState(false);
-	const [commentList,setCommentList]=useState([]);
+	const [commentList, setCommentList] = useState([]);
 	useEffect(() => {
 		db.ref('/sharing').on('value', querySnapShot => {
 			let values = [];
@@ -25,10 +25,16 @@ const SharingList = () => {
 		});
 		firebase.auth().onAuthStateChanged((authUser) => {
 			if (authUser) {
-				setUserEmail(authUser.email);
+				db.ref('/user').on('value', querySnapShot => {
+					querySnapShot.forEach((child) => {
+						if (child.val().email == authUser.email) {
+							setUser(child.val().username);
+						}
+					});
+				});
 			}
 			else {
-				setUserEmail("");
+				setUser("");
 			}
 		})
 	}, []);
@@ -36,7 +42,6 @@ const SharingList = () => {
 		event.preventDefault();
 		setSelectedSharingId(id);
 		db.ref(`sharing/${id}`).on('value', querySnapShot => {
-			console.log(querySnapShot.val());
 			setSelectedSharing(querySnapShot.val().description);
 		});
 		setShow(true);
@@ -44,9 +49,18 @@ const SharingList = () => {
 	const showSuggestion = (event, id) => {
 		event.preventDefault();
 		setSelectedSharingId(id);
-		db.ref(`comment}`).on('value', querySnapShot => {
-			console.log(querySnapShot.val());
-			//setSelectedComment(querySnapShot.val().description);
+		db.ref(`sharing/${id}`).on('value', querySnapShot => {
+			setSelectedSharing(querySnapShot.val().description);
+		});
+		db.ref(`comment/`).on('value', querySnapShot => {
+			let comments = []
+			querySnapShot.forEach((child) => {
+				if (child.val().sharingId === id) {
+					comments.push({ commentId: child.ref.key, comment: child.val() })
+
+				}
+			});
+			setCommentList(comments);
 		});
 		setShowComments(true);
 	}
@@ -77,7 +91,7 @@ const SharingList = () => {
 			sharingId: selectedSharingId,
 			date: convertDateFormatToPost(date),
 			time: time,
-			userEmail:userEmail
+			username: user
 		}
 		db.ref('/comment').push(data);
 		setTimeout(function () {
@@ -95,7 +109,7 @@ const SharingList = () => {
 				</Modal.Header>
 				<Modal.Body >
 					<div style={{}}>
-						<h2 style={{ fontSize: "20px", fontWeight: "500", }}>{selectedComment}</h2>
+						<h2 style={{ fontSize: "20px", fontWeight: "500", }}>{selectedSharing}</h2>
 					</div>
 					<Form style={{ marginTop: "20px", marginBottom: "20px" }}>
 						<Form.Control type="text" value={comment} placeholder="Enter your suggestion here" onChange={(event) => { handleCommentChange(event) }} />
@@ -112,66 +126,83 @@ const SharingList = () => {
 				</Modal.Footer>
 			</Modal>);
 	}
+
 	const showCommentPopUp = () => {
 		return (
 			<Modal show={showComments} onHide={handleCloseComments} animation={true} centered backdrop={false} >
 				<Modal.Header closeButton>
-					<Modal.Title style={{ fontSize: "20px" }}>Suggestions</Modal.Title>
+					<Modal.Title style={{ fontSize: "20px" }}>{selectedSharing}</Modal.Title>
 				</Modal.Header>
 				<Modal.Body >
-					commentsssssss
+					{commentList.map((comment, index) => (
+
+						<div key={index} style={{ padding: "10px", }}>
+							<div style={{ display: "inline-block", width: "100%",}}>
+								<div style={{ display: "inline",float:"left" }}>
+									<i class="far fa-user" style={{ width: "20px", height: "20px", color: "#1a2631" }}></i>
+								</div>
+								<div style={{ display: "inline",float:"left" }}>{comment.comment.username}</div>
+								<div style={{display:"inline",float:"right"}}>{comment.comment.date}</div>
+							</div>
+							<div >
+								<div>{comment.comment.comment}</div>
+
+							</div>
+						</div>
+					))}
+
 				</Modal.Body>
 				<Modal.Footer>
-					
+
 
 				</Modal.Footer>
 			</Modal>);
 	}
 	return (
 		<div id="sharings">
-		<div  style={{ padding: "0px",paddingLeft:"150px",paddingRight:"150px"}} >
-			{sharings.map((sharings, index) => (
-				<div key={index} id="sharing" >
-					{showPopUp()}
-					{showCommentPopUp()}
-					<div style={{ marginTop: "0px", width: "100%" }}>
-						<div style={{ width: "100%", display: "inline-block" }} >
-							<h1 style={{color:"rgb(110, 109, 109)", fontSize: "20px", fontWeight: "500", float:"left" }}>From:</h1>
-							<h1 style={{color:"#1a2631", fontSize: "20px", fontWeight: "500", display: "inline",float:"left",paddingLeft:"5px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
-							<h1 style={{color:"#1a2631", fontSize: "20px", fontWeight: "500", display: "inline", float: "right" }} >{sharings.sharing.date}</h1>
+			<div style={{ padding: "0px", paddingLeft: "150px", paddingRight: "150px" }} >
+				{sharings.map((sharings, index) => (
+					<div key={index} id="sharing" >
+						{showPopUp()}
+						{showCommentPopUp()}
+						<div style={{ marginTop: "0px", width: "100%" }}>
+							<div style={{ width: "100%", display: "inline-block" }} >
+								<h1 style={{ color: "rgb(110, 109, 109)", fontSize: "20px", fontWeight: "500", float: "left" }}>From:</h1>
+								<h1 style={{ color: "#1a2631", fontSize: "20px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
+								<h1 style={{ color: "#1a2631", fontSize: "20px", fontWeight: "500", display: "inline", float: "right" }} >{sharings.sharing.date}</h1>
+							</div>
 						</div>
-					</div>
-					<div style={{ width: "100%", marginTop: "15px", marginBottom: "15px" }}>
+						<div style={{ width: "100%", marginTop: "15px", marginBottom: "15px" }}>
+							<div style={{ width: "100%" }}>
+								<h1 style={{ fontSize: "20px", fontWeight: "500", textAlign: "center", color: "#1a2631" }}>{sharings.sharing.description}</h1>
+							</div>
+						</div>
 						<div style={{ width: "100%" }}>
-							<h1 style={{ fontSize: "20px", fontWeight: "500", textAlign: "center",color:"#1a2631"}}>{sharings.sharing.description}</h1>
-						</div>
-					</div>
-					<div style={{ width: "100%" }}>
-						<div style={{ width: "100%", display: "inline-block" }}>
+							<div style={{ width: "100%", display: "inline-block" }}>
 
-							<div style={{ display: "flex", float: "left"}}>
-								<button style={{ backgroundColor: "Transparent", border: "none", display: "inline",padding:0 }} onClick={(event) => { showSuggestion(event, sharings.sharingId) }}>
-									<h2 id="suggestion-header" >Suggestions</h2>
-								</button>
-							</div>
-							<div style={{ display: "flex", float: "right", margin: 0, padding: 0 }}>
-								<div style={{ paddingRight: "15px" }}>
-									<h2 style={{ fontSize: "18px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px",color:"#1a2631" }}>{sharings.sharing.store}</h2>
-									<div style={{ fontSize: "18px", display: "inline" }}><i class="fas fa-mobile-alt" style={{ width: "25px", height: "25px" ,color:"#1a2631"}}></i></div>
+								<div style={{ display: "flex", float: "left" }}>
+									<button style={{ backgroundColor: "Transparent", border: "none", display: "inline", padding: 0 }} onClick={(event) => { showSuggestion(event, sharings.sharingId) }}>
+										<h2 id="suggestion-header" >Suggestions</h2>
+									</button>
 								</div>
-								<div style={{ paddingRight: "15px" }}>
-									<h2 style={{ fontSize: "18px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px",color:"#1a2631"}}>{sharings.sharing.payment}</h2>
-									<div style={{ fontSize: "18px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px",color:"#1a2631" }}></i></div>
-								</div>
-								<div>
-									<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{ color: "#1a2631", fontSize: "20px" }}></i></button>
+								<div style={{ display: "flex", float: "right", margin: 0, padding: 0 }}>
+									<div style={{ paddingRight: "15px" }}>
+										<h2 style={{ fontSize: "18px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "#1a2631" }}>{sharings.sharing.store}</h2>
+										<div style={{ fontSize: "18px", display: "inline" }}><i class="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "#1a2631" }}></i></div>
+									</div>
+									<div style={{ paddingRight: "15px" }}>
+										<h2 style={{ fontSize: "18px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "#1a2631" }}>{sharings.sharing.payment}</h2>
+										<div style={{ fontSize: "18px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "#1a2631" }}></i></div>
+									</div>
+									<div>
+										<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{ color: "#1a2631", fontSize: "20px" }}></i></button>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			))}
-		</div>
+				))}
+			</div>
 		</div>
 	);
 
