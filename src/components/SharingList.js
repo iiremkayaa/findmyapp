@@ -3,15 +3,18 @@ import { db } from '../firebase/index';
 import { MDBIcon } from "mdbreact";
 import { Modal, Form } from 'react-bootstrap';
 import './SharingList.css';
-
+import * as firebase from "firebase";
 const SharingList = () => {
 	const [sharings, setSharings] = useState([]);
-
+	const [userEmail,setUserEmail]=useState("");
 	const [selectedSharingId, setSelectedSharingId] = useState("");
 	const [show, setShow] = useState(false);
+	const [showComments, setShowComments] = useState(false);
 	const [comment, setComment] = useState("");
 	const [selectedComment, setSelectedComment] = useState("");
+	const [selectedSharing, setSelectedSharing] = useState("");
 	const [commentMessage, setCommentMessage] = useState(false);
+	const [commentList,setCommentList]=useState([]);
 	useEffect(() => {
 		db.ref('/sharing').on('value', querySnapShot => {
 			let values = [];
@@ -20,18 +23,38 @@ const SharingList = () => {
 			});
 			setSharings(values);
 		});
+		firebase.auth().onAuthStateChanged((authUser) => {
+			if (authUser) {
+				setUserEmail(authUser.email);
+			}
+			else {
+				setUserEmail("");
+			}
+		})
 	}, []);
 	const makeSuggestion = (event, id) => {
 		event.preventDefault();
 		setSelectedSharingId(id);
 		db.ref(`sharing/${id}`).on('value', querySnapShot => {
 			console.log(querySnapShot.val());
-			setSelectedComment(querySnapShot.val().description);
+			setSelectedSharing(querySnapShot.val().description);
 		});
 		setShow(true);
 	}
+	const showSuggestion = (event, id) => {
+		event.preventDefault();
+		setSelectedSharingId(id);
+		db.ref(`comment}`).on('value', querySnapShot => {
+			console.log(querySnapShot.val());
+			//setSelectedComment(querySnapShot.val().description);
+		});
+		setShowComments(true);
+	}
 	const handleClose = () => {
 		setShow(false);
+	}
+	const handleCloseComments = () => {
+		setShowComments(false);
 	}
 	const handleCommentChange = (event) => {
 		setComment(event.target.value);
@@ -53,7 +76,8 @@ const SharingList = () => {
 			comment: comment,
 			sharingId: selectedSharingId,
 			date: convertDateFormatToPost(date),
-			time: time
+			time: time,
+			userEmail:userEmail
 		}
 		db.ref('/comment').push(data);
 		setTimeout(function () {
@@ -88,12 +112,28 @@ const SharingList = () => {
 				</Modal.Footer>
 			</Modal>);
 	}
+	const showCommentPopUp = () => {
+		return (
+			<Modal show={showComments} onHide={handleCloseComments} animation={true} centered backdrop={false} >
+				<Modal.Header closeButton>
+					<Modal.Title style={{ fontSize: "20px" }}>Suggestions</Modal.Title>
+				</Modal.Header>
+				<Modal.Body >
+					commentsssssss
+				</Modal.Body>
+				<Modal.Footer>
+					
+
+				</Modal.Footer>
+			</Modal>);
+	}
 	return (
 		<div id="sharings">
 		<div  style={{ padding: "0px",paddingLeft:"150px",paddingRight:"150px"}} >
 			{sharings.map((sharings, index) => (
 				<div key={index} id="sharing" >
 					{showPopUp()}
+					{showCommentPopUp()}
 					<div style={{ marginTop: "0px", width: "100%" }}>
 						<div style={{ width: "100%", display: "inline-block" }} >
 							<h1 style={{color:"rgb(110, 109, 109)", fontSize: "20px", fontWeight: "500", float:"left" }}>From:</h1>
@@ -110,7 +150,7 @@ const SharingList = () => {
 						<div style={{ width: "100%", display: "inline-block" }}>
 
 							<div style={{ display: "flex", float: "left"}}>
-								<button style={{ backgroundColor: "Transparent", border: "none", display: "inline",padding:0 }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}>
+								<button style={{ backgroundColor: "Transparent", border: "none", display: "inline",padding:0 }} onClick={(event) => { showSuggestion(event, sharings.sharingId) }}>
 									<h2 id="suggestion-header" >Suggestions</h2>
 								</button>
 							</div>
