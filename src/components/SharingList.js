@@ -77,8 +77,8 @@ const SharingList = () => {
 
 	}
 	const convertDateFormatToPost = (date) => {
-		let day = date.split("-")[2];
-		let month = date.split("-")[1];
+		let day = date.split("-")[2].length === 1 ? "0"+date.split("-")[2].length :date.split("-")[2].length;
+		let month = date.split("-")[1].length === 1 ? "0"+date.split("-")[1].length :date.split("-")[1].length;
 		let year = date.split("-")[0];
 		return (day + '.' + month + '.' + year);
 	}
@@ -171,17 +171,17 @@ const SharingList = () => {
 						{showCommentPopUp()}
 						<div style={{ marginTop: "0px", width: "100%" }}>
 							<div style={{ width: "100%", display: "inline-block" }} >
-								<h1 style={{ color: "#616364 ", fontSize: "18px", fontWeight: "500", float: "left" }}>From:</h1>
-								<h1 style={{ color: "#1a2631", fontSize: "18px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
-								<h1 style={{ color: "#616364 ", fontSize: "18px", fontWeight: "500", display: "inline", float: "right" }} >{convertDate(sharings.sharing.date)}</h1>
+								<h1 style={{ color: "#616364 ", fontSize: "18px", fontWeight: "500", float: "left",marginBottom:"0px"}}>From:</h1>
+								<h1 style={{ color: "#1a2631", fontSize: "18px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px",marginBottom:"0px"}}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
+								<h1 style={{ color: "#616364 ", fontSize: "18px", fontWeight: "500", display: "inline", float: "right",marginBottom:"0px" }} >{convertDate(sharings.sharing.date)}</h1>
 							</div>
 						</div>
-						<div style={{ width: "100%", marginTop: "15px", marginBottom: "15px" }}>
+						<div style={{ width: "100%", marginTop: "10px", marginBottom: "15px" }}>
 							<div style={{ width: "100%" }}>
-								<h1 style={{ fontSize: "20px", fontWeight: "500", textAlign: "center", color: "#1a2631" }}>{sharings.sharing.description}</h1>
+								<h1 style={{ fontSize: "20px", fontWeight: "500",  color: "#1a2631" }}>{sharings.sharing.description}</h1>
 							</div>
 						</div>
-						<div style={{ width: "100%" }}>
+						<div style={{ width: "100%",verticalAlign:"middle" }}>
 							<div style={{ width: "100%", display: "inline-block" }}>
 
 								<div style={{ display: "flex", float: "left" }}>
