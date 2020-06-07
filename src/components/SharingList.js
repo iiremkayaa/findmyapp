@@ -121,7 +121,7 @@ const SharingList = () => {
 					</div>}
 				</Modal.Body>
 				<Modal.Footer>
-					<button onClick={sendCommentChange} style={{ fontWeight: "400", fontSize: "18px", borderRadius: "8px", color: "white", backgroundColor: "#1a2631", padding: "2px", paddingLeft: "15px", paddingRight: "15px" }}>
+					<button onClick={sendCommentChange} style={{ fontWeight: "500", fontSize: "20px", borderRadius: "8px", color: "white", backgroundColor: "#1a2631", padding: "2px", paddingLeft: "15px", paddingRight: "15px" }}>
 						SEND
                 </button>
 
@@ -169,9 +169,9 @@ const SharingList = () => {
 						{showCommentPopUp()}
 						<div style={{ marginTop: "0px", width: "100%" }}>
 							<div style={{ width: "100%", display: "inline-block" }} >
-								<h1 style={{ color: "rgb(110, 109, 109)", fontSize: "20px", fontWeight: "500", float: "left" }}>From:</h1>
-								<h1 style={{ color: "#1a2631", fontSize: "20px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
-								<h1 style={{ color: "#1a2631", fontSize: "20px", fontWeight: "500", display: "inline", float: "right" }} >{sharings.sharing.date}</h1>
+								<h1 style={{ color: "#616364 ", fontSize: "18px", fontWeight: "500", float: "left" }}>From:</h1>
+								<h1 style={{ color: "#1a2631", fontSize: "18px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
+								<h1 style={{ color: "#616364 ", fontSize: "18px", fontWeight: "500", display: "inline", float: "right" }} >{sharings.sharing.date}</h1>
 							</div>
 						</div>
 						<div style={{ width: "100%", marginTop: "15px", marginBottom: "15px" }}>

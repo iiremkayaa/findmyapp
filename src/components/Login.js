@@ -60,11 +60,11 @@ const Login = (props) => {
                 </div>
                 <Form style={{  paddingLeft: "5%", paddingRight: "5%" }}>
                     <div style={{ display: "table", width: "85%", marginTop: "30px" }} >
-                        <div style={{ display: "table-cell",textAlign:"center",paddingLeft:"5px",paddingRight:"5px"  }} ><MDBIcon icon="user"  style={{ color: "#616364",fontSize:"35px" }} /></div>
+                        <div style={{ display: "table-cell",textAlign:"center",paddingLeft:"5px",paddingRight:"5px"  }} ><MDBIcon icon="user"  style={{ color: "#3a5a69",fontSize:"35px" }} /></div>
                         <Form.Control style={{ display: "table-cell",height:"35px"}} type="text" placeholder="Email" onChange={handleEmail} />
                     </div>
                     <div style={{ display: "table", width: "85%", marginTop: "30px" }} >
-                        <div style={{ display: "table-cell",textAlign:"center",paddingLeft:"5px",paddingRight:"5px" }}><MDBIcon icon="lock"  style={{ color: "#616364",fontSize:"35px" }} /></div>
+                        <div style={{ display: "table-cell",textAlign:"center",paddingLeft:"5px",paddingRight:"5px" }}><MDBIcon icon="lock"  style={{ color: "#3a5a69",fontSize:"35px" }} /></div>
                         <Form.Control style={{ display: "table-cell"}} type="password" placeholder="Password" onChange={handlePassword} />
                         
                     </div>
@@ -81,7 +81,7 @@ const Login = (props) => {
                 </Form>
                 <div style={{textAlign:"center",paddingTop:"15px"}}>
                     <h2 id="no-account" >Don't have an account?</h2>
-                    <button  type="button" onClick={renderRedirect} style={{display:"inline",fontWeight:"400",fontSize:"16px",border:"none", color:"#616364",backgroundColor: "white"}}>
+                    <button  type="button" onClick={renderRedirect} style={{display:"inline",fontWeight:"450",fontSize:"16px",border:"none", color:"#3a5a69",backgroundColor: "white"}}>
                             Sign up here
                     </button>
                 </div>

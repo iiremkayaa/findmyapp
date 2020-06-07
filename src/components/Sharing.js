@@ -116,7 +116,7 @@ const Sharing = () => {
 			{showPopUp()}
 			<Form style={{ textAlign: "center" }}>
 				<div style={{ paddingLeft: "40px", paddingRight: "40px", textAlign: "center" }}>
-					<Form.Label style={{ fontSize: "20px", padding: "5px" }}>Please provide information of application you are looking for... </Form.Label>
+					<Form.Label id="sharing-label" >Please provide information of application you are looking for... </Form.Label>
 					<Form.Control required as="textarea" rows="3" value={description} onChange={sharingChange} />
 				</div>
 			</Form>
@@ -125,12 +125,12 @@ const Sharing = () => {
 					<FormControl variant="filled" className={classes.formControl} >
 						<Select
 							labelId="demo-simple-select-filled-label"
-							style={{ color: 'white', minWidth: 130, maxHeight: 50 }}
+							id="store-style"
 							value={store}
 							onChange={event => { handleSelectStore(event); }}
 						>
-							<MenuItem style={{ color: '#152c3b' }} value={"App Store"}> App Store</MenuItem>
-							<MenuItem style={{ color: '#152c3b' }} value={"Google Play"}> Google Play</MenuItem>
+							<MenuItem  value={"App Store"}> App Store</MenuItem>
+							<MenuItem  value={"Google Play"}> Google Play</MenuItem>
 
 						</Select>
 					</FormControl>
@@ -139,13 +139,13 @@ const Sharing = () => {
 					<FormControl variant="filled" className={classes.formControl} >
 						<Select
 							labelId="demo-simple-select-filled-label"
-							style={{ color: 'white', minWidth: 130, maxHeight: 50 }}
+							id="store-style"
 							value={payment}
 							onChange={event => { handleSelectPayment(event); }}
 						>
-							<MenuItem style={{ color: '#152c3b' }} value={"Free App"}> Free App</MenuItem>
-							<MenuItem style={{ color: '#152c3b' }} value={"Paid App"}> Paid App</MenuItem>
-							<MenuItem style={{ color: '#152c3b' }} value={"Free and Paid"}> Both</MenuItem>
+							<MenuItem  value={"Free App"}> Free App</MenuItem>
+							<MenuItem  value={"Paid App"}> Paid App</MenuItem>
+							<MenuItem  value={"Free and Paid"}> Both</MenuItem>
 						</Select>
 					</FormControl>
 				</div>
@@ -154,7 +154,7 @@ const Sharing = () => {
 
 				<div class="custom-control custom-switch">
 					<input checked={isAnon} type="checkbox" onChange={onSwitchSharing} class="custom-control-input" id="customSwitch1" />
-					<label class="custom-control-label" for="customSwitch1" style={{ fontSize: "18px" }} >Anonymous</label>
+					<label class="custom-control-label" for="customSwitch1" style={{ fontSize: "18px",color:"#253035",fontWeight:"500" }} >Anonymous</label>
 				</div>
 				{/*<div>
 					<input checked={isAnon} onChange={onSwitchSharing} type="checkbox" id="toggle" class="checkbox" />
@@ -165,7 +165,7 @@ const Sharing = () => {
 			</div>
 
 			<div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
-				<button type="submit" onClick={event => submitSharing(event)} style={{ fontWeight: "400", fontSize: "18px", borderWidth: "1px", borderRadius: "8px", color: "white", backgroundColor: "#1a2631", padding: "5px", paddingLeft: "25px", paddingRight: "25px" }}>
+				<button type="submit" onClick={event => submitSharing(event)} style={{ fontWeight: "500", fontSize: "20px", borderWidth: "1px", borderRadius: "8px", color: "white", backgroundColor: "#253035", padding: "5px", paddingLeft: "20px", paddingRight: "20px" }}>
 					SEND
                 </button>
 			</div>

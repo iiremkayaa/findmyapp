@@ -1,7 +1,7 @@
 #sharing{
     background-color:white;
     border: solid;
-    border-color: #1a2631;
+    /*border-color: #1a2631;*/
     border-width: 1px;
     border-radius: 10px;
     padding: 15px;
@@ -10,11 +10,11 @@
     
 }
 #sharings{
-    background-color: #1a2631;
+    /*background-color: #4a4a4b;*/
    
 }
 #suggestion-header{
-    color:rgb(110, 109, 109);
+    color:#616364;
     font-size: 18px;
     font-weight: 500;
 }
