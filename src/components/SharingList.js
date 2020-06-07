@@ -128,7 +128,9 @@ const SharingList = () => {
 				</Modal.Footer>
 			</Modal>);
 	}
-
+	const convertDate = (date) => {
+		return date;
+	}
 	const showCommentPopUp = () => {
 		return (
 			<Modal show={showComments} onHide={handleCloseComments} animation={true} centered backdrop={false} >
@@ -139,12 +141,12 @@ const SharingList = () => {
 					{commentList.map((comment, index) => (
 
 						<div key={index} style={{ padding: "10px", }}>
-							<div style={{ display: "inline-block", width: "100%",}}>
-								<div style={{ display: "inline",float:"left" }}>
+							<div style={{ display: "inline-block", width: "100%", }}>
+								<div style={{ display: "inline", float: "left" }}>
 									<i class="far fa-user" style={{ width: "20px", height: "20px", color: "#1a2631" }}></i>
 								</div>
-								<div style={{ display: "inline",float:"left" }}>{comment.comment.username}</div>
-								<div style={{display:"inline",float:"right"}}>{comment.comment.date}</div>
+								<div style={{ display: "inline", float: "left" }}>{comment.comment.username}</div>
+								<div style={{ display: "inline", float: "right" }}>{convertDate(comment.comment.date)}</div>
 							</div>
 							<div >
 								<div>{comment.comment.comment}</div>
@@ -171,7 +173,7 @@ const SharingList = () => {
 							<div style={{ width: "100%", display: "inline-block" }} >
 								<h1 style={{ color: "#616364 ", fontSize: "18px", fontWeight: "500", float: "left" }}>From:</h1>
 								<h1 style={{ color: "#1a2631", fontSize: "18px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
-								<h1 style={{ color: "#616364 ", fontSize: "18px", fontWeight: "500", display: "inline", float: "right" }} >{sharings.sharing.date}</h1>
+								<h1 style={{ color: "#616364 ", fontSize: "18px", fontWeight: "500", display: "inline", float: "right" }} >{convertDate(sharings.sharing.date)}</h1>
 							</div>
 						</div>
 						<div style={{ width: "100%", marginTop: "15px", marginBottom: "15px" }}>
@@ -204,7 +206,7 @@ const SharingList = () => {
 						</div>
 					</div>
 				))}
-				
+
 			</div>
 		</div>
 	);

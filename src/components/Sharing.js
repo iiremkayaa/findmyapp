@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 		minWidth: 120,
 	},
 }));
-const Sharing = () => {
+const Sharing = (props) => {
 
 	const [description, setDescription] = useState('');
 	const [username, setUsername] = useState("");
@@ -25,11 +25,12 @@ const Sharing = () => {
 	const [authUser, setAuthUser] = useState("");
 	const [show, setShow] = useState(false);
 	useEffect(() => {
-		firebase.auth().onAuthStateChanged(userAuth => {
+		console.log("xx");
+		firebase.auth().onAuthStateChanged(authUser => {
 			if (authUser) {
 				db.ref('/user').on('value', querySnapShot => {
 					querySnapShot.forEach((child) => {
-						if (child.val().email === userAuth.email) {
+						if (child.val().email === authUser.email) {
 							setUsername(child.val().username);
 						}
 					});
@@ -45,17 +46,20 @@ const Sharing = () => {
 		setIsAnon(!isAnon);
 	};
 	const convertDateFormatToPost = (date) => {
-		let day = date.split("-")[2];
-		let month = date.split("-")[1];
+		let day = date.split("-")[2].length === 1 ? "0"+date.split("-")[2].length :date.split("-")[2].length;
+		let month = date.split("-")[1].length === 1 ? "0"+date.split("-")[1].length :date.split("-")[1].length;
 		let year = date.split("-")[0];
 		return (day + '.' + month + '.' + year);
 	}
 	const submitSharing = (event) => {
 		event.preventDefault();
+
 		if (username === "") {
-			setShow(true);
+			console.log("ggr");
+			//props.history.push("/login");
 		}
 		else {
+
 			if (description === "") {
 
 			}
@@ -102,7 +106,7 @@ const Sharing = () => {
 				<Modal.Body >
 					<div style={{}}>
 
-					</div>}
+					</div>
 				</Modal.Body>
 				<Modal.Footer>
 
