@@ -4,6 +4,8 @@ import { MDBIcon } from "mdbreact";
 import { Modal, Form } from 'react-bootstrap';
 import './SharingList.css';
 import * as firebase from "firebase";
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+
 const SharingList = () => {
 	const [sharings, setSharings] = useState([]);
 	const [user, setUser] = useState("");
@@ -160,7 +162,7 @@ const SharingList = () => {
 	}
 	return (
 		<div id="sharings">
-			<div style={{ padding: "0px", paddingLeft: "150px", paddingRight: "150px" }} >
+			<div  >
 				{sharings.map((sharings, index) => (
 					<div key={index} id="sharing" >
 						{showPopUp()}
@@ -202,6 +204,7 @@ const SharingList = () => {
 						</div>
 					</div>
 				))}
+				
 			</div>
 		</div>
 	);

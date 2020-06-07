@@ -41,7 +41,7 @@ class NavigationBar extends React.Component {
 	}
 	render() {
 		return (
-			<Navbar style={{ backgroundColor: "rgb(26, 38, 49)" }} >
+			<Navbar style={{ backgroundColor: "rgb(26, 38, 49)",paddingLeft:"10%",paddingRight:"10%" }} >
 				<Navbar.Brand href="/" style={{ color: "white" }}>FindMyApp</Navbar.Brand>
 				<Nav className="ml-auto" >
 					{this.returnNav()}
