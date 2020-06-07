@@ -22,17 +22,19 @@ const Sharing = () => {
 	const [isAnon, setIsAnon] = useState(false);
 	const [store, setStore] = useState("App Store");
 	const [payment, setPayment] = useState("Free App");
-	const [authUser,setAuthUser]=useState("");
+	const [authUser, setAuthUser] = useState("");
 	const [show, setShow] = useState(false);
 	useEffect(() => {
 		firebase.auth().onAuthStateChanged(userAuth => {
-			db.ref('/user').on('value', querySnapShot => {
-				querySnapShot.forEach((child) => {
-					if (child.val().email === userAuth.email) {
-						setUsername(child.val().username);
-					}
+			if (authUser) {
+				db.ref('/user').on('value', querySnapShot => {
+					querySnapShot.forEach((child) => {
+						if (child.val().email === userAuth.email) {
+							setUsername(child.val().username);
+						}
+					});
 				});
-			});
+			}
 		});
 
 	}, []);
@@ -50,14 +52,14 @@ const Sharing = () => {
 	}
 	const submitSharing = (event) => {
 		event.preventDefault();
-		if(username===""){
+		if (username === "") {
 			setShow(true);
 		}
-		else{
-			if(description===""){
+		else {
+			if (description === "") {
 
 			}
-			else{
+			else {
 				var today = new Date();
 				var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 				var time = today.getHours() + ":" + today.getMinutes();
@@ -76,10 +78,10 @@ const Sharing = () => {
 				setStore("App Store");
 				setPayment("Free App");
 			}
-			
+
 		}
-		
-		
+
+
 	}
 	const sharingChange = (event) => {
 		setDescription(event.target.value);
@@ -99,11 +101,11 @@ const Sharing = () => {
 				</Modal.Header>
 				<Modal.Body >
 					<div style={{}}>
-						
+
 					</div>}
 				</Modal.Body>
 				<Modal.Footer>
-					
+
 
 				</Modal.Footer>
 			</Modal>);
@@ -112,7 +114,7 @@ const Sharing = () => {
 	return (
 		<div id="sharing-form" >
 			{showPopUp()}
-			<Form style={{ textAlign: "center"}}>
+			<Form style={{ textAlign: "center" }}>
 				<div style={{ paddingLeft: "40px", paddingRight: "40px", textAlign: "center" }}>
 					<Form.Label style={{ fontSize: "20px", padding: "5px" }}>Please provide information of application you are looking for... </Form.Label>
 					<Form.Control required as="textarea" rows="3" value={description} onChange={sharingChange} />
@@ -158,16 +160,16 @@ const Sharing = () => {
 					<input checked={isAnon} onChange={onSwitchSharing} type="checkbox" id="toggle" class="checkbox" />
 					<label for="toggle" class="switch">Anonymous</label>
 				</div>*/}
-				
 
-				</div>
 
-				<div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
-					<button type="submit" onClick={event => submitSharing(event)} style={{ fontWeight: "400", fontSize: "18px", borderWidth:"1px",borderRadius: "8px", color: "white", backgroundColor: "#1a2631", padding: "5px", paddingLeft: "25px", paddingRight: "25px" }}>
-						SEND
-                </button>
-				</div>
 			</div>
+
+			<div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
+				<button type="submit" onClick={event => submitSharing(event)} style={{ fontWeight: "400", fontSize: "18px", borderWidth: "1px", borderRadius: "8px", color: "white", backgroundColor: "#1a2631", padding: "5px", paddingLeft: "25px", paddingRight: "25px" }}>
+					SEND
+                </button>
+			</div>
+		</div>
 	);
 
 }

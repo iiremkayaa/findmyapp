@@ -1,6 +1,8 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import * as firebase from "firebase";
+import './NavBar.css';
+
 class NavigationBar extends React.Component {
 	constructor(props) {
 		super(props);
@@ -41,7 +43,7 @@ class NavigationBar extends React.Component {
 	}
 	render() {
 		return (
-			<Navbar style={{ backgroundColor: "rgb(26, 38, 49)",paddingLeft:"10%",paddingRight:"10%" }} >
+			<Navbar id="nav-bar"  >
 				<Navbar.Brand href="/" style={{ color: "white" }}>FindMyApp</Navbar.Brand>
 				<Nav className="ml-auto" >
 					{this.returnNav()}

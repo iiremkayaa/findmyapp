@@ -54,17 +54,17 @@ const Login = (props) => {
       }
     return (
         <div >
-            <div style={{paddingLeft:"15px",paddingRight:"15px", backgroundColor: "#1a2631" }}>
-                <div style={{ paddingTop:"30px",paddingBottom:"0px"}}>
-                    <h2 style={{textAlign: "center", color:"white"}}><MDBIcon icon="user-circle"  style={{ color: "white",fontSize:"100px" }} /></h2>
+            <div style={{marginLeft:"30%",marginRight:"30%", backgroundColor: "white",marginTop:"5%",padding:"20px",borderRadius:"5px"}}>
+                <div style={{ paddingBottom:"0px"}}>
+                    <h2 id="login-top" ><MDBIcon icon="user-circle"  style={{ fontSize:"100px" }} /></h2>
                 </div>
-                <Form style={{  paddingLeft: "30%", paddingRight: "30%" }}>
+                <Form style={{  paddingLeft: "5%", paddingRight: "5%" }}>
                     <div style={{ display: "table", width: "85%", marginTop: "30px" }} >
-                        <div style={{ display: "table-cell",textAlign:"center",paddingLeft:"5px",paddingRight:"5px"  }} ><MDBIcon icon="user"  style={{ color: "white",fontSize:"35px" }} /></div>
+                        <div style={{ display: "table-cell",textAlign:"center",paddingLeft:"5px",paddingRight:"5px"  }} ><MDBIcon icon="user"  style={{ color: "#616364",fontSize:"35px" }} /></div>
                         <Form.Control style={{ display: "table-cell",height:"35px"}} type="text" placeholder="Email" onChange={handleEmail} />
                     </div>
                     <div style={{ display: "table", width: "85%", marginTop: "30px" }} >
-                        <div style={{ display: "table-cell",textAlign:"center",paddingLeft:"5px",paddingRight:"5px" }}><MDBIcon icon="lock"  style={{ color: "white",fontSize:"35px" }} /></div>
+                        <div style={{ display: "table-cell",textAlign:"center",paddingLeft:"5px",paddingRight:"5px" }}><MDBIcon icon="lock"  style={{ color: "#616364",fontSize:"35px" }} /></div>
                         <Form.Control style={{ display: "table-cell"}} type="password" placeholder="Password" onChange={handlePassword} />
                         
                     </div>
@@ -74,14 +74,14 @@ const Login = (props) => {
                         </Form.Text>}
                     </div>
                     <div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
-                        <button  type="submit" onClick={event=>submit(event)} style={{fontWeight:"400",fontSize:"18px",borderRadius:"8px", color:"white",backgroundColor: "#1a2631",padding:"5px",paddingLeft:"25px",paddingRight:"25px"}}>
-                            SIGN IN
+                        <button id="sign-in" type="submit" onClick={event=>submit(event)} >
+                        SIGN IN
                         </button>
                     </div>
                 </Form>
                 <div style={{textAlign:"center",paddingTop:"15px"}}>
                     <h2 id="no-account" >Don't have an account?</h2>
-                    <button  type="button" onClick={renderRedirect} style={{display:"inline",fontWeight:"400",fontSize:"16px",border:"none", color:"white",backgroundColor: "#1a2631"}}>
+                    <button  type="button" onClick={renderRedirect} style={{display:"inline",fontWeight:"400",fontSize:"16px",border:"none", color:"#616364",backgroundColor: "white"}}>
                             Sign up here
                     </button>
                 </div>

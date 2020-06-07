@@ -10,3 +10,18 @@
     font-weight:400;
     color:rgb(163, 159, 159)
 }
+#login-top{
+    text-align: center;
+    color:#616364;
+}
+#sign-in{
+    font-weight:400;
+    font-size:18px;
+    border-radius:8px;
+     color:white;
+     background-color: #4a4a4b;
+     padding:5px;
+     padding-left:25px;
+     padding-right:25px;
+     
+}
