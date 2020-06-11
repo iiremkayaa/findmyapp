@@ -29,9 +29,29 @@
     display : none;
  }
  #sharing-form{
-  padding-left: 20%;
-  padding-right:20%;
-  padding-top:50px;
-  padding-bottom:50px;
-  background-color: #1a2631;
+  padding-left: 5%;
+  padding-right:5%;
+  padding-top:2%;
+  padding-bottom:2%;
+  background-color: white;
+  margin-top:30px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+ }
+ #store-style{
+  background-color:white;
+  color:#253035;
+  min-width: 130;
+  max-height: 50;
+  border-width: 5px;
+  font-weight: 500;
+ }
+ .custom-control-input{
+   font-weight: 500;
+ }
+ #sharing-label{
+  font-size: 23px;
+  padding: 5px;
+  color:#253035;
+  font-weight:500;
  }

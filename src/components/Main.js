@@ -1,16 +1,21 @@
 import React from 'react';
 import Sharing from './Sharing';
 import SharingList from './SharingList';
-const Main=()=> {
+import AppSlide from './AppSlide';
+const Main = () => {
 
-	return (
-		<div >
-	        <div style={{ margin:"0px",marginTop:"0px",marginBottom:"0px" }}>
-                <Sharing/>
-                <SharingList/>
-
-            </div>
-        </div>
+  return (
+    <div >
+      <div style={{ padding: "10%", paddingTop: "0px", paddingBottom: "0px" }}>
+          <div style={{ display: "inline-block", width: "70%", height: "100%" }}>
+            <Sharing />
+            <SharingList />
+          </div>
+          <div style={{ display: "inline-block", width: "30%", height: "100%", verticalAlign: "top" }}>
+            <AppSlide />
+          </div>
+      </div>
+    </div>
   );
 }
 
