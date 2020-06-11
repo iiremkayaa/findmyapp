@@ -63,7 +63,7 @@ const Register = () => {
         <div >
             <div style={{ marginLeft:"15%",marginRight:"15%", backgroundColor: "white",marginTop:"30px",marginBottom:"30px",paddingTop:"30px",paddingBottom:"30px" }}>
                 <div style={{ paddingLeft: "15%", paddingRight: "15%" }}>
-                    <h2 style={{ textAlign: "center", color: "#3a5a69" }}><MDBIcon icon="users" style={{ fontSize: "100px" }} /></h2>
+                    <h2 style={{ textAlign: "center", color: "#244869" }}><MDBIcon icon="users" style={{ fontSize: "100px" }} /></h2>
                 </div>
                 <Form style={{ paddingLeft: "15%", paddingRight: "15%" }}>
                     <div style={{marginTop:"10px",marginBottom:"10px"}} >
@@ -92,7 +92,7 @@ const Register = () => {
                         </Form.Text>}
                     </div>
                     <div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
-                    <button  type="submit" onClick={submit} style={{fontWeight:"500",fontSize:"20px",borderRadius:"8px", color:"white",backgroundColor: "#3a5a69",padding:"5px",paddingLeft:"20px",paddingRight:"20px"}}>
+                    <button  type="submit" onClick={submit} style={{fontWeight:"500",fontSize:"20px",borderRadius:"8px", color:"white",backgroundColor: "#244869",padding:"5px",paddingLeft:"20px",paddingRight:"20px"}}>
                             SIGN UP
                     </button>
                     </div>

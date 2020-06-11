@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import * as firebase from "firebase";
 import './NavBar.css';
+import logo from '../assets/findappy-logoo.png';
 
 class NavigationBar extends React.Component {
 	constructor(props) {
@@ -44,7 +45,7 @@ class NavigationBar extends React.Component {
 	render() {
 		return (
 			<Navbar id="nav-bar"  >
-				<Navbar.Brand href="/" style={{ color: "white" }}>FindMyApp</Navbar.Brand>
+				<Navbar.Brand href="/" style={{ color: "white" }}><img src={logo} height={50} width={150} /></Navbar.Brand>
 				<Nav className="ml-auto" >
 					{this.returnNav()}
 				</Nav>

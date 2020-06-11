@@ -7,18 +7,13 @@ const Main = () => {
   return (
     <div >
       <div style={{ padding: "10%", paddingTop: "0px", paddingBottom: "0px" }}>
-        <div>
-        <Sharing />
-        </div>
-        
-        <div >
-          <div style={{ display: "inline-block",width:"70%",height:"100%" }}>
+          <div style={{ display: "inline-block", width: "70%", height: "100%" }}>
+            <Sharing />
             <SharingList />
           </div>
-          <div style={{display: "inline-block",width:"30%",height:"100%",verticalAlign:"top"}}>
-              <AppSlide/> 
+          <div style={{ display: "inline-block", width: "30%", height: "100%", verticalAlign: "top" }}>
+            <AppSlide />
           </div>
-        </div>
       </div>
     </div>
   );
