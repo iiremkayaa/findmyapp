@@ -155,7 +155,7 @@ const Sharing = (props) => {
 			<div style={{ textAlign: "center", width: "100%", marginTop: "20px", marginBottom: "15px" }}>
 				<button type="submit" onClick={event => submitSharing(event)} id="sendButton" >
 					
-						<div id="sendButtonHeader"><h2 style={{fontWeight:"500",fontSize:"15px",marginBottom:"0px"}}>SEND</h2></div>
+						<div id="sendButtonHeader"><h2 style={{fontWeight:"400",fontSize:"15px",marginBottom:"0px"}}>SEND</h2></div>
 						<div id="sendButtonIcon"><i class="fas fa-arrow-right" style={{width:"100%",heigth:"100%"}} ></i></div>
 				
 				</button>

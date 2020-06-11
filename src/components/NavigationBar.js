@@ -31,13 +31,13 @@ class NavigationBar extends React.Component {
 	}
 	returnNav() {
 		if (this.state.user === null) {
-			return (<Nav.Link href="/login" style={{ textAlign: "right", color: "white" }} >Login</Nav.Link>);
+			return (<Nav.Link href="/login" style={{ textAlign: "right", color: "#5a6f83" }} >Login</Nav.Link>);
 		}
 		else if (this.state.user === "") {
 			return null;
 		}
 		else {
-			return(<Nav.Link href="/profile" style={{ textAlign: "right", color: "white" }} >Profile</Nav.Link>);
+			return(<Nav.Link href="/profile" style={{ textAlign: "right", color: "#5a6f83" }} >Profile</Nav.Link>);
 		}
 
 
@@ -45,7 +45,7 @@ class NavigationBar extends React.Component {
 	render() {
 		return (
 			<Navbar id="nav-bar"  >
-				<Navbar.Brand href="/" style={{ color: "white" }}><img src={logo} height={50} width={150} /></Navbar.Brand>
+				<Navbar.Brand href="/" style={{ color: "#5a6f83" }}><h2 style={{color:"#5a6f83"}}>Find Appy</h2></Navbar.Brand>
 				<Nav className="ml-auto" >
 					{this.returnNav()}
 				</Nav>

@@ -33,10 +33,9 @@
   padding-right:5%;
   padding-top:2%;
   padding-bottom:2%;
-  background-color: #5a6f83;
-  margin-top:30px;
+  background-image: linear-gradient(rgb(78, 85, 129), rgb(54, 102, 114));
   margin-bottom: 30px;
-  border-radius: 5px;
+  border-radius: 0px;
  }
  #store-style{
   background-color:white;
@@ -56,12 +55,11 @@
   font-weight:400;
  }
  #sendButton{
-  
   border-width: 1px;
   border-radius: 3px; 
   border-color: white;
   color: white;
-  background-color: #5a6f83;
+  background-color: #42437a81;
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 30px;
@@ -71,10 +69,9 @@
   align-items: center;
  }
  #sendButtonHeader{
-  font-weight:500;
+  font-weight:400;
   font-size: 15px; 
   color: white;
-  background-color: #5a6f83;
   display: inline-block;
   height: 100%;
   
@@ -82,10 +79,9 @@
   
  }
  #sendButtonIcon{
-  font-weight:500;
+  font-weight:400;
   font-size: 15px; 
   color: white;
-  background-color: #5a6f83;
   padding-left: 10px;
   display: inline-block;
   height:100%

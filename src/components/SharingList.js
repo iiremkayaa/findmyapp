@@ -5,7 +5,8 @@ import { Modal, Form } from 'react-bootstrap';
 import './SharingList.css';
 import * as firebase from "firebase";
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
-
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 const SharingList = () => {
 	const [sharings, setSharings] = useState([]);
 	const [user, setUser] = useState("");
@@ -17,6 +18,7 @@ const SharingList = () => {
 	const [selectedSharing, setSelectedSharing] = useState("");
 	const [commentMessage, setCommentMessage] = useState(false);
 	const [commentList, setCommentList] = useState([]);
+
 	useEffect(() => {
 		db.ref('/sharing').on('value', querySnapShot => {
 			let values = [];
@@ -77,8 +79,8 @@ const SharingList = () => {
 
 	}
 	const convertDateFormatToPost = (date) => {
-		let day = date.split("-")[2].length === 1 ? "0"+date.split("-")[2].length :date.split("-")[2].length;
-		let month = date.split("-")[1].length === 1 ? "0"+date.split("-")[1].length :date.split("-")[1].length;
+		let day = date.split("-")[2].length === 1 ? "0" + date.split("-")[2].length : date.split("-")[2].length;
+		let month = date.split("-")[1].length === 1 ? "0" + date.split("-")[1].length : date.split("-")[1].length;
 		let year = date.split("-")[0];
 		return (day + '.' + month + '.' + year);
 	}
@@ -164,42 +166,55 @@ const SharingList = () => {
 	}
 	return (
 		<div id="sharings">
-			<div  >
+			
+				{showPopUp()}
+				{showCommentPopUp()}
 				{sharings.map((sharings, index) => (
 					<div key={index} id="sharing" >
-						{showPopUp()}
-						{showCommentPopUp()}
-						<div style={{ marginTop: "0px", width: "100%" }}>
-							<div style={{ width: "100%", display: "inline-block" }} >
-								<h1 style={{ color: "#616364 ", fontSize: "18px", fontWeight: "500", float: "left",marginBottom:"0px"}}>From:</h1>
-								<h1 style={{ color: "#1a2631", fontSize: "18px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px",marginBottom:"0px"}}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
-								<h1 style={{ color: "#616364 ", fontSize: "18px", fontWeight: "500", display: "inline", float: "right",marginBottom:"0px" }} >{convertDate(sharings.sharing.date)}</h1>
-							</div>
+						<div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+							{!sharings.sharing.isAnswered && <div style={{textAlign:"center",paddingLeft:"12px",paddingRight:"12px"}}>
+								<i class="fas fa-question" id="question-icon" ></i>
+								 <h2 id ="unanswered-header" >Unanswered</h2>
+								
+							</div>}
+							{sharings.sharing.isAnswered && <div style={{textAlign:"center",paddingLeft:"20px",paddingRight:"20px"}}>
+								<i class="fas fa-check" id="check-icon"></i>
+								<h2 id ="answered-header" >Answered</h2>
+							</div>}
 						</div>
-						<div style={{ width: "100%", marginTop: "10px", marginBottom: "15px" }}>
-							<div style={{ width: "100%" }}>
-								<h1 style={{ fontSize: "20px", fontWeight: "500",  color: "#1a2631" }}>{sharings.sharing.description}</h1>
-							</div>
-						</div>
-						<div style={{ width: "100%",verticalAlign:"middle" }}>
-							<div style={{ width: "100%", display: "inline-block" }}>
-
-								<div style={{ display: "flex", float: "left" }}>
-									<button style={{ backgroundColor: "Transparent", border: "none", display: "inline", padding: 0 }} onClick={(event) => { showSuggestion(event, sharings.sharingId) }}>
-										<h2 id="suggestion-header" >Suggestions</h2>
-									</button>
+						<div style={{ width:"100%",overflow:"auto"}}>
+							<div style={{ marginTop: "0px" }}>
+								<div style={{ width: "100%", display: "inline-block" }} >
+									<h1 style={{ color: "rgb(151, 140, 140)", fontSize: "15px", fontWeight: "500", float: "left", marginBottom: "0px" }}>From:</h1>
+									<h1 style={{ color: "#1a2631", fontSize: "15px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px", marginBottom: "0px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
+									<h1 style={{ color: "#616364 ", fontSize: "15px", fontWeight: "500", display: "inline", float: "right", marginBottom: "0px" }} >{convertDate(sharings.sharing.date)}</h1>
 								</div>
-								<div style={{ display: "flex", float: "right", margin: 0, padding: 0 }}>
-									<div style={{ paddingRight: "15px" }}>
-										<h2 style={{ fontSize: "18px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "#1a2631" }}>{sharings.sharing.store}</h2>
-										<div style={{ fontSize: "18px", display: "inline" }}><i class="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "#1a2631" }}></i></div>
+							</div>
+							<div style={{ width: "100%", marginTop: "10px", marginBottom: "15px" }}>
+								<div style={{ width: "100%" }}>
+									<h1 style={{ fontSize: "16px", fontWeight: "500", color: "#1a2631" }}>{sharings.sharing.description}</h1>
+								</div>
+							</div>
+							<div style={{ width: "100%", verticalAlign: "middle",overflow:"auto", }}>
+								<div style={{ width: "100%", display: "inline-block" }}>
+
+									<div style={{ display: "flex", float: "left" }}>
+										<button style={{ backgroundColor: "Transparent", border: "none", display: "inline", padding: 0 }} onClick={(event) => { showSuggestion(event, sharings.sharingId) }}>
+											<h2 id="suggestion-header" >Suggestions</h2>
+										</button>
 									</div>
-									<div style={{ paddingRight: "15px" }}>
-										<h2 style={{ fontSize: "18px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "#1a2631" }}>{sharings.sharing.payment}</h2>
-										<div style={{ fontSize: "18px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "#1a2631" }}></i></div>
-									</div>
-									<div>
-										<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{ color: "#1a2631", fontSize: "20px" }}></i></button>
+									<div style={{ display: "flex", float: "right", margin: 0, padding: 0 }}>
+										<div style={{ paddingRight: "15px" }}>
+											<h2 style={{ fontSize: "15px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.store}</h2>
+											<div style={{ fontSize: "15px", display: "inline" }}><i class="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+										</div>
+										<div style={{ paddingRight: "15px" }}>
+											<h2 style={{ fontSize: "15px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.payment}</h2>
+											<div style={{ fontSize: "15px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+										</div>
+										<div>
+											<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{ color: "rgb(61,83,119)", fontSize: "20px" }}></i></button>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -207,7 +222,6 @@ const SharingList = () => {
 					</div>
 				))}
 
-			</div>
 		</div>
 	);
 
