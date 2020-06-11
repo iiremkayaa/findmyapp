@@ -46,8 +46,8 @@ const Sharing = (props) => {
 		setIsAnon(!isAnon);
 	};
 	const convertDateFormatToPost = (date) => {
-		let day = date.split("-")[2].length === 1 ? "0"+date.split("-")[2].length :date.split("-")[2].length;
-		let month = date.split("-")[1].length === 1 ? "0"+date.split("-")[1].length :date.split("-")[1].length;
+		let day = date.split("-")[2].length === 1 ? "0" + date.split("-")[2].length : date.split("-")[2].length;
+		let month = date.split("-")[1].length === 1 ? "0" + date.split("-")[1].length : date.split("-")[1].length;
 		let year = date.split("-")[0];
 		return (day + '.' + month + '.' + year);
 	}
@@ -125,40 +125,24 @@ const Sharing = (props) => {
 				</div>
 			</Form>
 			<div style={{ textAlign: "center", paddingTop: "20px" }}>
-				<div style={{ display: "inline", paddingRight: "20px" }}>
-					<FormControl variant="filled" className={classes.formControl} >
-						<Select
-							labelId="demo-simple-select-filled-label"
-							id="store-style"
-							value={store}
-							onChange={event => { handleSelectStore(event); }}
-						>
-							<MenuItem  value={"App Store"}> App Store</MenuItem>
-							<MenuItem  value={"Google Play"}> Google Play</MenuItem>
-
-						</Select>
-					</FormControl>
+				<div style={{ display: "inline-block", paddingRight: "20px", textAlign: "center" }}>
+					<Form.Control as="select" onChange={handleSelectStore} style={{}}>
+						<option value="App Store">App Store</option>
+						<option value="Google Play">Google Play</option>
+					</Form.Control>
 				</div>
-				<div style={{ display: "inline", paddingLeft: "20px" }}>
-					<FormControl variant="filled" className={classes.formControl} >
-						<Select
-							labelId="demo-simple-select-filled-label"
-							id="store-style"
-							value={payment}
-							onChange={event => { handleSelectPayment(event); }}
-						>
-							<MenuItem  value={"Free App"}> Free App</MenuItem>
-							<MenuItem  value={"Paid App"}> Paid App</MenuItem>
-							<MenuItem  value={"Free and Paid"}> Both</MenuItem>
-						</Select>
-					</FormControl>
+				<div style={{ display: "inline-block", paddingLeft: "20px", textAlign: "center" }}>
+					<Form.Control as="select" onChange={handleSelectPayment} style={{}}>
+						<option value="Free">Free</option>
+						<option value="Paid">Paid</option>
+					</Form.Control>
 				</div>
 			</div>
 			<div style={{ textAlign: "center", paddingTop: "20px" }}>
 
 				<div class="custom-control custom-switch">
 					<input checked={isAnon} type="checkbox" onChange={onSwitchSharing} class="custom-control-input" id="customSwitch1" />
-					<label class="custom-control-label" for="customSwitch1" style={{ fontSize: "18px",color:"#253035",fontWeight:"500" }} >Anonymous</label>
+					<label class="custom-control-label" for="customSwitch1" style={{ fontSize: "18px", color: "white", fontWeight: "400" }} >Anonymous</label>
 				</div>
 				{/*<div>
 					<input checked={isAnon} onChange={onSwitchSharing} type="checkbox" id="toggle" class="checkbox" />
@@ -168,10 +152,13 @@ const Sharing = (props) => {
 
 			</div>
 
-			<div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
-				<button type="submit" onClick={event => submitSharing(event)} style={{ fontWeight: "500", fontSize: "20px", borderWidth: "1px", borderRadius: "8px", color: "white", backgroundColor: "#253035", padding: "5px", paddingLeft: "20px", paddingRight: "20px" }}>
-					SEND
-                </button>
+			<div style={{ textAlign: "center", width: "100%", marginTop: "20px", marginBottom: "15px" }}>
+				<button type="submit" onClick={event => submitSharing(event)} id="sendButton" >
+					
+						<div id="sendButtonHeader"><h2 style={{fontWeight:"500",fontSize:"15px",marginBottom:"0px"}}>SEND</h2></div>
+						<div id="sendButtonIcon"><i class="fas fa-arrow-right" style={{width:"100%",heigth:"100%"}} ></i></div>
+				
+				</button>
 			</div>
 		</div>
 	);
