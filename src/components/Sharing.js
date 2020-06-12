@@ -19,6 +19,8 @@ const Sharing = (props) => {
 
 	const [description, setDescription] = useState('');
 	const [username, setUsername] = useState("");
+	const [userEmail, setUserEmail] = useState("");
+
 	const [isAnon, setIsAnon] = useState(false);
 	const [store, setStore] = useState("App Store");
 	const [payment, setPayment] = useState("Free App");
@@ -32,6 +34,7 @@ const Sharing = (props) => {
 					querySnapShot.forEach((child) => {
 						if (child.val().email === authUser.email) {
 							setUsername(child.val().username);
+							setUserEmail(child.val().email);
 						}
 					});
 				});
@@ -46,9 +49,12 @@ const Sharing = (props) => {
 		setIsAnon(!isAnon);
 	};
 	const convertDateFormatToPost = (date) => {
-		let day = date.split("-")[2].length === 1 ? "0" + date.split("-")[2].length : date.split("-")[2].length;
-		let month = date.split("-")[1].length === 1 ? "0" + date.split("-")[1].length : date.split("-")[1].length;
+		console.log(date);
+		let day = date.split("-")[2].length === 1 ? "0" + date.split("-")[2] : date.split("-")[2];
+		let month = date.split("-")[1].length === 1 ? "0" + date.split("-")[1] : date.split("-")[1];
 		let year = date.split("-")[0];
+		console.log(day);
+		console.log(date.split("-")[2]);
 		return (day + '.' + month + '.' + year);
 	}
 	const submitSharing = (event) => {
@@ -75,6 +81,7 @@ const Sharing = (props) => {
 					isAnon: isAnon,
 					store: store,
 					payment: payment,
+					userEmail:userEmail,
 				}
 				db.ref('/sharing').push(data);
 				setIsAnon(false);
@@ -140,14 +147,11 @@ const Sharing = (props) => {
 			</div>
 			<div style={{ textAlign: "center", paddingTop: "20px" }}>
 
-				<div class="custom-control custom-switch">
-					<input checked={isAnon} type="checkbox" onChange={onSwitchSharing} class="custom-control-input" id="customSwitch1" />
-					<label class="custom-control-label" for="customSwitch1" style={{ fontSize: "18px", color: "white", fontWeight: "400" }} >Anonymous</label>
+				<div className="custom-control custom-switch">
+					<input checked={isAnon} type="checkbox" onChange={onSwitchSharing} className="custom-control-input" id="customSwitch1" />
+					<label className="custom-control-label" for="customSwitch1" style={{ fontSize: "18px", color: "white", fontWeight: "400" }} >Anonymous</label>
 				</div>
-				{/*<div>
-					<input checked={isAnon} onChange={onSwitchSharing} type="checkbox" id="toggle" class="checkbox" />
-					<label for="toggle" class="switch">Anonymous</label>
-				</div>*/}
+				
 
 
 			</div>
@@ -156,7 +160,7 @@ const Sharing = (props) => {
 				<button type="submit" onClick={event => submitSharing(event)} id="sendButton" >
 					
 						<div id="sendButtonHeader"><h2 style={{fontWeight:"400",fontSize:"15px",marginBottom:"0px"}}>SEND</h2></div>
-						<div id="sendButtonIcon"><i class="fas fa-arrow-right" style={{width:"100%",heigth:"100%"}} ></i></div>
+						<div id="sendButtonIcon"><i className="fas fa-arrow-right" style={{width:"100%",heigth:"100%"}} ></i></div>
 				
 				</button>
 			</div>

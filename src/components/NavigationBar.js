@@ -9,9 +9,9 @@ class NavigationBar extends React.Component {
 		super(props);
 		this.state = {
 			user: "",
-			
+
 		};
-		this.returnNav=this.returnNav.bind(this);
+		this.returnNav = this.returnNav.bind(this);
 	}
 	componentWillMount() {
 		this.checkAuthentication();
@@ -31,13 +31,25 @@ class NavigationBar extends React.Component {
 	}
 	returnNav() {
 		if (this.state.user === null) {
-			return (<Nav.Link href="/login" style={{ textAlign: "right", color: "#5a6f83" }} >Login</Nav.Link>);
+			return (
+				<Nav className="ml-auto" >
+					<Nav.Link href="/login" style={{ textAlign: "right", color: "#5a6f83" }} >My Sharings</Nav.Link>
+					<Nav.Link href="/login" style={{ textAlign: "right", color: "#5a6f83" }} >Login</Nav.Link>
+
+				</Nav>
+			);
 		}
 		else if (this.state.user === "") {
 			return null;
 		}
 		else {
-			return(<Nav.Link href="/profile" style={{ textAlign: "right", color: "#5a6f83" }} >Profile</Nav.Link>);
+			return (
+				<Nav className="ml-auto" >
+					<Nav.Link href="/sharing" style={{ textAlign: "right", color: "#5a6f83" }} >My Sharings</Nav.Link>
+					<Nav.Link href="/profile" style={{ textAlign: "right", color: "#5a6f83" }} >Profile</Nav.Link>
+
+				</Nav>
+			);
 		}
 
 
@@ -45,10 +57,8 @@ class NavigationBar extends React.Component {
 	render() {
 		return (
 			<Navbar id="nav-bar"  >
-				<Navbar.Brand href="/" style={{ color: "#5a6f83" }}><h2 style={{color:"#5a6f83"}}>Find Appy</h2></Navbar.Brand>
-				<Nav className="ml-auto" >
-					{this.returnNav()}
-				</Nav>
+				<Navbar.Brand href="/" style={{ color: "#5a6f83" }}><h2 style={{ color: "#5a6f83" }}>Find Appy</h2></Navbar.Brand>
+				{this.returnNav()}
 			</Navbar>
 		);
 	}

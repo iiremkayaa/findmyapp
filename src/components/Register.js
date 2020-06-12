@@ -16,9 +16,6 @@ const Register = () => {
     const submit = (event) => {
         event.preventDefault();
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-            //var errorCode = error.code;
-            //var errorMessage = error.message;
-          
         });
         const data={
 			username:username,
@@ -61,38 +58,38 @@ const Register = () => {
     }
     return (
         <div >
-            <div style={{ marginLeft:"15%",marginRight:"15%", backgroundColor: "white",marginTop:"30px",marginBottom:"30px",paddingTop:"30px",paddingBottom:"30px" }}>
+            <div style={{ marginLeft:"25%",marginRight:"25%", backgroundImage: "linear-gradient(rgb(78, 85, 129), rgb(54, 102, 114))",marginTop:"2%",marginBottom:"30px",padding:"15px",paddingBottom:"20px",boxShadow:"0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)",border:"solid",borderWidth:"1px",borderRadius: "3px" }}>
                 <div style={{ paddingLeft: "15%", paddingRight: "15%" }}>
-                    <h2 style={{ textAlign: "center", color: "#244869" }}><MDBIcon icon="users" style={{ fontSize: "100px" }} /></h2>
+                    <h2 style={{ textAlign: "center", color: "white" }}><MDBIcon icon="users" style={{ fontSize: "100px" }} /></h2>
                 </div>
                 <Form style={{ paddingLeft: "15%", paddingRight: "15%" }}>
                     <div style={{marginTop:"10px",marginBottom:"10px"}} >
-                        <Form.Label style={{  color: "#526b77",fontWeight:"500",fontSize:"20px"}} >Username:</Form.Label>
+                        <Form.Label style={{  color: "white",fontWeight:"400",fontSize:"20px"}} >Username:</Form.Label>
                         <Form.Control style={{}} type="text" placeholder="" onChange={handleUsername} />
                     </div>
 
                     <div style={{marginTop:"10px",marginBottom:"10px"}} >
-                        <Form.Label style={{ color: "#526b77" ,fontWeight:"500",fontSize:"20px"}}>Email:</Form.Label>
+                        <Form.Label style={{ color: "white" ,fontWeight:"400",fontSize:"20px"}}>Email:</Form.Label>
                         <Form.Control style={{ }} type="email" placeholder="" onChange={handleEmail} />
                         
                     </div>
 
                     <div style={{marginTop:"10px",marginBottom:"10px"}} >
-                        <Form.Label style={{  color: "#526b77",fontWeight:"500",fontSize:"20px" }}>Password:</Form.Label>
+                        <Form.Label style={{  color: "white",fontWeight:"400",fontSize:"20px" }}>Password:</Form.Label>
                         <Form.Control style={{ }} type="password" placeholder="" onChange={handlePassword} />
                         {charControl && <Form.Text id="register-message">
                             The password field must be at least 5 characters.
                         </Form.Text>}
                     </div>
                     <div style={{marginTop:"10px",marginBottom:"10px"}} >
-                        <Form.Label style={{ color: "#526b77" ,fontWeight:"500",fontSize:"20px"}}>Confirm Password:</Form.Label>
+                        <Form.Label style={{ color: "white" ,fontWeight:"400",fontSize:"20px"}}>Confirm Password:</Form.Label>
                         <Form.Control style={{ }} type="password" placeholder="" onChange={handleConfirmPassword} />
                         {passControl && <Form.Text id="register-message">
                             The password must match confirm password.
                         </Form.Text>}
                     </div>
                     <div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
-                    <button  type="submit" onClick={submit} style={{fontWeight:"500",fontSize:"20px",borderRadius:"8px", color:"white",backgroundColor: "#244869",padding:"5px",paddingLeft:"20px",paddingRight:"20px"}}>
+                    <button  type="submit" onClick={submit} style={{fontWeight:"400",fontSize:"15px",borderRadius:"5px", borderColor:"white",color:"white",backgroundColor: "#42437a81",padding:"5px",paddingLeft:"20px",paddingRight:"20px"}}>
                             SIGN UP
                     </button>
                     </div>
