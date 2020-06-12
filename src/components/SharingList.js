@@ -113,7 +113,7 @@ const SharingList = () => {
 				</Modal.Header>
 				<Modal.Body >
 					<div style={{}}>
-						<h2 style={{ fontSize: "20px", fontWeight: "500", }}>{selectedSharing}</h2>
+						<h2 style={{ fontSize: "15px", fontWeight: "500", }}>{selectedSharing}</h2>
 					</div>
 					<Form style={{ marginTop: "20px", marginBottom: "20px" }}>
 						<Form.Control type="text" value={comment} placeholder="Enter your suggestion here" onChange={(event) => { handleCommentChange(event) }} />
@@ -123,7 +123,7 @@ const SharingList = () => {
 					</div>}
 				</Modal.Body>
 				<Modal.Footer>
-					<button onClick={sendCommentChange} style={{ fontWeight: "500", fontSize: "20px", borderRadius: "8px", color: "white", backgroundColor: "#1a2631", padding: "2px", paddingLeft: "15px", paddingRight: "15px" }}>
+					<button onClick={sendCommentChange} style={{ fontWeight: "400", fontSize: "15px", borderRadius: "3px", color: "white", backgroundColor: "rgb(74, 109, 165)", padding: "2px", paddingLeft: "15px", paddingRight: "15px" }}>
 						SEND
                 </button>
 
