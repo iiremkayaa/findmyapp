@@ -16,9 +16,6 @@ const Register = () => {
     const submit = (event) => {
         event.preventDefault();
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-            //var errorCode = error.code;
-            //var errorMessage = error.message;
-          
         });
         const data={
 			username:username,

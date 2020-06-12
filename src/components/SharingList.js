@@ -79,8 +79,8 @@ const SharingList = () => {
 
 	}
 	const convertDateFormatToPost = (date) => {
-		let day = date.split("-")[2].length === 1 ? "0" + date.split("-")[2].length : date.split("-")[2].length;
-		let month = date.split("-")[1].length === 1 ? "0" + date.split("-")[1].length : date.split("-")[1].length;
+		let day = date.split("-")[2].length === 1 ? "0" + date.split("-")[2] : date.split("-")[2];
+		let month = date.split("-")[1].length === 1 ? "0" + date.split("-")[1] : date.split("-")[1];
 		let year = date.split("-")[0];
 		return (day + '.' + month + '.' + year);
 	}
