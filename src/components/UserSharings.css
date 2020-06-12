@@ -1,3 +1,28 @@
+#sharing{
+    background-color:white;
+    border: solid;
+    border-width: 1px;
+    border-radius: 8px;
+    padding: 15px;
+    padding-bottom: 0px;
+    margin-bottom:15px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    display: flex;
+}
+
+#suggestion-header{
+    color:rgb(61,83,119);
+    font-size: 18px;
+    font-weight: 600;
+}
+#question-icon{
+    font-size:50px;
+    color:rgb(243, 82, 82);
+}
+#check-icon{
+     color:rgba(56, 175, 41, 0.815);
+     font-size: 50px;
+}
 #check-icon-comment{
     color:white;
     font-size: 15px;
@@ -15,8 +40,13 @@
     font-weight:400;
     padding-top:10px;
 }
-#sharings{
+#userSharings{
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 20px;
+}
+#trash-icon{
+    color: rgb(48, 57, 65);
+    font-size: 18px;
+    display: inline;
 }

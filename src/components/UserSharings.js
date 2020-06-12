@@ -94,9 +94,12 @@ const UserSharings = () => {
 				</Modal.Body>
 				
 			</Modal>);
-	}
+    }
+    const deleteSharing=(event,id)=>{
+
+    }
     return (
-        <div id="sharings">
+        <div id="userSharings">
 			
 			
 				{showCommentPopUp()}
@@ -116,14 +119,14 @@ const UserSharings = () => {
 						<div style={{ width:"100%",overflow:"auto"}}>
 							<div style={{ marginTop: "0px" }}>
 								<div style={{ width: "100%", display: "inline-block" }} >
-									<h1 style={{ color: "rgb(151, 140, 140)", fontSize: "15px", fontWeight: "500", float: "left", marginBottom: "0px" }}>From:</h1>
-									<h1 style={{ color: "#1a2631", fontSize: "15px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px", marginBottom: "0px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
-									<h1 style={{ color: "#616364 ", fontSize: "15px", fontWeight: "500", display: "inline", float: "right", marginBottom: "0px" }} >{sharings.sharing.date}</h1>
+									<h1 style={{ color: "rgb(151, 140, 140)", fontSize: "18px", fontWeight: "500", float: "left", marginBottom: "0px" }}>From:</h1>
+									<h1 style={{ color: "#1a2631", fontSize: "18px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px", marginBottom: "0px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
+									<h1 style={{ color: "#616364 ", fontSize: "18px", fontWeight: "500", display: "inline", float: "right", marginBottom: "0px" }} >{sharings.sharing.date}</h1>
 								</div>
 							</div>
 							<div style={{ width: "100%", marginTop: "10px", marginBottom: "15px" }}>
 								<div style={{ width: "100%" }}>
-									<h1 style={{ fontSize: "16px", fontWeight: "500", color: "#1a2631" }}>{sharings.sharing.description}</h1>
+									<h1 style={{ fontSize: "18px", fontWeight: "500", color: "#1a2631" }}>{sharings.sharing.description}</h1>
 								</div>
 							</div>
 							<div style={{ width: "100%", verticalAlign: "middle",overflow:"auto", }}>
@@ -135,15 +138,20 @@ const UserSharings = () => {
 										</button>
 									</div>
 									<div style={{ display: "flex", float: "right", margin: 0, padding: 0 }}>
-										<div style={{ paddingRight: "15px" }}>
-											<h2 style={{ fontSize: "15px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.store}</h2>
-											<div style={{ fontSize: "15px", display: "inline" }}><i class="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+										<div style={{ paddingRight: "18px" }}>
+											<h2 style={{ fontSize: "18px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.store}</h2>
+											<div style={{ fontSize: "18px", display: "inline" }}><i class="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
 										</div>
-										<div style={{ paddingRight: "15px" }}>
-											<h2 style={{ fontSize: "15px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.payment}</h2>
-											<div style={{ fontSize: "15px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+										<div style={{ paddingRight: "18px" }}>
+											<h2 style={{ fontSize: "18px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.payment}</h2>
+											<div style={{ fontSize: "18px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
 										</div>
-										
+										<div style={{ }}>
+                                        <button style={{ backgroundColor: "Transparent", border: "none", display: "inline", padding: 0 }} onClick={(event) => { deleteSharing(event, sharings.sharingId) }}>
+
+											<div id="trash-icon"><i class="far fa-trash-alt"  ></i></div>
+                                            </button>
+										</div>
 									</div>
 								</div>
 							</div>
