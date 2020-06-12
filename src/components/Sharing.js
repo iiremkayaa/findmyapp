@@ -147,14 +147,11 @@ const Sharing = (props) => {
 			</div>
 			<div style={{ textAlign: "center", paddingTop: "20px" }}>
 
-				<div class="custom-control custom-switch">
-					<input checked={isAnon} type="checkbox" onChange={onSwitchSharing} class="custom-control-input" id="customSwitch1" />
-					<label class="custom-control-label" for="customSwitch1" style={{ fontSize: "18px", color: "white", fontWeight: "400" }} >Anonymous</label>
+				<div className="custom-control custom-switch">
+					<input checked={isAnon} type="checkbox" onChange={onSwitchSharing} className="custom-control-input" id="customSwitch1" />
+					<label className="custom-control-label" for="customSwitch1" style={{ fontSize: "18px", color: "white", fontWeight: "400" }} >Anonymous</label>
 				</div>
-				{/*<div>
-					<input checked={isAnon} onChange={onSwitchSharing} type="checkbox" id="toggle" class="checkbox" />
-					<label for="toggle" class="switch">Anonymous</label>
-				</div>*/}
+				
 
 
 			</div>
@@ -163,7 +160,7 @@ const Sharing = (props) => {
 				<button type="submit" onClick={event => submitSharing(event)} id="sendButton" >
 					
 						<div id="sendButtonHeader"><h2 style={{fontWeight:"400",fontSize:"15px",marginBottom:"0px"}}>SEND</h2></div>
-						<div id="sendButtonIcon"><i class="fas fa-arrow-right" style={{width:"100%",heigth:"100%"}} ></i></div>
+						<div id="sendButtonIcon"><i className="fas fa-arrow-right" style={{width:"100%",heigth:"100%"}} ></i></div>
 				
 				</button>
 			</div>

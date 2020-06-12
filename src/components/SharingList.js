@@ -137,7 +137,7 @@ const SharingList = () => {
 					<Modal.Title style={{ fontSize: "15px",fontWeight:"500" }}>{selectedSharing}</Modal.Title>
 				</Modal.Header>
 				<Modal.Body style={{paddingTop:"5px",paddingBottom:"0px"}}>
-					{commentList.map((comment, index) => (
+				{commentList.length !== 0 ? commentList.map((comment, index) => (
 						<div key={index} style={{ padding: "5px",borderBottom: "1px solid #DEE2E6"}}>
 							<div style={{ display: "inline-block", width: "100%" }}>
 								
@@ -150,11 +150,14 @@ const SharingList = () => {
 							{comment.comment.isSelected &&<div style={{ display: "inline-block",textAlign:"center",width:"100%"}}>
 								 <div style={{ display:"table",float:"right",backgroundColor:"rgba(56, 175, 41, 0.815)",padding:"5px",paddingRight:"10px",paddingLeft:"10px",border:"solid",borderRadius:"12px",borderColor:"white"}} >
 									<h2 style={{display:"table-cell",fontSize:"13px",fontWeight:"500",paddingRight:"5px",color:"white"}}>SELECTED</h2>
-									<i class="fas fa-check" id="check-icon-comment"></i>
+									<i className="fas fa-check" id="check-icon-comment"></i>
 								</div>
 							</div>}
 						</div>
-					))}
+					)): 
+					<div style={{textAlign:"center",paddingTop:"10px",paddingBottom:"10px"}}>
+					<h2 style={{fontSize: "15px",fontWeight:"500",color:"rgb(243, 82, 82)"}}>There is no suggestion on this sharing.</h2>
+					</div>}
 				</Modal.Body>
 				
 			</Modal>);
@@ -168,12 +171,12 @@ const SharingList = () => {
 					<div key={index} id="sharing" >
 						<div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
 							{!sharings.sharing.isAnswered && <div style={{textAlign:"center",paddingLeft:"12px",paddingRight:"12px"}}>
-								<i class="fas fa-question" id="question-icon" ></i>
+								<i className="fas fa-question" id="question-icon" ></i>
 								 <h2 id ="unanswered-header" >Unanswered</h2>
 								
 							</div>}
 							{sharings.sharing.isAnswered && <div style={{textAlign:"center",paddingLeft:"20px",paddingRight:"20px"}}>
-								<i class="fas fa-check" id="check-icon"></i>
+								<i className="fas fa-check" id="check-icon"></i>
 								<h2 id ="answered-header" >Answered</h2>
 							</div>}
 						</div>
@@ -201,14 +204,14 @@ const SharingList = () => {
 									<div style={{ display: "flex", float: "right", margin: 0, padding: 0 }}>
 										<div style={{ paddingRight: "15px" }}>
 											<h2 style={{ fontSize: "15px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.store}</h2>
-											<div style={{ fontSize: "15px", display: "inline" }}><i class="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+											<div style={{ fontSize: "15px", display: "inline" }}><i className="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
 										</div>
 										<div style={{ paddingRight: "15px" }}>
 											<h2 style={{ fontSize: "15px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.payment}</h2>
-											<div style={{ fontSize: "15px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+											<div style={{ fontSize: "15px", display: "inline" }}><i className="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
 										</div>
 										<div>
-											<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{ color: "rgb(61,83,119)", fontSize: "20px" }}></i></button>
+											<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i className="far fa-comment " style={{ color: "rgb(61,83,119)", fontSize: "20px" }}></i></button>
 										</div>
 									</div>
 								</div>

@@ -47,14 +47,14 @@ const AppSlide = () => {
 									<div style={{ display: "flex", float: "right", margin: 0, padding: 0,overflow:"auto" }}>
 										<div style={{ paddingRight: "3px" }}>
 											<h2 style={{ fontSize: "13px", fontWeight: "500", marginLeft: "2px", display: "inline", marginRight: "2px", color: "rgb(151, 140, 140)" }}>AppStore</h2>
-											<div style={{ fontSize: "13px", display: "inline" }}><i class="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+											<div style={{ fontSize: "13px", display: "inline" }}><i className="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
 										</div>
 										<div style={{ paddingRight: "3px" }}>
 											<h2 style={{ fontSize: "13px", fontWeight: "500", marginLeft: "2px", display: "inline", marginRight: "2px", color: "rgb(151, 140, 140)" }}>Parasız</h2>
-											<div style={{ fontSize: "13px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+											<div style={{ fontSize: "13px", display: "inline" }}><i className="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
 										</div>
 										<div>
-											<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { }}><i class="fas fa-arrow-down" style={{ color: "#1a2631", fontSize: "20px" }}></i></button>
+											<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { }}><i className="fas fa-arrow-down" style={{ color: "#1a2631", fontSize: "20px" }}></i></button>
 										</div>
 									</div>
 								</div>
@@ -84,14 +84,14 @@ const AppSlide = () => {
 									<div style={{ display: "flex", float: "right", margin: 0, padding: 0,overflow:"auto"  }}>
 										<div style={{ paddingRight: "3px" }}>
 											<h2 style={{ fontSize: "13px", fontWeight: "500", marginLeft: "2px", display: "inline", marginRight: "2px", color: "rgb(151, 140, 140)" }}>AppStore</h2>
-											<div style={{ fontSize: "13px", display: "inline" }}><i class="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+											<div style={{ fontSize: "13px", display: "inline" }}><i className="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
 										</div>
 										<div style={{ paddingRight: "3px" }}>
 											<h2 style={{ fontSize: "13px", fontWeight: "500", marginLeft: "2px", display: "inline", marginRight: "2px", color: "rgb(151, 140, 140)" }}>Parasız</h2>
-											<div style={{ fontSize: "13px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+											<div style={{ fontSize: "13px", display: "inline" }}><i className="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
 										</div>
 										<div>
-											<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { }}><i class="fas fa-arrow-down" style={{ color: "#1a2631", fontSize: "20px" }}></i></button>
+											<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { }}><i className="fas fa-arrow-down" style={{ color: "#1a2631", fontSize: "20px" }}></i></button>
 										</div>
 									</div>
 								</div>
@@ -121,14 +121,14 @@ const AppSlide = () => {
 									<div style={{ display: "flex", float: "right", margin: 0, padding: 0,overflow:"auto"  }}>
 										<div style={{ paddingRight: "3px" }}>
 											<h2 style={{ fontSize: "13px", fontWeight: "500", marginLeft: "2px", display: "inline", marginRight: "2px", color: "rgb(151, 140, 140)" }}>AppStore</h2>
-											<div style={{ fontSize: "13px", display: "inline" }}><i class="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+											<div style={{ fontSize: "13px", display: "inline" }}><i className="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
 										</div>
 										<div style={{ paddingRight: "3px" }}>
 											<h2 style={{ fontSize: "13px", fontWeight: "500", marginLeft: "2px", display: "inline", marginRight: "2px", color: "rgb(151, 140, 140)" }}>Parasız</h2>
-											<div style={{ fontSize: "13px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+											<div style={{ fontSize: "13px", display: "inline" }}><i className="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
 										</div>
 										<div>
-											<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { }}><i class="fas fa-arrow-down" style={{ color: "#1a2631", fontSize: "20px" }}></i></button>
+											<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { }}><i className="fas fa-arrow-down" style={{ color: "#1a2631", fontSize: "20px" }}></i></button>
 										</div>
 									</div>
 								</div>
@@ -158,14 +158,14 @@ const AppSlide = () => {
 									<div style={{ display: "flex", float: "right", margin: 0, padding: 0,overflow:"auto"  }}>
 										<div style={{ paddingRight: "3px" }}>
 											<h2 style={{ fontSize: "13px", fontWeight: "500", marginLeft: "2px", display: "inline", marginRight: "2px", color: "rgb(151, 140, 140)" }}>AppStore</h2>
-											<div style={{ fontSize: "13px", display: "inline" }}><i class="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+											<div style={{ fontSize: "13px", display: "inline" }}><i className="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
 										</div>
 										<div style={{ paddingRight: "3px" }}>
 											<h2 style={{ fontSize: "13px", fontWeight: "500", marginLeft: "2px", display: "inline", marginRight: "2px", color: "rgb(151, 140, 140)" }}>Parasız</h2>
-											<div style={{ fontSize: "13px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+											<div style={{ fontSize: "13px", display: "inline" }}><i className="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
 										</div>
 										<div>
-											<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { }}><i class="fas fa-arrow-down" style={{ color: "#1a2631", fontSize: "20px" }}></i></button>
+											<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { }}><i className="fas fa-arrow-down" style={{ color: "#1a2631", fontSize: "20px" }}></i></button>
 										</div>
 									</div>
 								</div>
