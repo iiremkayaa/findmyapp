@@ -33,10 +33,9 @@
   padding-right:5%;
   padding-top:2%;
   padding-bottom:2%;
-  background-color: white;
-  margin-top:30px;
+  background-image: linear-gradient(rgb(78, 85, 129), rgb(54, 102, 114));
   margin-bottom: 30px;
-  border-radius: 5px;
+  border-radius: 0px;
  }
  #store-style{
   background-color:white;
@@ -50,8 +49,40 @@
    font-weight: 500;
  }
  #sharing-label{
-  font-size: 23px;
+  font-size: 18px;
   padding: 5px;
-  color:#253035;
-  font-weight:500;
+  color:white;
+  font-weight:400;
+ }
+ #sendButton{
+  border-width: 1px;
+  border-radius: 3px; 
+  border-color: white;
+  color: white;
+  background-color: #42437a81;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 30px;
+  padding-right: 30px;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+ }
+ #sendButtonHeader{
+  font-weight:400;
+  font-size: 15px; 
+  color: white;
+  display: inline-block;
+  height: 100%;
+  
+  
+  
+ }
+ #sendButtonIcon{
+  font-weight:400;
+  font-size: 15px; 
+  color: white;
+  padding-left: 10px;
+  display: inline-block;
+  height:100%
  }

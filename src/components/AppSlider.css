@@ -4,9 +4,19 @@
     font-weight: 500;
 }
 #header{
-    text-align:center;
-    color:#565c5e;
-    padding-bottom: 15px;
-    font-size: 20px;
+    background-color:rgb(74, 109, 165);
+    padding: 5px;
+    font-size: 18px;
     font-weight: 500;
+    color:white;
+    text-align: center;
+    align-items:center;
+    width:100%
+    
+}
+#suggestion-header{
+    color:rgb(61,83,119);
+    font-size: 15x;
+    font-weight: 500;
+    margin-bottom: 0;
 }
