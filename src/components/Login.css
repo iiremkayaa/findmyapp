@@ -12,14 +12,14 @@
 }
 #login-top{
     text-align: center;/*#526b77*/
-    color:#5F768B;
+    color:white;
 } 
 #sign-in{
     font-weight:400;
     font-size:15px;
     border-radius:5px;
      color:white;
-     background-color: #5F768B;
+     background-color: #42437a81;
      padding:5px;
      padding-left:20px;
      padding-right:20px;
