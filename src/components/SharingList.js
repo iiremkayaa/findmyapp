@@ -123,7 +123,7 @@ const SharingList = () => {
 					</div>}
 				</Modal.Body>
 				<Modal.Footer>
-					<button onClick={sendCommentChange} style={{ fontWeight: "400", fontSize: "15px", borderRadius: "3px", color: "white", backgroundColor: "rgb(74, 109, 165)", padding: "2px", paddingLeft: "15px", paddingRight: "15px" }}>
+					<button onClick={sendCommentChange} style={{ fontWeight: "400", fontSize: "15px", borderRadius: "3px", color: "white",borderColor:"white", backgroundColor: "rgb(74, 109, 165)", padding: "2px", paddingLeft: "15px", paddingRight: "15px" }}>
 						SEND
                 </button>
 
@@ -137,31 +137,24 @@ const SharingList = () => {
 		return (
 			<Modal show={showComments} onHide={handleCloseComments} animation={true} centered backdrop={false} >
 				<Modal.Header closeButton>
-					<Modal.Title style={{ fontSize: "20px" }}>{selectedSharing}</Modal.Title>
+					<Modal.Title style={{ fontSize: "15px",fontWeight:"500" }}>{selectedSharing}</Modal.Title>
 				</Modal.Header>
-				<Modal.Body >
+				<Modal.Body style={{paddingTop:"0px"}}>
 					{commentList.map((comment, index) => (
-
-						<div key={index} style={{ padding: "10px", }}>
-							<div style={{ display: "inline-block", width: "100%", }}>
-								<div style={{ display: "inline", float: "left" }}>
-									<i class="far fa-user" style={{ width: "20px", height: "20px", color: "#1a2631" }}></i>
-								</div>
-								<div style={{ display: "inline", float: "left" }}>{comment.comment.username}</div>
-								<div style={{ display: "inline", float: "right" }}>{convertDate(comment.comment.date)}</div>
+						<div key={index} style={{ padding: "5px",borderBottom: "1px solid #DEE2E6"}}>
+							<div style={{ display: "inline-block", width: "100%" }}>
+								
+								<div style={{ float: "left"}}><h2 style={{fontWeight:"500",fontSize:"14px",color:"rgb(243, 82, 82)",marginBottom:"0"}}>{comment.comment.username}</h2></div>
+								<div style={{  float: "right" }}><h2 style={{fontWeight:"500",fontSize:"13px",color:"#616364 "}}>{convertDate(comment.comment.date)}</h2></div>
 							</div>
 							<div >
-								<div>{comment.comment.comment}</div>
+								<div><h2 style={{fontWeight:"400",fontSize:"13px"}}>{comment.comment.comment}</h2></div>
 
 							</div>
 						</div>
 					))}
-
 				</Modal.Body>
-				<Modal.Footer>
-
-
-				</Modal.Footer>
+				
 			</Modal>);
 	}
 	return (
