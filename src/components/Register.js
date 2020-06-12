@@ -61,7 +61,7 @@ const Register = () => {
     }
     return (
         <div >
-            <div style={{ marginLeft:"15%",marginRight:"15%", backgroundImage: "linear-gradient(rgb(78, 85, 129), rgb(54, 102, 114))",marginTop:"30px",marginBottom:"30px",paddingTop:"30px",paddingBottom:"30px",boxShadow:"0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)",border:"solid",borderWidth:"1px",borderRadius: "3px" }}>
+            <div style={{ marginLeft:"25%",marginRight:"25%", backgroundImage: "linear-gradient(rgb(78, 85, 129), rgb(54, 102, 114))",marginTop:"2%",marginBottom:"30px",padding:"15px",paddingBottom:"20px",boxShadow:"0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)",border:"solid",borderWidth:"1px",borderRadius: "3px" }}>
                 <div style={{ paddingLeft: "15%", paddingRight: "15%" }}>
                     <h2 style={{ textAlign: "center", color: "white" }}><MDBIcon icon="users" style={{ fontSize: "100px" }} /></h2>
                 </div>
