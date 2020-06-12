@@ -1,0 +1,22 @@
+#check-icon-comment{
+    color:white;
+    font-size: 15px;
+    display: table-cell;
+}
+#answered-header{
+    color:rgb(151, 140, 140);
+    font-size:15px;
+    font-weight:400;
+    padding-top:10px;
+}
+#unanswered-header{
+    color:rgb(243, 82, 82);
+    font-size:15px;
+    font-weight:400;
+    padding-top:10px;
+}
+#sharings{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20px;
+}

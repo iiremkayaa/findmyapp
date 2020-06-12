@@ -19,6 +19,8 @@ const Sharing = (props) => {
 
 	const [description, setDescription] = useState('');
 	const [username, setUsername] = useState("");
+	const [userEmail, setUserEmail] = useState("");
+
 	const [isAnon, setIsAnon] = useState(false);
 	const [store, setStore] = useState("App Store");
 	const [payment, setPayment] = useState("Free App");
@@ -32,6 +34,7 @@ const Sharing = (props) => {
 					querySnapShot.forEach((child) => {
 						if (child.val().email === authUser.email) {
 							setUsername(child.val().username);
+							setUserEmail(child.val().email);
 						}
 					});
 				});
@@ -78,6 +81,7 @@ const Sharing = (props) => {
 					isAnon: isAnon,
 					store: store,
 					payment: payment,
+					userEmail:userEmail,
 				}
 				db.ref('/sharing').push(data);
 				setIsAnon(false);
