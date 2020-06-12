@@ -12,16 +12,17 @@
 }
 #login-top{
     text-align: center;/*#526b77*/
-    color:#244869;
+    color:#5F768B;
 } 
 #sign-in{
-    font-weight:500;
-    font-size:20px;
-    border-radius:8px;
+    font-weight:400;
+    font-size:15px;
+    border-radius:5px;
      color:white;
-     background-color: #244869;
+     background-color: #5F768B;
      padding:5px;
      padding-left:20px;
      padding-right:20px;
+     border-color: white;
      
 }
