@@ -25,6 +25,11 @@
      color:rgba(56, 175, 41, 0.815);
      font-size: 50px;
 }
+#check-icon-comment{
+    color:white;
+    font-size: 15px;
+    display: table-cell;
+}
 #answered-header{
     color:rgb(151, 140, 140);
     font-size:15px;

@@ -139,7 +139,7 @@ const SharingList = () => {
 				<Modal.Header closeButton>
 					<Modal.Title style={{ fontSize: "15px",fontWeight:"500" }}>{selectedSharing}</Modal.Title>
 				</Modal.Header>
-				<Modal.Body style={{paddingTop:"0px"}}>
+				<Modal.Body style={{paddingTop:"5px",paddingBottom:"0px"}}>
 					{commentList.map((comment, index) => (
 						<div key={index} style={{ padding: "5px",borderBottom: "1px solid #DEE2E6"}}>
 							<div style={{ display: "inline-block", width: "100%" }}>
@@ -149,8 +149,13 @@ const SharingList = () => {
 							</div>
 							<div >
 								<div><h2 style={{fontWeight:"400",fontSize:"13px"}}>{comment.comment.comment}</h2></div>
-
 							</div>
+							{comment.comment.isSelected &&<div style={{ display: "inline-block",textAlign:"center",width:"100%"}}>
+								 <div style={{ display:"table",float:"right",backgroundColor:"rgba(56, 175, 41, 0.815)",padding:"5px",paddingRight:"10px",paddingLeft:"10px",border:"solid",borderRadius:"12px",borderColor:"white"}} >
+									<h2 style={{display:"table-cell",fontSize:"13px",fontWeight:"500",paddingRight:"5px",color:"white"}}>SELECTED</h2>
+									<i class="fas fa-check" id="check-icon-comment"></i>
+								</div>
+							</div>}
 						</div>
 					))}
 				</Modal.Body>
