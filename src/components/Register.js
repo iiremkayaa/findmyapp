@@ -6,7 +6,7 @@ import { MDBIcon } from "mdbreact";
 import { db } from '../firebase/index';
 import './Register.css';
 
-const Register = () => {
+const Register = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -15,11 +15,7 @@ const Register = () => {
     const [passControl, setPassControl] = useState(false);
     const submit = (event) => {
         event.preventDefault();
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-            //var errorCode = error.code;
-            //var errorMessage = error.message;
-          
-        });
+       
         const data={
 			username:username,
 			password:password,
@@ -27,7 +23,17 @@ const Register = () => {
             sharings:[],
             comments:[],
 		}
-		db.ref('/user').push(data);
+        db.ref('/user').push(data);
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+            //var errorCode = error.code;
+            //var errorMessage = error.message;
+          
+        });
+        firebase.auth().onAuthStateChanged((authUser) => {
+            if(authUser!==null){
+                props.history.push(`/`);
+            }	
+		})
     }
     const handleEmail = (event) => {
         setEmail(event.target.value);

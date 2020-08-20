@@ -15,14 +15,25 @@ const Login = (props) => {
     
     const submit = (event) => {
         event.preventDefault();
+        console.log("ney");
+        
         firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+            console.log("gell");
             var errorCode = error.code;
             var errorMessage = error.message;
             if(errorCode === "auth/invalid-email" || errorCode === "auth/wrong-password"){
                 setInCorrectUser(true);
             }
-          });
-        setInCorrectUser(false); 
+            else{
+                setInCorrectUser(false);
+            }
+        });
+        firebase.auth().onAuthStateChanged((authUser) => {
+            if(authUser!==null){
+                props.history.push(`/`);
+            }	
+		})
+        //setInCorrectUser(false);
     }
     const handleEmail = (event) => {
         setEmail(event.target.value);
