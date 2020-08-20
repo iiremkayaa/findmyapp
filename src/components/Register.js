@@ -67,32 +67,32 @@ const Register = () => {
                 </div>
                 <Form style={{ paddingLeft: "15%", paddingRight: "15%" }}>
                     <div style={{marginTop:"10px",marginBottom:"10px"}} >
-                        <Form.Label style={{  color: "#526b77",fontWeight:"500",fontSize:"20px"}} >Username:</Form.Label>
+                        <Form.Label style={{  color: "#526b77",fontWeight:"500",fontSize:"18px"}} >Username:</Form.Label>
                         <Form.Control style={{}} type="text" placeholder="" onChange={handleUsername} />
                     </div>
 
                     <div style={{marginTop:"10px",marginBottom:"10px"}} >
-                        <Form.Label style={{ color: "#526b77" ,fontWeight:"500",fontSize:"20px"}}>Email:</Form.Label>
+                        <Form.Label style={{ color: "#526b77" ,fontWeight:"500",fontSize:"18px"}}>Email:</Form.Label>
                         <Form.Control style={{ }} type="email" placeholder="" onChange={handleEmail} />
                         
                     </div>
 
                     <div style={{marginTop:"10px",marginBottom:"10px"}} >
-                        <Form.Label style={{  color: "#526b77",fontWeight:"500",fontSize:"20px" }}>Password:</Form.Label>
+                        <Form.Label style={{  color: "#526b77",fontWeight:"500",fontSize:"18px" }}>Password:</Form.Label>
                         <Form.Control style={{ }} type="password" placeholder="" onChange={handlePassword} />
                         {charControl && <Form.Text id="register-message">
                             The password field must be at least 5 characters.
                         </Form.Text>}
                     </div>
                     <div style={{marginTop:"10px",marginBottom:"10px"}} >
-                        <Form.Label style={{ color: "#526b77" ,fontWeight:"500",fontSize:"20px"}}>Confirm Password:</Form.Label>
+                        <Form.Label style={{ color: "#526b77" ,fontWeight:"500",fontSize:"18px"}}>Confirm Password:</Form.Label>
                         <Form.Control style={{ }} type="password" placeholder="" onChange={handleConfirmPassword} />
                         {passControl && <Form.Text id="register-message">
                             The password must match confirm password.
                         </Form.Text>}
                     </div>
                     <div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
-                    <button  type="submit" onClick={submit} style={{fontWeight:"500",fontSize:"20px",borderRadius:"8px", color:"white",backgroundColor: "#244869",padding:"5px",paddingLeft:"20px",paddingRight:"20px"}}>
+                    <button  type="submit" id="sign-up" onClick={submit} >
                             SIGN UP
                     </button>
                     </div>
