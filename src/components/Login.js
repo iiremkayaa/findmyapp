@@ -54,7 +54,7 @@ const Login = (props) => {
       }
     return (
         <div >
-            <div style={{marginLeft:"30%",marginRight:"30%", backgroundColor: "white",marginTop:"5%",padding:"20px",borderRadius:"5px"}}>
+            <div style={{marginLeft:"30%",marginRight:"30%", backgroundColor: "white",marginTop:"5%",padding:"20px",borderRadius:"5px",boxShadow:"0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)"}}>
                 <div style={{ paddingBottom:"0px"}}>
                     <h2 id="login-top" ><MDBIcon icon="user-circle"  style={{ fontSize:"100px" }} /></h2>
                 </div>

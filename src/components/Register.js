@@ -60,8 +60,8 @@ const Register = () => {
         setUsername(event.target.value);
     }
     return (
-        <div >
-            <div style={{ marginLeft:"15%",marginRight:"15%", backgroundColor: "white",marginTop:"30px",marginBottom:"30px",paddingTop:"30px",paddingBottom:"30px" }}>
+        <div  >
+            <div style={{ marginLeft:"20%",marginRight:"20%", boxShadow: "0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)",marginTop:"30px",marginBottom:"30px",paddingTop:"30px",paddingBottom:"30px" }}>
                 <div style={{ paddingLeft: "15%", paddingRight: "15%" }}>
                     <h2 style={{ textAlign: "center", color: "#244869" }}><MDBIcon icon="users" style={{ fontSize: "100px" }} /></h2>
                 </div>

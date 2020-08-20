@@ -15,13 +15,15 @@
     color:#244869;
 } 
 #sign-in{
-    font-weight:500;
-    font-size:20px;
-    border-radius:8px;
-     color:white;
-     background-color: #244869;
-     padding:5px;
-     padding-left:20px;
-     padding-right:20px;
+    font-weight:400;
+    font-size:16px;
+    border-width: 1px;
+    border-radius:5px;
+    border-color:white;
+    color:white;
+    background-color: #244869;
+    padding:5px;
+    padding-left:30px;
+    padding-right:30px;
      
 }
