@@ -7,6 +7,7 @@ import * as firebase from "firebase";
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useHistory } from "react-router-dom";
 const SharingList = () => {
 	const [sharings, setSharings] = useState([]);
 	const [user, setUser] = useState("");
@@ -18,7 +19,7 @@ const SharingList = () => {
 	const [selectedSharing, setSelectedSharing] = useState("");
 	const [commentMessage, setCommentMessage] = useState(false);
 	const [commentList, setCommentList] = useState([]);
-
+    const history = useHistory();
 	useEffect(() => {
 		db.ref('/sharing').on('value', querySnapShot => {
 			let values = [];
@@ -85,25 +86,33 @@ const SharingList = () => {
 		return (day + '.' + month + '.' + year);
 	}
 	const sendCommentChange = (event) => {
-		event.preventDefault();
-		setCommentMessage(true);
-		var today = new Date();
-		var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-		var time = today.getHours() + ":" + today.getMinutes();
-		const data = {
-			comment: comment,
-			sharingId: selectedSharingId,
-			date: convertDateFormatToPost(date),
-			time: time,
-			username: user
-		}
-		db.ref('/comment').push(data);
-		setTimeout(function () {
-			setCommentMessage(false);
-			setShow(false);
-			setSelectedSharingId("");
-			setComment("");
-		}, 3000);
+        event.preventDefault();
+
+        if(user===""){
+            
+            history.push("/login");
+        }
+        else{
+            setCommentMessage(true);
+            var today = new Date();
+            var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            var time = today.getHours() + ":" + today.getMinutes();
+            const data = {
+                comment: comment,
+                sharingId: selectedSharingId,
+                date: convertDateFormatToPost(date),
+                time: time,
+                username: user
+            }
+            db.ref('/comment').push(data);
+            setTimeout(function () {
+                setCommentMessage(false);
+                setShow(false);
+                setSelectedSharingId("");
+                setComment("");
+            }, 3000);
+        }
+		
 	}
 	const showPopUp = () => {
 		return (
@@ -113,7 +122,7 @@ const SharingList = () => {
 				</Modal.Header>
 				<Modal.Body >
 					<div style={{}}>
-						<h2 style={{ fontSize: "20px", fontWeight: "500", }}>{selectedSharing}</h2>
+						<h2 style={{ fontSize: "16px", fontWeight: "500", }}>{selectedSharing}</h2>
 					</div>
 					<Form style={{ marginTop: "20px", marginBottom: "20px" }}>
 						<Form.Control type="text" value={comment} placeholder="Enter your suggestion here" onChange={(event) => { handleCommentChange(event) }} />
@@ -123,7 +132,7 @@ const SharingList = () => {
 					</div>}
 				</Modal.Body>
 				<Modal.Footer>
-					<button onClick={sendCommentChange} style={{ fontWeight: "500", fontSize: "20px", borderRadius: "8px", color: "white", backgroundColor: "#1a2631", padding: "2px", paddingLeft: "15px", paddingRight: "15px" }}>
+					<button onClick={sendCommentChange} style={{ fontWeight: "400", fontSize: "15px",borderWidth:"1px", borderRadius: "5px",borderColor:"white", color: "white", backgroundColor:"#244869", padding: "3px", paddingLeft: "30px", paddingRight: "30px" }}>
 						SEND
                 </button>
 
@@ -137,25 +146,25 @@ const SharingList = () => {
 		return (
 			<Modal show={showComments} onHide={handleCloseComments} animation={true} centered backdrop={false} >
 				<Modal.Header closeButton>
-					<Modal.Title style={{ fontSize: "20px" }}>{selectedSharing}</Modal.Title>
+					<Modal.Title style={{ fontSize: "16px" }}>{selectedSharing}</Modal.Title>
 				</Modal.Header>
 				<Modal.Body >
-					{commentList.map((comment, index) => (
+					{commentList.length>0 ? commentList.map((comment, index) => (
 
 						<div key={index} style={{ padding: "10px", }}>
 							<div style={{ display: "inline-block", width: "100%", }}>
 								<div style={{ display: "inline", float: "left" }}>
-									<i class="far fa-user" style={{ width: "20px", height: "20px", color: "#1a2631" }}></i>
+									<i class="far fa-user" style={{ width: "20px", height: "20px", color: "#1a2631",fontWeight:"600" }}></i>
 								</div>
-								<div style={{ display: "inline", float: "left" }}>{comment.comment.username}</div>
-								<div style={{ display: "inline", float: "right" }}>{convertDate(comment.comment.date)}</div>
+								<div style={{ display: "inline", float: "left",fontSize:"16px",fontWeight:"600" }}>{comment.comment.username}</div>
+								<div style={{ display: "inline", float: "right" ,fontSize:"15px",fontWeight:"600"}}>{convertDate(comment.comment.date)}</div>
 							</div>
 							<div >
-								<div>{comment.comment.comment}</div>
+								<div style={{ fontSize:"14px",fontWeight:"400"}}>{comment.comment.comment}</div>
 
 							</div>
 						</div>
-					))}
+					)) :<div style={{textAlign:"center",fontSize:"15px",fontWeight:"600",color:"gray"}}>There is no suggestion.</div>}
 
 				</Modal.Body>
 				<Modal.Footer>
@@ -212,7 +221,7 @@ const SharingList = () => {
 											<h2 style={{ fontSize: "15px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.payment}</h2>
 											<div style={{ fontSize: "15px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
 										</div>
-										<div>
+										<div style={{borderColor:"white"}}>
 											<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{ color: "rgb(61,83,119)", fontSize: "20px" }}></i></button>
 										</div>
 									</div>
