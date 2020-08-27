@@ -148,11 +148,11 @@ const SharingList = () => {
 				<Modal.Header closeButton>
 					<Modal.Title style={{ fontSize: "16px" }}>{selectedSharing}</Modal.Title>
 				</Modal.Header>
-				<Modal.Body >
+				<Modal.Body style={{padding:"2px"}} >
 					{commentList.length>0 ? commentList.map((comment, index) => (
 
-						<div key={index} style={{ padding: "10px", }}>
-							<div style={{ display: "inline-block", width: "100%", }}>
+						<div key={index} style={{ margin: "10px",backgroundColor:"#f2edf1",borderRadius:"5px",padding:"5px"}}>
+							<div style={{ display: "inline-block", width: "100%" }}>
 								<div style={{ display: "inline", float: "left" }}>
 									<i class="far fa-user" style={{ width: "20px", height: "20px", color: "#1a2631",fontWeight:"600" }}></i>
 								</div>

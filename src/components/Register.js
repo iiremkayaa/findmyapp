@@ -13,7 +13,37 @@ const Register = (props) => {
     const [username, setUsername] = useState("");
     const [charControl, setCharControl] = useState(false);
     const [passControl, setPassControl] = useState(false);
-    const submit = (event) => {
+    const [isExistUsername,setIsExistUsername]=useState(false);
+    const [isExistMail,setIsExistMail]=useState(false);
+
+    async function  returnedIsExistUsername () {
+        let flag=false;
+        var dbFunc=await db.ref('/user').once('value', querySnapShot => {
+            let values = [];
+			querySnapShot.forEach((child) => {
+                if( child.val().username===username  ){
+                    flag=true;
+                }
+               
+            });
+        });
+        return flag;
+    }
+    async function  returnedIsExistMail () {
+        let flag=false;
+        var dbFunc=await db.ref('/user').once('value', querySnapShot => {
+            let values = [];
+			querySnapShot.forEach((child) => {
+                if(child.val().email===email ){
+                    flag=true;
+                }
+               
+            });
+        });
+        return flag;
+    }
+    const submit = async (event) => {
+        console.log(email);
         event.preventDefault();
        
         const data={
@@ -22,18 +52,39 @@ const Register = (props) => {
             email: email,
             sharings:[],
             comments:[],
-		}
-        db.ref('/user').push(data);
-        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-            //var errorCode = error.code;
-            //var errorMessage = error.message;
-          
-        });
-        firebase.auth().onAuthStateChanged((authUser) => {
-            if(authUser!==null){
-                props.history.push(`/`);
-            }	
-		})
+        }
+
+        /*const dbFunc=await db.ref('/user').once('value', querySnapShot => {
+            let values = [];
+			querySnapShot.forEach((child) => {
+                if( child.val().username===username ||child.val().email===email ){
+                    setIsExist(true);
+                }
+               
+			});
+        });*/
+        if( await returnedIsExistMail()===true){
+            setIsExistMail(true);
+        }
+        if( await returnedIsExistUsername()===true){
+            setIsExistUsername(true);
+        }
+        if(await returnedIsExistUsername()===false && await returnedIsExistMail()===false){
+            console.log("asaaa");
+            db.ref('/user').push(data);
+            firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+                //var errorCode = error.code;
+                //var errorMessage = error.message;
+              
+            });
+            firebase.auth().onAuthStateChanged((authUser) => {
+                if(authUser!==null){
+                    props.history.push(`/`);
+                }	
+            })
+        }
+       
+        
     }
     const handleEmail = (event) => {
         setEmail(event.target.value);
@@ -98,12 +149,19 @@ const Register = (props) => {
                         </Form.Text>}
                     </div>
                     <div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
-                    <button  type="submit" id="sign-up" onClick={submit} >
+                    <button  type="submit" id="sign-up" onClick={event=>submit(event)} >
                             SIGN UP
                     </button>
                     </div>
                 </Form>
-
+                <div  style={{  width: "100%", marginTop: "10px" }}>
+                    {isExistMail && <Form.Text id="message">
+                            Email is already taken.
+                        </Form.Text>}
+                        {isExistUsername && <Form.Text id="message">
+                            Username  is already taken.
+                        </Form.Text>}
+                    </div>
             </div>
         </div>
     );
