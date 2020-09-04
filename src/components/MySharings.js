@@ -91,16 +91,40 @@ const MySharings = () => {
         setShow(false);
         window.location.reload(false);
     }
-    const approveComment=(event,id)=>{
+    const approveComment=(event,comment)=>{
         event.preventDefault();
-        db.ref(`comment/${id}`).update({
+        let answeredNum=0;
+        let sharingIds="";
+        sharings.forEach((sharing)=>{
+            if(sharing.sharingId===comment.comment.sharingId){
+                answeredNum=sharing.sharing.answeredNum;
+                sharingIds=sharing.sharingId;
+            }
+        })
+        db.ref(`sharing/${sharingIds}`).update({
+            answeredNum:answeredNum+1,
+
+        });
+        db.ref(`comment/${comment.commentId}`).update({
             isApproved: true,
         });
     }
-    const notApproveComment=(event,id)=>{
+    const notApproveComment=(event,comment)=>{
         event.preventDefault();
-        db.ref(`comment/${id}`).update({
+        let answeredNum=0;
+        let sharingIds="";
+        sharings.forEach((sharing)=>{
+            if(sharing.sharingId===comment.comment.sharingId){
+                answeredNum=sharing.sharing.answeredNum;
+                sharingIds=sharing.sharingId;
+            }
+        })
+        db.ref(`comment/${comment.commentId}`).update({
             isApproved: false,
+        });
+        db.ref(`sharing/${sharingIds}`).update({
+            answeredNum:answeredNum-1,
+
         });
     }
     const showCommentPopUp = () => {
@@ -125,10 +149,10 @@ const MySharings = () => {
 
                             </div>
                             <div style={{ display: "flex", float: "right", margin: 0, padding: 0 }}>
-                                {!comment.comment.isApproved &&  <button onClick={(event) => { approveComment(event,comment.commentId) }} style={{ display:"inline", border: "none" }} >
+                                {!comment.comment.isApproved &&  <button onClick={(event) => { approveComment(event,comment) }} style={{ display:"inline", border: "none" }} >
                                     <h2 style={{ fontSize: "14px", fontWeight: "600", display: "flex", float: "right", color: "rgb(243, 82, 82)" }}>Approve</h2>
                                 </button>}
-                                {comment.comment.isApproved && <button onClick={(event) => { notApproveComment(event,comment.commentId) }} style={{ display:"inline", border: "none" }} >
+                                {comment.comment.isApproved && <button onClick={(event) => { notApproveComment(event,comment) }} style={{ display:"inline", border: "none" }} >
                                     <h2 style={{ fontSize: "14px", fontWeight: "600", display: "flex", float: "right", color: "rgba(56, 175, 41, 0.815)" }}>Approved</h2>
                 </button>}
                             </div>
@@ -179,12 +203,12 @@ const MySharings = () => {
                 {sharings.map((sharings, index) => (
                     <div key={index} id="sharing" >
                         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                            {!sharings.sharing.isAnswered && <div style={{ textAlign: "center", paddingLeft: "12px", paddingRight: "12px" }}>
+                            {!(sharings.sharing.answeredNum>0) && <div style={{ textAlign: "center", paddingLeft: "12px", paddingRight: "12px" }}>
                                 <i className="fas fa-question" id="question-icon" ></i>
                                 <h2 id="unanswered-header" >Unanswered</h2>
 
                             </div>}
-                            {sharings.sharing.isAnswered && <div style={{ textAlign: "center", paddingLeft: "20px", paddingRight: "20px" }}>
+                            {(sharings.sharing.answeredNum>0) && <div style={{ textAlign: "center", paddingLeft: "20px", paddingRight: "20px" }}>
                                 <i className="fas fa-check" id="check-icon"></i>
                                 <h2 id="answered-header" >Answered</h2>
                             </div>}

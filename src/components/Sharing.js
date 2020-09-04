@@ -76,7 +76,8 @@ const Sharing = (props) => {
 					time: time,
 					isAnon: isAnon,
 					store: store,
-					payment: payment,
+                    payment: payment,
+                    isAnswered:false
 				}
 				db.ref('/sharing').push(data);
 				setIsAnon(false);

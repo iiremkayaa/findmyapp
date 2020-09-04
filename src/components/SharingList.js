@@ -187,12 +187,12 @@ const SharingList = () => {
                 <div key={index} id="sharing" >
 
                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                        {!sharings.sharing.isAnswered && <div style={{ textAlign: "center", paddingLeft: "12px", paddingRight: "12px" }}>
+                        {!(sharings.sharing.answeredNum>0) && <div style={{ textAlign: "center", paddingLeft: "12px", paddingRight: "12px" }}>
                             <i class="fas fa-question" id="question-icon" ></i>
                             <h2 id="unanswered-header" >Unanswered</h2>
 
                         </div>}
-                        {sharings.sharing.isAnswered && <div style={{ textAlign: "center", paddingLeft: "20px", paddingRight: "20px" }}>
+                        {sharings.sharing.answeredNum>0 && <div style={{ textAlign: "center", paddingLeft: "20px", paddingRight: "20px" }}>
                             <i class="fas fa-check" id="check-icon"></i>
                             <h2 id="answered-header" >Answered</h2>
                         </div>}
