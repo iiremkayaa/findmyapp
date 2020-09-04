@@ -40,7 +40,7 @@ class NavigationBar extends React.Component {
             return(<div style={{}}>
                 <Nav.Link href="/suggestions" style={{ textAlign: "right", color: "#5a6f83",display:"inline" }} >Comments</Nav.Link>
             <Nav.Link href="/sharings" style={{ textAlign: "right", color: "#5a6f83",display:"inline" }} >Sharings</Nav.Link>
-            <Nav.Link href="/profile" style={{ textAlign: "right", color: "#5a6f83",display:"inline" }} >Profile</Nav.Link>
+            <Nav.Link href="/logout" style={{ textAlign: "right", color: "#5a6f83",display:"inline" }} >Logout</Nav.Link>
             </div>);
 		}
 

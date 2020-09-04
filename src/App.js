@@ -9,6 +9,7 @@ import Profile from './components/Profile';
 import AddingApp from './components/AddingApp';
 import MySharings from './components/MySharings';
 import Suggestions from './components/Suggestions';
+import Logout from './components/Logout';
 class App extends Component {
   
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
               <Route exact path="/share" component={AddingApp} />
               <Route exact path="/sharings" component={MySharings} />
               <Route exact path="/suggestions" component={Suggestions} />
+              <Route exact path="/logout" component={Logout} />
             </Switch>
       </Router>
     )
