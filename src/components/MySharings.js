@@ -12,17 +12,30 @@ const MySharings= ()=>{
 	const [selectedSharing, setSelectedSharing] = useState("");
 	const [commentList, setCommentList] = useState([]);
 	const [showComments, setShowComments] = useState(false);
+	const [show, setShow] = useState(false);
 
-    /*useEffect(() => {
-		console.log("xx");
-		
-    }, []);*/
+    const showPopUp = () => {
+		return (
+			<Modal show={show} onHide={handleClose} animation={true} centered backdrop={false} >
+				<Modal.Header closeButton>
+					<Modal.Title style={{ fontSize: "20px" }}></Modal.Title>
+				</Modal.Header>
+				<Modal.Body >
+					<div style={{}}>
+						<h2 style={{ fontSize: "16px", fontWeight: "500", }}>Are you sure?</h2>
+					</div>
+					
+				</Modal.Body>
+				<Modal.Footer>
+					<button onClick={(event) => { deleteFunc(event) }} style={{ fontWeight: "500", fontSize: "15px",borderWidth:"1px", borderRadius: "5px",borderColor:"white", color: "white", backgroundColor:"#244869", padding: "3px", paddingLeft: "15px", paddingRight: "15px" }}>
+						Delete
+                </button>
+
+				</Modal.Footer>
+			</Modal>);
+	}
     useEffect(() => {
-		/*firebase.auth().signOut().then(function() {
-            // Sign-out successful.
-          }).catch(function(error) {
-            // An error happened.
-          });*/
+		
 		firebase.auth().onAuthStateChanged((authUser) => {
 			if (authUser) {
 				db.ref('/user').on('value', querySnapShot => {
@@ -65,8 +78,18 @@ const MySharings= ()=>{
     const handleCloseComments = () => {
 		setShowComments(false);
     }
+    const handleClose = () => {
+		setShow(false);
+	}
     const convertDate = (date) => {
 		return date;
+    }
+    const deleteFunc = (event) => {
+        event.preventDefault();
+        let userRef = db.ref('sharing/' + selectedSharingId);
+        userRef.remove();
+        setShow(false);
+        window.location.reload(false);
 	}
     const showCommentPopUp = () => {
 		return (
@@ -117,9 +140,18 @@ const MySharings= ()=>{
 		});
 		setShowComments(true);
     };
+    const deleteSharing =(event, id)=>{
+        event.preventDefault();
+        setSelectedSharingId(id);
+		db.ref(`sharing/${id}`).on('value', querySnapShot => {
+			setSelectedSharing(querySnapShot.val().description);
+		});
+		setShow(true);
+    }
     return(
             <div style={{paddingLeft:"10%",paddingRight:"10%",paddingTop:"10px"}}>
                 <div>
+                {showPopUp()}
                 {showCommentPopUp()}
 				{sharings.map((sharings, index) => (
 					<div key={index} id="sharing" >
@@ -155,7 +187,7 @@ const MySharings= ()=>{
 											<h2 id="suggestion-header" >Suggestions</h2>
 										</button>
 									</div>
-									<div style={{ display: "flex", float: "right", margin: 0, padding: 0 }}>
+									<div style={{ display: "flex", float: "right" }}>
 										<div style={{ paddingRight: "15px" }}>
 											<h2 style={{ fontSize: "15px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.store}</h2>
 											<div style={{ fontSize: "15px", display: "inline" }}><i className="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
@@ -164,7 +196,9 @@ const MySharings= ()=>{
 											<h2 style={{ fontSize: "15px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.payment}</h2>
 											<div style={{ fontSize: "15px", display: "inline" }}><i className="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
 										</div>
-										
+										<div style={{borderColor:"white"}}> 
+											<button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { deleteSharing(event, sharings.sharingId) }}><i class="fas fa-trash-alt"  style={{ width: "25px", height: "25px", color: "rgb(61,83,119)",fontSize:"18px" }}></i></button>
+										</div>
 									</div>
 								</div>
 							</div>
