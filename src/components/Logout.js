@@ -11,7 +11,7 @@ const Logout = () => {
           }).catch(function(error) {
             // An error happened.
           });
-          history.push(`/login`);
+          history.push(`/`);
         
     }, []);
   return (

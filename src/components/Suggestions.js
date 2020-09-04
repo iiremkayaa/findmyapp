@@ -34,6 +34,13 @@ const Suggestions = () => {
     }, []);
 
     useEffect(() => {
+        db.ref('/sharing').on('value',querySnapShot=>{
+            let values = [];
+            querySnapShot.forEach((child) => {
+                    values.push({ sharingId: child.ref.key, sharing: child.val() })
+            });
+            setSharings(values);
+        })
         db.ref('/comment').on('value', querySnapShot => {
             let values = [];
             querySnapShot.forEach((child) => {
@@ -79,7 +86,17 @@ const Suggestions = () => {
         userRef.remove();
         setShow(false);
         window.location.reload(false);
-	}
+    }
+    const getSharing=(id)=>{
+        sharings.forEach((sharing) => {
+            if(sharing.sharingId===id){
+                let text=sharing.sharing.description;
+                console.log(sharing.sharing.description);
+            return(<div><h3 style={{color:"red"}}>{text}</h3></div>);
+            }
+        })
+			
+    }
     return (
         <div style={{ paddingLeft: "15%", paddingRight: "15%", paddingTop: "20px" }}>
             {showPopUp()}
@@ -92,6 +109,9 @@ const Suggestions = () => {
                         <div style={{ display: "inline", float: "right", color: "black", fontSize: "15px", fontWeight: "500" }}>{suggestion.comment.date}</div>
                     </div>
                     <div style={{width: "100%", display: "inline-block" }}>
+                        {/*<div style={{display:"flex",float:"left"}}>
+                                {getSharing(suggestion.comment.sharingId)}
+            </div>*/}
                         <div style={{display:"flex",float:"left"}}><h2 style={{ color: "black", fontSize: "15px" }}>{suggestion.comment.comment}</h2></div>
                         <div style={{display:"flex",float:"right"}}>
                             <button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { deleteComment(event,suggestion.commentId) }}><i className="fas fa-trash-alt"  style={{  color: "rgb(61,83,119)",fontSize:"15px" }}></i></button>

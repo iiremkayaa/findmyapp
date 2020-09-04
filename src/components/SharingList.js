@@ -22,11 +22,14 @@ const SharingList = () => {
     const history = useHistory();
 	useEffect(() => {
 		db.ref('/sharing').on('value', querySnapShot => {
-			let values = [];
+            let values = [];
 			querySnapShot.forEach((child) => {
-				values.push({ sharingId: child.ref.key, sharing: child.val() })
-			});
-			setSharings(values);
+                console.log(typeof child.val().date);
+                var parts =child.val().date.split('.');
+				values.push({ sharingId: child.ref.key, sharing: child.val(),date:new Date(parts[2], parts[1] - 1, parts[0]) })
+            });
+            const sorted=values.sort((a, b) => b.date - a.date);
+            setSharings(sorted);
 		});
 		firebase.auth().onAuthStateChanged((authUser) => {
 			if (authUser) {
@@ -52,7 +55,7 @@ const SharingList = () => {
 		setShow(true);
 	}
 	const showSuggestion = (event, id) => {
-		event.preventDefault();
+        event.preventDefault();
 		setSelectedSharingId(id);
 		db.ref(`sharing/${id}`).on('value', querySnapShot => {
 			setSelectedSharing(querySnapShot.val().description);
