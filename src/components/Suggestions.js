@@ -3,6 +3,7 @@ import { db } from '../firebase/index';
 import * as firebase from "firebase";
 import './Suggestions.css';
 import { Modal, Form } from 'react-bootstrap';
+import Page from 'react-page-loading'
 
 const Suggestions = () => {
     const [suggestions, setSuggestions] = useState([]);
@@ -45,9 +46,11 @@ const Suggestions = () => {
             let values = [];
             querySnapShot.forEach((child) => {
                 if (user === child.val().username) {
-                    values.push({ commentId: child.ref.key, comment: child.val() })
+                    var parts =child.val().date.split('.');
+                    values.push({ commentId: child.ref.key, comment: child.val(),date:new Date(parts[2], parts[1] - 1, parts[0]) })
                 }
             });
+            const sorted=values.sort((a, b) => b.date - a.date);
             setSuggestions(values);
         });
     }, [user])
@@ -99,6 +102,7 @@ const Suggestions = () => {
     }
     return (
         <div style={{ paddingLeft: "15%", paddingRight: "15%", paddingTop: "20px" }}>
+            <Page loader={"bubble-spin"} color={"#A9A9A9"} size={4}>
             {showPopUp()}
 
             {suggestions.map((suggestion, index) => (
@@ -119,6 +123,7 @@ const Suggestions = () => {
                     </div>
                 </div>
             ))}
+            </Page>
         </div>
     );
 

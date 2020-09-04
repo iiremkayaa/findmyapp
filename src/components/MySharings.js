@@ -3,6 +3,7 @@ import { db } from '../firebase/index';
 import * as firebase from "firebase";
 import './MySharings.css';
 import { Modal, Form } from 'react-bootstrap';
+import Page from 'react-page-loading'
 
 const MySharings = () => {
     const [sharings, setSharings] = useState([]);
@@ -56,15 +57,13 @@ const MySharings = () => {
         db.ref('/sharing').on('value', querySnapShot => {
             let values = [];
             querySnapShot.forEach((child) => {
-                /* */
                 if (user === child.val().user) {
-                    console.log("saa");
-                    console.log(child.val().user);
-                    console.log(user);
-                    values.push({ sharingId: child.ref.key, sharing: child.val() })
+                    var parts =child.val().date.split('.');
+                    values.push({ sharingId: child.ref.key, sharing: child.val(),date:new Date(parts[2], parts[1] - 1, parts[0])  })
                 }
             });
-            setSharings(values);
+            const sorted=values.sort((a, b) => b.date - a.date);
+            setSharings(sorted);
         });
         db.ref('/comment').on('value', querySnapShot => {
             let values = [];
@@ -172,6 +171,8 @@ const MySharings = () => {
     }
     return (
         <div style={{ paddingLeft: "10%", paddingRight: "10%", paddingTop: "10px" }}>
+            <Page loader={"bubble-spin"} color={"#A9A9A9"} size={4}>
+
             <div>
                 {showPopUp()}
                 {showCommentPopUp()}
@@ -193,7 +194,7 @@ const MySharings = () => {
                                 <div style={{ width: "100%", display: "inline-block" }} >
                                     <h1 style={{ color: "rgb(151, 140, 140)", fontSize: "15px", fontWeight: "500", float: "left", marginBottom: "0px" }}>From:</h1>
                                     <h1 style={{ color: "#1a2631", fontSize: "15px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px", marginBottom: "0px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
-                                    <h1 style={{ color: "#616364 ", fontSize: "15px", fontWeight: "500", display: "inline", float: "right", marginBottom: "0px" }} >{/*convertDate(sharings.sharing.date)*/}</h1>
+                                    <h1 style={{ color: "#616364 ", fontSize: "15px", fontWeight: "500", display: "inline", float: "right", marginBottom: "0px" }} >{convertDate(sharings.sharing.date)}</h1>
                                 </div>
                             </div>
                             <div style={{ width: "100%", marginTop: "10px", marginBottom: "15px" }}>
@@ -231,7 +232,7 @@ const MySharings = () => {
             <div>
 
             </div>
-
+        </Page>
         </div>
     );
 
