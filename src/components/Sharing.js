@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { Modal } from 'react-bootstrap';
 import './Sharing.css';
+import { useHistory } from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
 	formControl: {
 		margin: theme.spacing(1),
@@ -38,7 +39,8 @@ const Sharing = (props) => {
 			}
 		});
 
-	}, []);
+    }, []);
+    const history = useHistory();
 	const handleClose = () => {
 		setShow(false);
 	}
@@ -56,7 +58,7 @@ const Sharing = (props) => {
 
 		if (username === "") {
 			console.log("ggr");
-			//props.history.push("/login");
+            history.push(`/login`);
 		}
 		else {
 

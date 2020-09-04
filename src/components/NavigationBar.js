@@ -37,7 +37,11 @@ class NavigationBar extends React.Component {
 			return null;
 		}
 		else {
-			return(<Nav.Link href="/profile" style={{ textAlign: "right", color: "#5a6f83" }} >Profile</Nav.Link>);
+            return(<div style={{}}>
+                <Nav.Link href="/suggestions" style={{ textAlign: "right", color: "#5a6f83",display:"inline" }} >Comments</Nav.Link>
+            <Nav.Link href="/sharings" style={{ textAlign: "right", color: "#5a6f83",display:"inline" }} >Sharings</Nav.Link>
+            <Nav.Link href="/profile" style={{ textAlign: "right", color: "#5a6f83",display:"inline" }} >Profile</Nav.Link>
+            </div>);
 		}
 
 

@@ -102,7 +102,8 @@ const SharingList = () => {
                 sharingId: selectedSharingId,
                 date: convertDateFormatToPost(date),
                 time: time,
-                username: user
+                username: user,
+                isApproved:false
             }
             db.ref('/comment').push(data);
             setTimeout(function () {

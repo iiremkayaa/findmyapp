@@ -1,9 +1,9 @@
 import React, { useState, useEffect  } from 'react';
 import { db } from '../firebase/index';
 import * as firebase from "firebase";
-import './Profile.css';
+import './MySharings.css';
 
-const Profile= ()=>{
+const MySharings= ()=>{
     const [sharings, setSharings] = useState([]);
 	const [user, setUser] = useState("");
     const [comments,setComments]=useState([]);
@@ -122,4 +122,4 @@ const Profile= ()=>{
         );
    
 }
-export default Profile;
+export default MySharings;
