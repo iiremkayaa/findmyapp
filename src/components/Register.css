@@ -17,3 +17,16 @@
         padding-right:30px;
 
 }
+#sign-up-mb{
+    font-weight:500;
+    font-size:14px;
+    border-width: 1px;
+    border-radius:5px;
+    border-color:white;
+    color:white;
+    background-color: #244869;
+    padding:5px;
+    padding-left:20px;
+    padding-right:20px;
+
+}

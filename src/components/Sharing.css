@@ -37,6 +37,14 @@
   margin-bottom: 30px;
   border-radius: 0px;
  }
+ #sharing-form-mb{
+  
+    padding-top:10px;
+    padding-bottom:10px;
+    background-image: linear-gradient(rgb(78, 85, 129), rgb(54, 102, 114));
+    margin-bottom: 10px;
+    border-radius: 0px;
+   }
  #store-style{
   background-color:white;
   color:#253035;
@@ -54,6 +62,12 @@
   color:white;
   font-weight:400;
  }
+ #sharing-label-mb{
+    font-size: 16px;
+    padding: 0px;
+    color:white;
+    font-weight:600;
+   }
  #sendButton{
   border-width: 1px;
   border-radius: 3px; 
