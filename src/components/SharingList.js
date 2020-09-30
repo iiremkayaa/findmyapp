@@ -149,7 +149,7 @@ const SharingList = () => {
                     </div>}
                 </Modal.Body>
                 <Modal.Footer>
-                    <button onClick={sendCommentChange} style={{ fontWeight: "400", fontSize: "15px", borderWidth: "1px", borderRadius: "5px", borderColor: "white", color: "white", backgroundColor: "rgb(78, 85, 129)", padding: "3px", paddingLeft: "30px", paddingRight: "30px" }}>
+                    <button onClick={sendCommentChange} style={{ fontWeight: "400", fontSize: "15px", borderWidth: "1px", borderRadius: "5px", borderColor: "white", color: "white", backgroundColor: "#3e414d", padding: "3px", paddingLeft: "30px", paddingRight: "30px" }}>
                         SEND
                 </button>
 
@@ -197,7 +197,7 @@ const SharingList = () => {
                     {showPopUp()}
                     {showCommentPopUp()}
                     {sharings.map((sharings, index) => (
-                        <div key={index} id="sharing" >
+                        <div key={index} id="sharing" style={{backgroundColor:"#3e414d",boxShadow:"none"}} >
 
                             <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                                 {!(sharings.sharing.answeredNum > 0) && <div style={{ textAlign: "center", paddingLeft: "12px", paddingRight: "12px" }}>
@@ -214,13 +214,13 @@ const SharingList = () => {
                                 <div style={{ marginTop: "0px" }}>
                                     <div style={{ width: "100%", display: "inline-block" }} >
                                         <h1 style={{ color: "rgb(151, 140, 140)", fontSize: "15px", fontWeight: "500", float: "left", marginBottom: "0px" }}>From:</h1>
-                                        <h1 style={{ color: "#1a2631", fontSize: "15px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px", marginBottom: "0px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
+                                        <h1 style={{ color: "white", fontSize: "15px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px", marginBottom: "0px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
                                         <h1 style={{ color: "#616364 ", fontSize: "15px", fontWeight: "500", display: "inline", float: "right", marginBottom: "0px" }} >{convertDate(sharings.sharing.date)}</h1>
                                     </div>
                                 </div>
                                 <div style={{ width: "100%", marginTop: "10px", marginBottom: "15px" }}>
                                     <div style={{ width: "100%" }}>
-                                        <h1 style={{ fontSize: "16px", fontWeight: "500", color: "#1a2631" }}>{sharings.sharing.description}</h1>
+                                        <h1 style={{ fontSize: "16px", fontWeight: "500", color: "white" }}>{sharings.sharing.description}</h1>
                                     </div>
                                 </div>
                                 <div style={{ width: "100%", verticalAlign: "middle", overflow: "auto", }}>
@@ -228,7 +228,7 @@ const SharingList = () => {
 
                                         <div style={{ display: "flex", float: "left" }}>
                                             <button style={{ backgroundColor: "Transparent", border: "none", display: "inline", padding: 0 }} onClick={(event) => { showSuggestion(event, sharings.sharingId) }}>
-                                                <h2 id="suggestion-header" >Suggestions</h2>
+                                                <h2 id="suggestion-header" style={{color:"white"}} >Suggestions</h2>
                                             </button>
                                         </div>
                                         <div style={{ display: "flex", float: "right", margin: 0, padding: 0 }}>
@@ -241,7 +241,7 @@ const SharingList = () => {
                                                 <div style={{ fontSize: "15px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
                                             </div>
                                             <div style={{ borderColor: "white" }}>
-                                                <button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{ color: "rgb(61,83,119)", fontSize: "20px" }}></i></button>
+                                                <button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{ color: "white", fontSize: "20px" }}></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -275,13 +275,13 @@ const SharingList = () => {
                                 <div style={{ marginTop: "0px" }}>
                                     <div style={{ width: "100%", display: "inline-block" }} >
                                         <h1 style={{ color: "rgb(151, 140, 140)", fontSize: "15px", fontWeight: "500", float: "left", marginBottom: "0px" }}>From:</h1>
-                                        <h1 style={{ color: "#1a2631", fontSize: "15px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px", marginBottom: "0px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
+                                        <h1 style={{ color: "white", fontSize: "15px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px", marginBottom: "0px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
                                         <h1 style={{ color: "#616364 ", fontSize: "15px", fontWeight: "500", display: "inline", float: "right", marginBottom: "0px" }} >{convertDate(sharings.sharing.date)}</h1>
                                     </div>
                                 </div>
                                 <div style={{ width: "100%", marginTop: "10px", marginBottom: "15px" }}>
                                     <div style={{ width: "100%" }}>
-                                        <h1 style={{ fontSize: "16px", fontWeight: "500", color: "#1a2631" }}>{sharings.sharing.description}</h1>
+                                        <h1 style={{ fontSize: "16px", fontWeight: "500", color: "white" }}>{sharings.sharing.description}</h1>
                                     </div>
                                 </div>
                                 <div style={{ width: "100%", verticalAlign: "middle", overflow: "auto", }}>
@@ -302,7 +302,7 @@ const SharingList = () => {
                                                 <div style={{ fontSize: "15px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
                                             </div>
                                             <div style={{ borderColor: "white" }}>
-                                                <button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{ color: "rgb(61,83,119)", fontSize: "20px" }}></i></button>
+                                                <button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{ color: "white", fontSize: "20px" }}></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -336,13 +336,13 @@ const SharingList = () => {
                                 <div style={{ marginTop: "0px" }}>
                                     <div style={{ width: "100%", display: "inline-block" }} >
                                         <h1 style={{ color: "rgb(151, 140, 140)", fontSize: "12px", fontWeight: "500", float: "left", marginBottom: "0px" }}>From:</h1>
-                                        <h1 style={{ color: "#1a2631", fontSize: "12px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px", marginBottom: "0px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
+                                        <h1 style={{ color: "white", fontSize: "12px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px", marginBottom: "0px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
                                         <h1 style={{ color: "#616364 ", fontSize: "12px", fontWeight: "500", display: "inline", float: "right", marginBottom: "0px" }} >{convertDate(sharings.sharing.date)}</h1>
                                     </div>
                                 </div>
                                 <div style={{ width: "100%", marginTop: "10px", marginBottom: "15px" }}>
                                     <div style={{ width: "100%" }}>
-                                        <h1 style={{ fontSize: "12px", fontWeight: "500", color: "#1a2631" }}>{sharings.sharing.description}</h1>
+                                        <h1 style={{ fontSize: "12px", fontWeight: "500", color: "white" }}>{sharings.sharing.description}</h1>
                                     </div>
                                 </div>
                                 <div style={{ width: "100%", verticalAlign: "middle", overflow: "auto", }}>
@@ -361,7 +361,7 @@ const SharingList = () => {
                                                 <h2 style={{ fontSize: "12px", fontWeight: "600", marginLeft: "0px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.payment}</h2>
                                             </div>
                                             <div style={{ borderColor: "white" }}>
-                                                <button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{ color: "rgb(61,83,119)", fontSize: "12fpx" }}></i></button>
+                                                <button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{ color: "white", fontSize: "12px" }}></i></button>
                                             </div>
                                         </div>
                                     </div>

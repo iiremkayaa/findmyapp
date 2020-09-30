@@ -128,15 +128,15 @@ const Suggestions = () => {
                             <div style={{ width: "100%", display: "inline-block" }}>
                                 <div style={{ display: "inline", float: "left", fontSize: "15px", fontWeight: "500" }}>{suggestion.comment.isApproved && <h2 style={{ color: "rgba(56, 175, 41, 0.815)", fontSize: "15px" }}>Approved</h2>}</div>
                                 <div style={{ display: "inline", float: "left", fontSize: "15px", fontWeight: "500" }}>{!suggestion.comment.isApproved && <h2 style={{ color: "rgb(151, 140, 140)", fontSize: "15px" }}>Unapproved</h2>}</div>
-                                <div style={{ display: "inline", float: "right", color: "black", fontSize: "15px", fontWeight: "500" }}>{suggestion.comment.date}</div>
+                                <div style={{ display: "inline", float: "right", color: "#616364", fontSize: "15px", fontWeight: "500" }}>{suggestion.comment.date}</div>
                             </div>
                             <div style={{ width: "100%", display: "inline-block" }}>
                                 {/*<div style={{display:"flex",float:"left"}}>
                                 {getSharing(suggestion.comment.sharingId)}
             </div>*/}
-                                <div style={{ display: "flex", float: "left" }}><h2 style={{ color: "black", fontSize: "15px" }}>{suggestion.comment.comment}</h2></div>
+                                <div style={{ display: "flex", float: "left" }}><h2 style={{ color: "white", fontSize: "15px" }}>{suggestion.comment.comment}</h2></div>
                                 <div style={{ display: "flex", float: "right" }}>
-                                    <button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { deleteComment(event, suggestion.commentId) }}><i className="fas fa-trash-alt" style={{ color: "rgb(61,83,119)", fontSize: "15px" }}></i></button>
+                                    <button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { deleteComment(event, suggestion.commentId) }}><i className="fas fa-trash-alt" style={{ color: "white", fontSize: "15px" }}></i></button>
                                 </div>
                             </div>
                         </div>

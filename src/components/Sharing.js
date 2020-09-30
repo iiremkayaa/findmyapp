@@ -162,10 +162,7 @@ const Sharing = (props) => {
                             <input checked={isAnon} type="checkbox" onChange={onSwitchSharing} class="custom-control-input" id="customSwitch1" />
                             <label class="custom-control-label" for="customSwitch1" style={{ fontSize: "18px", color: "white", fontWeight: "400" }} >Anonymous</label>
                         </div>
-                        {/*<div>
-					<input checked={isAnon} onChange={onSwitchSharing} type="checkbox" id="toggle" class="checkbox" />
-					<label for="toggle" class="switch">Anonymous</label>
-				</div>*/}
+                        
 
 
                     </div>
@@ -211,10 +208,7 @@ const Sharing = (props) => {
                             <input checked={isAnon} type="checkbox" onChange={onSwitchSharing} class="custom-control-input" id="customSwitch1" />
                             <label class="custom-control-label" for="customSwitch1" style={{ fontSize: "18px", color: "white", fontWeight: "400" }} >Anonymous</label>
                         </div>
-                        {/*<div>
-					<input checked={isAnon} onChange={onSwitchSharing} type="checkbox" id="toggle" class="checkbox" />
-					<label for="toggle" class="switch">Anonymous</label>
-				</div>*/}
+                        
 
 
                     </div>
@@ -258,10 +252,7 @@ const Sharing = (props) => {
                             <input checked={isAnon} type="checkbox" onChange={onSwitchSharing} class="custom-control-input" id="customSwitch1" />
                             <label class="custom-control-label" for="customSwitch1" style={{ fontSize: "16px", color: "white", fontWeight: "600" }} >Anonymous</label>
                         </div>
-                        {/*<div>
-					<input checked={isAnon} onChange={onSwitchSharing} type="checkbox" id="toggle" class="checkbox" />
-					<label for="toggle" class="switch">Anonymous</label>
-				</div>*/}
+                       
 
 
                     </div>

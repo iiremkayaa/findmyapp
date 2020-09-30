@@ -1,5 +1,4 @@
 #sharing{
-    background-color:white;
     border: solid;
     border-width: 1px;
     border-radius: 8px;
@@ -8,6 +7,7 @@
     margin-bottom:15px;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
     display: flex;
+
 }
 #sharing-mb{
     background-color:white;
@@ -21,9 +21,7 @@
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
     display: flex;
 }
-#sharings{
-    
-}
+
 #suggestion-header{
     color:rgb(61,83,119);
     font-size: 15px;

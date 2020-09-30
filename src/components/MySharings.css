@@ -1,18 +1,16 @@
 #sharing{
-    background-color:white;
-    border: solid;
-    border-width: 1px;
+    background-color:#3e414d;
     border-radius: 8px;
     padding: 15px;
     padding-bottom: 0px;
     margin-bottom:15px;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
     display: flex;
+    border:none;
 }
 #sharing-mb{
-    background-color:white;
+    background-color:#3e414d;
     border: solid;
-    border-width: 1px;
     border-radius: 4px;
     padding: 0px;
     padding-bottom: 0px;
@@ -20,18 +18,19 @@
     margin-bottom:5px;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
     display: flex;
+    border:none;
 }
 #sharings{
     
 }
 #suggestion-header{
-    color:rgb(61,83,119);
+    color:white;
     font-size: 15px;
     font-weight: 600;
     
 }
 #suggestion-header-mb{
-    color:rgb(61,83,119);
+    color:white;
     font-size: 12px;
     font-weight: 600;
     margin-top:.5rem;    

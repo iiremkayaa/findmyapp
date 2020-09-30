@@ -45,16 +45,16 @@ class NavigationBar extends React.Component {
     }
     returnNav() {
         if (this.state.user === null) {
-            return (<Nav.Link href="/login" style={{ textAlign: "right", color: "#5a6f83",fontSize:"16px",fontWeight:"600"  }} >Login</Nav.Link>);
+            return (<Nav.Link href="/login" style={{ textAlign: "right", color: "white",fontSize:"16px",fontWeight:"600"  }} >Login</Nav.Link>);
         }
         else if (this.state.user === "") {
             return null;
         }
         else {
             return (<div style={{}}>
-                <Nav.Link href="/suggestions" style={{ textAlign: "right", color: "#5a6f83", display: "inline",fontSize:"16px",fontWeight:"600" }} >Suggestions</Nav.Link>
-                <Nav.Link href="/sharings" style={{ textAlign: "right", color: "#5a6f83", display: "inline",fontSize:"16px",fontWeight:"600"  }} >Sharings</Nav.Link>
-                <Nav.Link href="/logout" style={{ textAlign: "right", color: "#5a6f83", display: "inline",fontSize:"16px",fontWeight:"600"  }} >Logout</Nav.Link>
+                <Nav.Link href="/suggestions" style={{ textAlign: "right", color: "white", display: "inline",fontSize:"16px",fontWeight:"600" }} >Suggestions</Nav.Link>
+                <Nav.Link href="/sharings" style={{ textAlign: "right", color: "white", display: "inline",fontSize:"16px",fontWeight:"600"  }} >Sharings</Nav.Link>
+                <Nav.Link href="/logout" style={{ textAlign: "right", color: "white", display: "inline",fontSize:"16px",fontWeight:"600"  }} >Logout</Nav.Link>
             </div>);
         }
     }
@@ -98,27 +98,23 @@ class NavigationBar extends React.Component {
                 <Desktop>
                 <div>
                     <Navbar id="nav-bar"  >
-                        <Navbar.Brand href="/" style={{ color: "#5a6f83" }}><h2 style={{ color: "#5a6f83",fontSize:"35px" }}>Find Appy</h2></Navbar.Brand>
+                        <Navbar.Brand href="/" style={{  }}><h2 style={{ color: "white",fontSize:"35px" }}>Find Appy</h2></Navbar.Brand>
                         <Nav className="ml-auto" >
                             {this.returnNav()}
                         </Nav>
                     </Navbar>
                     </div>
                 </Desktop>
-               
-                
                 <Tablet>
                 <div>
                     <Navbar id="nav-bar"  >
-                        <Navbar.Brand href="/" style={{ color: "#5a6f83" }}><h2 style={{ color: "#5a6f83",fontSize:"35px" }}>Find Appy</h2></Navbar.Brand>
+                        <Navbar.Brand href="/" style={{ }}><h2 style={{ color: "white",fontSize:"35px" }}>Find Appy</h2></Navbar.Brand>
                         <Nav className="ml-auto" >
                             {this.returnNav()}
                         </Nav>
                     </Navbar>
                     </div>
                 </Tablet>
-               
-                
                 <Mobile style={{width: window.innerWidth }}>
                 <div style={{marginTop:"60px"}}>
                             {this.returnNavMobile()}

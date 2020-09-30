@@ -1,5 +1,5 @@
 #nav-bar{
-    background-color: white ;
+    background-color:  #3e414d;
     padding-left: 10%;
     padding-right: 10%;
 }
@@ -22,7 +22,7 @@
       position:fixed;
       top:0;
       z-index:100;
-      background-color:rgb(78, 85, 129);
+      background-color:#3e414d;
   
   }
   .headings {
@@ -103,7 +103,7 @@
   
   /* General sidebar styles */
   .bm-menu {
-    background:linear-gradient(rgb(78, 85, 129), rgb(54, 102, 114)); /**/
+    background:#3e414d; /**/
     padding: 2.5em 1.5em 0;
     font-size: 1.15em;
     width: 100%;
