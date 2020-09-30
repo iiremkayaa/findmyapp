@@ -149,7 +149,7 @@ const SharingList = () => {
                     </div>}
                 </Modal.Body>
                 <Modal.Footer>
-                    <button onClick={sendCommentChange} style={{ fontWeight: "400", fontSize: "15px", borderWidth: "1px", borderRadius: "5px", borderColor: "white", color: "white", backgroundColor: "#244869", padding: "3px", paddingLeft: "30px", paddingRight: "30px" }}>
+                    <button onClick={sendCommentChange} style={{ fontWeight: "400", fontSize: "15px", borderWidth: "1px", borderRadius: "5px", borderColor: "white", color: "white", backgroundColor: "rgb(78, 85, 129)", padding: "3px", paddingLeft: "30px", paddingRight: "30px" }}>
                         SEND
                 </button>
 

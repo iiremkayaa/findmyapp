@@ -137,7 +137,7 @@ const Register = (props) => {
                 <Desktop>
                 <div style={{ marginLeft: "20%", marginRight: "20%", boxShadow: "0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)", marginTop: "30px", marginBottom: "30px", paddingTop: "30px", paddingBottom: "30px" }}>
                     <div style={{ paddingLeft: "15%", paddingRight: "15%" }}>
-                        <h2 style={{ textAlign: "center", color: "#244869" }}><MDBIcon icon="users" style={{ fontSize: "100px" }} /></h2>
+                        <h2 style={{ textAlign: "center", color: "rgb(78, 85, 129)" }}><MDBIcon icon="users" style={{ fontSize: "100px" }} /></h2>
                     </div>
                     <Form style={{ paddingLeft: "15%", paddingRight: "15%" }}>
                         <div style={{ marginTop: "10px", marginBottom: "10px" }} >
@@ -186,7 +186,7 @@ const Register = (props) => {
                 <Tablet>
                 <div style={{ marginLeft: "20%", marginRight: "20%", boxShadow: "0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)", marginTop: "30px", marginBottom: "30px", paddingTop: "30px", paddingBottom: "30px" }}>
                     <div style={{ paddingLeft: "15%", paddingRight: "15%" }}>
-                        <h2 style={{ textAlign: "center", color: "#244869" }}><MDBIcon icon="users" style={{ fontSize: "100px" }} /></h2>
+                        <h2 style={{ textAlign: "center", color: "rgb(78, 85, 129)" }}><MDBIcon icon="users" style={{ fontSize: "100px" }} /></h2>
                     </div>
                     <Form style={{ paddingLeft: "15%", paddingRight: "15%" }}>
                         <div style={{ marginTop: "10px", marginBottom: "10px" }} >
@@ -235,29 +235,29 @@ const Register = (props) => {
                 <Mobile>
                 <div style={{ marginLeft: "25px", marginRight: "25px", boxShadow: "0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12)", marginTop: "30px", marginBottom: "30px", paddingTop: "30px", paddingBottom: "30px" }}>
                     <div style={{ paddingLeft: "15px", paddingRight: "15px" }}>
-                        <h2 style={{ textAlign: "center", color: "#244869" }}><MDBIcon icon="users" style={{ fontSize: "75px" }} /></h2>
+                        <h2 style={{ textAlign: "center", color: "rgb(78, 85, 129)" }}><MDBIcon icon="users" style={{ fontSize: "75px" }} /></h2>
                     </div>
                     <Form style={{ paddingLeft: "15px", paddingRight: "15px" }}>
                         <div style={{ marginTop: "10px", marginBottom: "10px" }} >
-                            <Form.Label style={{ color: "#526b77", fontWeight: "500", fontSize: "16px" }} >Username:</Form.Label>
+                            <Form.Label style={{ color: "rgb(78, 85, 129)", fontWeight: "500", fontSize: "16px" }} >Username:</Form.Label>
                             <Form.Control style={{height: "25px"}} type="text" placeholder="" onChange={handleUsername} />
                         </div>
 
                         <div style={{ marginTop: "10px", marginBottom: "10px" }} >
-                            <Form.Label style={{ color: "#526b77", fontWeight: "500", fontSize: "16px" }}>Email:</Form.Label>
+                            <Form.Label style={{ color: "rgb(78, 85, 129)", fontWeight: "500", fontSize: "16px" }}>Email:</Form.Label>
                             <Form.Control style={{height: "25px"}} type="email" placeholder="" onChange={handleEmail} />
 
                         </div>
 
                         <div style={{ marginTop: "10px", marginBottom: "10px" }} >
-                            <Form.Label style={{ color: "#526b77", fontWeight: "500", fontSize: "16px" }}>Password:</Form.Label>
+                            <Form.Label style={{ color: "rgb(78, 85, 129)", fontWeight: "500", fontSize: "16px" }}>Password:</Form.Label>
                             <Form.Control style={{height: "25px"}} type="password" placeholder="" onChange={handlePassword} />
                             {charControl && <Form.Text id="register-message">
                                 The password field must be at least 5 characters.
                         </Form.Text>}
                         </div>
                         <div style={{ marginTop: "10px", marginBottom: "10px" }} >
-                            <Form.Label style={{ color: "#526b77", fontWeight: "500", fontSize: "16px" }}>Confirm Password:</Form.Label>
+                            <Form.Label style={{ color: "rgb(78, 85, 129)", fontWeight: "500", fontSize: "16px" }}>Confirm Password:</Form.Label>
                             <Form.Control style={{height: "25px"}} type="password" placeholder="" onChange={handleConfirmPassword} />
                             {passControl && <Form.Text id="register-message">
                                 The password must match confirm password.

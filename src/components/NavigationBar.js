@@ -4,6 +4,8 @@ import * as firebase from "firebase";
 import './NavBar.css';
 import logo from '../assets/findappy-logoo.png';
 import { useMediaQuery } from 'react-responsive';
+import { slide as Menu } from 'react-burger-menu'
+
 const Desktop = ({ children }) => {
     const isDesktop = useMediaQuery({ minWidth: 992 })
     return isDesktop ? children : null
@@ -58,52 +60,71 @@ class NavigationBar extends React.Component {
     }
     returnNavMobile() {
         if (this.state.user === null) {
-            return (<Nav.Link href="/login" style={{ textAlign: "right", color: "#5a6f83" }} >Login</Nav.Link>);
+            return (
+                <div style={{ width: window.innerWidth }} className="navbar-mobile" >
+                    <a href="/" className="headings" style={{ color: 'white', textDecoration: "none", fontSize: 25, fontWeight: 600, alignContent: "center" }} >FindAppy</a>
+                    <div style={{ width: window.innerWidth * 0.2 }}>
+                        <Menu width={200} right >
+                            <a className="menu-item" style={{ fontSize: 18, fontWeight: "400", color: "white" }} id="login" href="/login">Suggestions</a>
+                            <a className="menu-item" style={{ fontSize: 18, fontWeight: "400", color: "white" }} id="login" href="/login">Sharings</a>
+                            <a className="menu-item" style={{ fontSize: 18, fontWeight: "400", color: "white" }} id="login" href="/login">Login</a>
+                        </Menu>
+                    </div>
+                </div>
+            );
         }
         else if (this.state.user === "") {
             return null;
         }
         else {
-            return (<div style={{}}>
-                <Nav.Link href="/suggestions" style={{ textAlign: "right", color: "#5a6f83", display: "inline" }} >Suggestions</Nav.Link>
-                <Nav.Link href="/sharings" style={{ textAlign: "right", color: "#5a6f83", display: "inline" }} >Sharings</Nav.Link>
-                <Nav.Link href="/logout" style={{ textAlign: "right", color: "#5a6f83", display: "inline" }} >Logout</Nav.Link>
-            </div>);
+            return (
+                <div style={{ width: window.innerWidth }} className="navbar-mobile" >
+                    <a href="/" className="headings" style={{ color: 'white', textDecoration: "none", fontSize: 25, fontWeight: 600, alignContent: "center" }} >FindAppy</a>
+                    <div style={{ width: window.innerWidth * 0.2 }}>
+                        <Menu width={200} right >
+                            <a className="menu-item" style={{ fontSize: 18, fontWeight: "400", color: "white" }} id="suggestions" href="/suggestions">Suggestions</a>
+                            <a className="menu-item" style={{ fontSize: 18, fontWeight: "400", color: "white" }} id="sharings" href="/sharings">Sharings</a>
+                            <a className="menu-item" style={{ fontSize: 18, fontWeight: "400", color: "white" }} id="logout" href="/logout">Logout</a>
+                        </Menu>
+                    </div>
+                </div>
+            );
         }
     }
     render() {
         return (
             <div>
-                <div>
+               
                 <Desktop>
-                    <Navbar id="nav-bar"  >
-                        <Navbar.Brand href="/" style={{ color: "#5a6f83" }}><h2 style={{ color: "#5a6f83",fontSize:"35px" }}>Find Appy</h2></Navbar.Brand>
-                        <Nav className="ml-auto" >
-                            {this.returnNav()}
-                        </Nav>
-                    </Navbar>
-                </Desktop>
-                </div>
                 <div>
-                <Tablet>
                     <Navbar id="nav-bar"  >
                         <Navbar.Brand href="/" style={{ color: "#5a6f83" }}><h2 style={{ color: "#5a6f83",fontSize:"35px" }}>Find Appy</h2></Navbar.Brand>
                         <Nav className="ml-auto" >
                             {this.returnNav()}
                         </Nav>
                     </Navbar>
-                </Tablet>
-                </div>
-                <div >
-                <Mobile>
-                    <Navbar id="nav-bar-mb"  >
-                        <Navbar.Brand href="/" style={{ color: "#5a6f83" }}><h2 style={{ color: "#5a6f83",fontSize:"20px"}}>Find Appy</h2></Navbar.Brand>
+                    </div>
+                </Desktop>
+               
+                
+                <Tablet>
+                <div>
+                    <Navbar id="nav-bar"  >
+                        <Navbar.Brand href="/" style={{ color: "#5a6f83" }}><h2 style={{ color: "#5a6f83",fontSize:"35px" }}>Find Appy</h2></Navbar.Brand>
                         <Nav className="ml-auto" >
-                            {this.returnNavMobile()}
+                            {this.returnNav()}
                         </Nav>
                     </Navbar>
+                    </div>
+                </Tablet>
+               
+                
+                <Mobile style={{width: window.innerWidth }}>
+                <div style={{marginTop:"60px"}}>
+                            {this.returnNavMobile()}
+                            </div>
                 </Mobile>
-                </div>
+                
             </div>
         );
     }

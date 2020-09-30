@@ -13,3 +13,117 @@
     padding-left: 10%;
     padding-right: 10%;
 }
+/****               STYLES OF  BURGER MENU                      ****/
+.navbar-mobile{
+    /*height: 50px;*/
+      width: 100%;
+      display: flex;
+      padding:0px ;
+      position:fixed;
+      top:0;
+      z-index:100;
+      background-color:rgb(78, 85, 129);
+  
+  }
+  .headings {
+    width: 60%;
+    text-align: left;
+    margin-left: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  
+  }
+  
+  .navbar-mobile .headings {
+    width: 80%;
+    text-align: left;
+    margin-left: 10px;
+    display: flex;
+  
+  }
+  .menu-span {
+    width: 20%;
+    height: 50px;
+  }
+  
+  #page-wrap {
+    text-align: center;
+  
+    /* Prevent sidebar from showing a scrollbar on page */
+    overflow: auto;
+  }
+  
+  /* Individual item */
+  .bm-item {
+    display: 'flex';
+  
+    /* Our sidebar item styling */
+    text-decoration: none;
+    margin-bottom: 15px;
+    color: #366da4;
+    transition: color 0.2s;
+  }
+  
+  /* Change color on hover */
+  .bm-item:hover {
+    color: orangered;
+  }
+  
+  /* The rest copied directly from react-burger-menu docs */
+  
+  /* Position and sizing of burger button */
+  .bm-burger-button {
+    position: absolute;
+    text-align: right;
+    width: 30px;
+    height: 25px;
+    right: 15px;
+    top: 12px;
+    bottom: 7px;
+    justify-content: center;
+  
+  
+  }
+  
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: white;
+  }
+  
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: rgb(129, 118, 118);
+  }
+  
+  /* General sidebar styles */
+  .bm-menu {
+    background:linear-gradient(rgb(78, 85, 129), rgb(54, 102, 114)); /**/
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+    width: 100%;
+  }
+  
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #373a47;
+  }
+  
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #b8b7ad;
+    text-align: left;
+    
+  }
+  
+  /* Styling of overlay */
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  /****                      STYLES OF  BURGER MENU                     ****/
+  

@@ -22,17 +22,7 @@ const Main = () => {
         <div >
             <Page loader={"bubble-spin"} color={"#A9A9A9"} size={4}>
                 <Desktop>
-                    {/*<div style={{ padding: "10%", paddingTop: "0px", paddingBottom: "0px" }}>
-        <div style={{ display: "inline-block", width: "100%", height: "100%" }}>
-          <Sharing />
-        </div>
-        <div style={{ display: "inline-block", width: "70%", height: "100%" }}>
-          <SharingList />
-        </div>
-        <div style={{ display: "inline-block", width: "30%", height: "100%", verticalAlign: "top" }}>
-          <AppSlide />
-        </div>
-        </div>*/}
+                   
                 <div style={{ padding: "10%", paddingTop: "0px", paddingBottom: "0px" }}>
                     <div style={{ display: "inline-block", width: "100%", height: "100%" }}>
                         <Sharing />
@@ -47,17 +37,7 @@ const Main = () => {
             </Page>
             <Page loader={"bubble-spin"} color={"#A9A9A9"} size={4}>
                 <Tablet>
-                    {/*<div style={{ padding: "10%", paddingTop: "0px", paddingBottom: "0px" }}>
-        <div style={{ display: "inline-block", width: "100%", height: "100%" }}>
-          <Sharing />
-        </div>
-        <div style={{ display: "inline-block", width: "70%", height: "100%" }}>
-          <SharingList />
-        </div>
-        <div style={{ display: "inline-block", width: "30%", height: "100%", verticalAlign: "top" }}>
-          <AppSlide />
-        </div>
-        </div>*/}
+                   
                 <div style={{ padding: "10%", paddingTop: "0px", paddingBottom: "0px" }}>
                     <div style={{ display: "inline-block", width: "100%", height: "100%" }}>
                         <Sharing />
@@ -72,18 +52,8 @@ const Main = () => {
             </Page>
             <Page loader={"bubble-spin"} color={"#A9A9A9"} size={4}>
                 <Mobile>
-                    {/*<div style={{ padding: "10%", paddingTop: "0px", paddingBottom: "0px" }}>
-        <div style={{ display: "inline-block", width: "100%", height: "100%" }}>
-          <Sharing />
-        </div>
-        <div style={{ display: "inline-block", width: "70%", height: "100%" }}>
-          <SharingList />
-        </div>
-        <div style={{ display: "inline-block", width: "30%", height: "100%", verticalAlign: "top" }}>
-          <AppSlide />
-        </div>
-        </div>*/}
-                <div style={{ padding: "15px", paddingTop: "0px", paddingBottom: "0px" }}>
+                    
+                <div style={{ padding: "5px", paddingTop: "0px", paddingBottom: "0px" }}>
                     <div style={{ display: "inline-block", width: "100%", height: "100%" }}>
                         <Sharing />
                     </div>

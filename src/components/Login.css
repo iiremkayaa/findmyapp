@@ -24,7 +24,7 @@
 }
 #login-top{
     text-align: center;/*#526b77*/
-    color:#244869;
+    color:rgb(78, 85, 129);
 } 
 #sign-in{
     font-weight:400;
@@ -33,7 +33,7 @@
     border-radius:5px;
     border-color:white;
     color:white;
-    background-color: #244869;
+    background-color: rgb(78, 85, 129);
     padding:5px;
     padding-left:30px;
     padding-right:30px;
@@ -46,7 +46,7 @@
     border-radius:5px;
     border-color:white;
     color:white;
-    background-color: #244869;
+    background-color: rgb(78, 85, 129);
     padding:5px;
     padding-left:20px;
     padding-right:20px;

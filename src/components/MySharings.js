@@ -43,7 +43,7 @@ const MySharings = () => {
 
                 </Modal.Body>
                 <Modal.Footer>
-                    <button onClick={(event) => { deleteFunc(event) }} style={{ fontWeight: "500", fontSize: "15px", borderWidth: "1px", borderRadius: "5px", borderColor: "white", color: "white", backgroundColor: "#244869", padding: "3px", paddingLeft: "15px", paddingRight: "15px" }}>
+                    <button onClick={(event) => { deleteFunc(event) }} style={{ fontWeight: "500", fontSize: "15px", borderWidth: "1px", borderRadius: "5px", borderColor: "white", color: "white", backgroundColor: "rgb(78, 85, 129)", padding: "3px", paddingLeft: "15px", paddingRight: "15px" }}>
                         Delete
                 </button>
 

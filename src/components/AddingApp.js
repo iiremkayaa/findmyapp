@@ -116,7 +116,7 @@ const AddingApp = () => {
                         <Form.Control style={{}} type="text" placeholder="" onChange={handleLink} />
                     </div>
                     <div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
-                        <button type="submit" onClick={shareApp} style={{ fontWeight: "400", fontSize: "16px", borderRadius: "5px",borderWidth:1, color: "white", backgroundColor: "#244869", padding: "3px", paddingLeft: "30px", paddingRight: "30px" }}>
+                        <button type="submit" onClick={shareApp} style={{ fontWeight: "400", fontSize: "16px", borderRadius: "5px",borderWidth:1, color: "white", backgroundColor: "rgb(78, 85, 129)", padding: "3px", paddingLeft: "30px", paddingRight: "30px" }}>
                             SHARE
                     </button>
                     </div>

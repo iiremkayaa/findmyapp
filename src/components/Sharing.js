@@ -135,8 +135,6 @@ const Sharing = (props) => {
         <div  >
             <Desktop>
                 <div id="sharing-form">
-
-
                     {showPopUp()}
                     <Form style={{ textAlign: "center" }}>
                         <div style={{ paddingLeft: "40px", paddingRight: "40px", textAlign: "center" }}>
