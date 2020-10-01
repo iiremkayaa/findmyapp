@@ -213,7 +213,7 @@ const SharingList = () => {
                             <div style={{ width: "100%", overflow: "auto" }}>
                                 <div style={{ marginTop: "0px" }}>
                                     <div style={{ width: "100%", display: "inline-block" }} >
-                                        <h1 style={{ color: "rgb(151, 140, 140)", fontSize: "15px", fontWeight: "500", float: "left", marginBottom: "0px" }}>From:</h1>
+                                        <h1 style={{ color: "rgb(151, 140, 140)", fontSize: "15px", fontWeight: "500", float: "left", marginBottom: "0px" }}>By </h1>
                                         <h1 style={{ color: "white", fontSize: "15px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px", marginBottom: "0px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
                                         <h1 style={{ color: "#616364 ", fontSize: "15px", fontWeight: "500", display: "inline", float: "right", marginBottom: "0px" }} >{convertDate(sharings.sharing.date)}</h1>
                                     </div>
@@ -274,7 +274,7 @@ const SharingList = () => {
                             <div style={{ width: "100%", overflow: "auto" }}>
                                 <div style={{ marginTop: "0px" }}>
                                     <div style={{ width: "100%", display: "inline-block" }} >
-                                        <h1 style={{ color: "rgb(151, 140, 140)", fontSize: "15px", fontWeight: "500", float: "left", marginBottom: "0px" }}>From:</h1>
+                                        <h1 style={{ color: "rgb(151, 140, 140)", fontSize: "15px", fontWeight: "500", float: "left", marginBottom: "0px" }}>By </h1>
                                         <h1 style={{ color: "white", fontSize: "15px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px", marginBottom: "0px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
                                         <h1 style={{ color: "#616364 ", fontSize: "15px", fontWeight: "500", display: "inline", float: "right", marginBottom: "0px" }} >{convertDate(sharings.sharing.date)}</h1>
                                     </div>
@@ -335,7 +335,7 @@ const SharingList = () => {
                             <div style={{ width: "100%", overflow: "auto" }}>
                                 <div style={{ marginTop: "0px" }}>
                                     <div style={{ width: "100%", display: "inline-block" }} >
-                                        <h1 style={{ color: "rgb(151, 140, 140)", fontSize: "12px", fontWeight: "500", float: "left", marginBottom: "0px" }}>From:</h1>
+                                        <h1 style={{ color: "rgb(151, 140, 140)", fontSize: "12px", fontWeight: "500", float: "left", marginBottom: "0px" }}>By </h1>
                                         <h1 style={{ color: "white", fontSize: "12px", fontWeight: "500", display: "inline", float: "left", paddingLeft: "5px", marginBottom: "0px" }}> {sharings.sharing.isAnon === true ? "Anonymous" : sharings.sharing.user}</h1>
                                         <h1 style={{ color: "#616364 ", fontSize: "12px", fontWeight: "500", display: "inline", float: "right", marginBottom: "0px" }} >{convertDate(sharings.sharing.date)}</h1>
                                     </div>

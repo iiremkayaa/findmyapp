@@ -8,7 +8,7 @@ const CommentList =()=> {
                this.state.commentList.map((item,index)=>{ 
                     return (
                         <div key={index} className="row">
-                            <div className="col">From: {item.user.username}</div>
+                            <div className="col">By {item.user.username}</div>
                             <div className="col">{item.comment}</div>
                             <div className="col">{item.commentDate}</div>
 
