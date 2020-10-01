@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../firebase/index';
 import * as firebase from "firebase";
 import './Suggestions.css';
-import { Modal, Form } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import Page from 'react-page-loading'
 import { useHistory } from 'react-router-dom';
 
@@ -37,7 +37,7 @@ const Suggestions = () => {
             if (authUser) {
                 db.ref('/user').on('value', querySnapShot => {
                     querySnapShot.forEach((child) => {
-                        if (child.val().email == authUser.email) {
+                        if (child.val().email === authUser.email) {
                             setUser(child.val().username);
                         }
                     });
@@ -110,7 +110,6 @@ const Suggestions = () => {
         sharings.forEach((sharing) => {
             if (sharing.sharingId === id) {
                 let text = sharing.sharing.description;
-                console.log(sharing.sharing.description);
                 return (<div><h3 style={{ color: "red" }}>{text}</h3></div>);
             }
         })

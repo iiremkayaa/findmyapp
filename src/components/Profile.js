@@ -8,7 +8,6 @@ const Profile = (props) => {
     const [sharings, setSharings] = useState([]);
     const [user, setUser] = useState("");
     const [comments, setComments] = useState([]);
-    //const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [username, setUsername] = useState("");
@@ -16,10 +15,7 @@ const Profile = (props) => {
     const [passControl, setPassControl] = useState(false);
     const [isExistUsername, setIsExistUsername] = useState(false);
     const [isExistMail, setIsExistMail] = useState(false);
-    /*useEffect(() => {
-		console.log("xx");
-		
-    }, []);*/
+  
     useEffect(() => {
 		/*firebase.auth().signOut().then(function() {
             // Sign-out successful.
@@ -122,11 +118,8 @@ const Profile = (props) => {
         db.ref('/sharing').on('value', querySnapShot => {
             let values = [];
             querySnapShot.forEach((child) => {
-                /* */
                 if (user === child.val().user) {
-                    console.log("saa");
-                    console.log(child.val().user);
-                    console.log(user);
+                   
                     values.push({ sharingId: child.ref.key, sharing: child.val() })
                 }
             });

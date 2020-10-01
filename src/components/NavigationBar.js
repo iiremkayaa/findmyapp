@@ -1,8 +1,7 @@
 import React from 'react';
-import { Navbar, Nav, Table } from 'react-bootstrap';
+import { Navbar, Nav, } from 'react-bootstrap';
 import * as firebase from "firebase";
 import './NavBar.css';
-import logo from '../assets/findappy-logoo.png';
 import { useMediaQuery } from 'react-responsive';
 import { slide as Menu } from 'react-burger-menu'
 

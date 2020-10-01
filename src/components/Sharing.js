@@ -39,7 +39,6 @@ const Sharing = (props) => {
     const [authUser, setAuthUser] = useState("");
     const [show, setShow] = useState(false);
     useEffect(() => {
-        console.log("xx");
         firebase.auth().onAuthStateChanged(authUser => {
             if (authUser) {
                 db.ref('/user').on('value', querySnapShot => {
@@ -70,7 +69,6 @@ const Sharing = (props) => {
         event.preventDefault();
 
         if (username === "") {
-            console.log("ggr");
             history.push(`/login`);
         }
         else {
@@ -158,9 +156,9 @@ const Sharing = (props) => {
                     </div>
                     <div style={{ textAlign: "center", paddingTop: "20px" }}>
 
-                        <div class="custom-control custom-switch">
-                            <input checked={isAnon} type="checkbox" onChange={onSwitchSharing} class="custom-control-input" id="customSwitch1" />
-                            <label class="custom-control-label" for="customSwitch1" style={{ fontSize: "18px", color: "white", fontWeight: "400" }} >Anonymous</label>
+                        <div className="custom-control custom-switch">
+                            <input checked={isAnon} type="checkbox" onChange={onSwitchSharing} className="custom-control-input" id="customSwitch1" />
+                            <label className="custom-control-label" for="customSwitch1" style={{ fontSize: "18px", color: "white", fontWeight: "400" }} >Anonymous</label>
                         </div>
                         
 
@@ -171,7 +169,7 @@ const Sharing = (props) => {
                         <button type="submit" onClick={event => submitSharing(event)} id="sendButton" >
 
                             <div id="sendButtonHeader"><h2 style={{ fontWeight: "400", fontSize: "15px", marginBottom: "0px" }}>SEND</h2></div>
-                            <div id="sendButtonIcon"><i class="fas fa-arrow-right" style={{ width: "100%", heigth: "100%" }} ></i></div>
+                            <div id="sendButtonIcon"><i className="fas fa-arrow-right" style={{ width: "100%", heigth: "100%" }} ></i></div>
 
                         </button>
                     </div>
@@ -204,9 +202,9 @@ const Sharing = (props) => {
                     </div>
                     <div style={{ textAlign: "center", paddingTop: "20px" }}>
 
-                        <div class="custom-control custom-switch">
-                            <input checked={isAnon} type="checkbox" onChange={onSwitchSharing} class="custom-control-input" id="customSwitch1" />
-                            <label class="custom-control-label" for="customSwitch1" style={{ fontSize: "18px", color: "white", fontWeight: "400" }} >Anonymous</label>
+                        <div className="custom-control custom-switch">
+                            <input checked={isAnon} type="checkbox" onChange={onSwitchSharing} className="custom-control-input" id="customSwitch1" />
+                            <label className="custom-control-label" for="customSwitch1" style={{ fontSize: "18px", color: "white", fontWeight: "400" }} >Anonymous</label>
                         </div>
                         
 
@@ -217,7 +215,7 @@ const Sharing = (props) => {
                         <button type="submit" onClick={event => submitSharing(event)} id="sendButton" >
 
                             <div id="sendButtonHeader"><h2 style={{ fontWeight: "400", fontSize: "15px", marginBottom: "0px" }}>SEND</h2></div>
-                            <div id="sendButtonIcon"><i class="fas fa-arrow-right" style={{ width: "100%", heigth: "100%" }} ></i></div>
+                            <div id="sendButtonIcon"><i className="fas fa-arrow-right" style={{ width: "100%", heigth: "100%" }} ></i></div>
 
                         </button>
                     </div>
@@ -248,9 +246,9 @@ const Sharing = (props) => {
                     </div>
                     <div style={{ textAlign: "center", paddingTop: "10px" }}>
 
-                        <div class="custom-control custom-switch">
-                            <input checked={isAnon} type="checkbox" onChange={onSwitchSharing} class="custom-control-input" id="customSwitch1" />
-                            <label class="custom-control-label" for="customSwitch1" style={{ fontSize: "16px", color: "white", fontWeight: "600" }} >Anonymous</label>
+                        <div className="custom-control custom-switch">
+                            <input checked={isAnon} type="checkbox" onChange={onSwitchSharing} className="custom-control-input" id="customSwitch1" />
+                            <label className="custom-control-label" for="customSwitch1" style={{ fontSize: "16px", color: "white", fontWeight: "600" }} >Anonymous</label>
                         </div>
                        
 
@@ -261,7 +259,7 @@ const Sharing = (props) => {
                         <button type="submit" onClick={event => submitSharing(event)} id="sendButton" >
 
                             <div id="sendButtonHeader"><h2 style={{ fontWeight: "600", fontSize: "15px", marginBottom: "0px" }}>SEND</h2></div>
-                            <div id="sendButtonIcon"><i class="fas fa-arrow-right" style={{ width: "100%", heigth: "100%" }} ></i></div>
+                            <div id="sendButtonIcon"><i className="fas fa-arrow-right" style={{ width: "100%", heigth: "100%" }} ></i></div>
 
                         </button>
                     </div>

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { db } from '../firebase/index';
-import { MDBIcon } from "mdbreact";
 import { Modal, Form } from 'react-bootstrap';
 import './SharingList.css';
 import * as firebase from "firebase";
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useHistory } from "react-router-dom";
@@ -171,7 +169,7 @@ const SharingList = () => {
                         <div key={index} style={{ margin: "10px", backgroundColor: "#f2edf1", borderRadius: "5px", padding: "5px" }}>
                             <div style={{ display: "inline-block", width: "100%" }}>
                                 <div style={{ display: "inline", float: "left" }}>
-                                    <i class="far fa-user" style={{ width: "20px", height: "20px", color: "#1a2631", fontWeight: "600" }}></i>
+                                    <i className="far fa-user" style={{ width: "20px", height: "20px", color: "#1a2631", fontWeight: "600" }}></i>
                                 </div>
                                 <div style={{ display: "inline", float: "left", fontSize: "16px", fontWeight: "600" }}>{comment.comment.username}</div>
                                 <div style={{ display: "inline", float: "right", fontSize: "15px", fontWeight: "600" }}>{convertDate(comment.comment.date)}</div>
@@ -201,12 +199,12 @@ const SharingList = () => {
 
                             <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                                 {!(sharings.sharing.answeredNum > 0) && <div style={{ textAlign: "center", paddingLeft: "12px", paddingRight: "12px" }}>
-                                    <i class="fas fa-question" id="question-icon" ></i>
+                                    <i className="fas fa-question" id="question-icon" ></i>
                                     <h2 id="unanswered-header" >Unanswered</h2>
 
                                 </div>}
                                 {sharings.sharing.answeredNum > 0 && <div style={{ textAlign: "center", paddingLeft: "20px", paddingRight: "20px" }}>
-                                    <i class="fas fa-check" id="check-icon"></i>
+                                    <i className="fas fa-check" id="check-icon"></i>
                                     <h2 id="answered-header" >Answered</h2>
                                 </div>}
                             </div>
@@ -234,14 +232,14 @@ const SharingList = () => {
                                         <div style={{ display: "flex", float: "right", margin: 0, padding: 0 }}>
                                             <div style={{ paddingRight: "15px" }}>
                                                 <h2 style={{ fontSize: "15px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.store}</h2>
-                                                <div style={{ fontSize: "15px", display: "inline" }}><i class="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+                                                <div style={{ fontSize: "15px", display: "inline" }}><i className="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
                                             </div>
                                             <div style={{ paddingRight: "15px" }}>
                                                 <h2 style={{ fontSize: "15px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.payment}</h2>
-                                                <div style={{ fontSize: "15px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+                                                <div style={{ fontSize: "15px", display: "inline" }}><i className="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
                                             </div>
                                             <div style={{ borderColor: "white" }}>
-                                                <button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{ color: "white", fontSize: "20px" }}></i></button>
+                                                <button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i className="far fa-comment " style={{ color: "white", fontSize: "20px" }}></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -262,12 +260,12 @@ const SharingList = () => {
 
                             <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                                 {!(sharings.sharing.answeredNum > 0) && <div style={{ textAlign: "center", paddingLeft: "12px", paddingRight: "12px" }}>
-                                    <i class="fas fa-question" id="question-icon" ></i>
+                                    <i className="fas fa-question" id="question-icon" ></i>
                                     <h2 id="unanswered-header" >Unanswered</h2>
 
                                 </div>}
                                 {sharings.sharing.answeredNum > 0 && <div style={{ textAlign: "center", paddingLeft: "20px", paddingRight: "20px" }}>
-                                    <i class="fas fa-check" id="check-icon"></i>
+                                    <i className="fas fa-check" id="check-icon"></i>
                                     <h2 id="answered-header" >Answered</h2>
                                 </div>}
                             </div>
@@ -295,14 +293,14 @@ const SharingList = () => {
                                         <div style={{ display: "flex", float: "right", margin: 0, padding: 0 }}>
                                             <div style={{ paddingRight: "15px" }}>
                                                 <h2 style={{ fontSize: "15px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.store}</h2>
-                                                <div style={{ fontSize: "15px", display: "inline" }}><i class="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+                                                <div style={{ fontSize: "15px", display: "inline" }}><i className="fas fa-mobile-alt" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
                                             </div>
                                             <div style={{ paddingRight: "15px" }}>
                                                 <h2 style={{ fontSize: "15px", fontWeight: "500", marginLeft: "5px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.payment}</h2>
-                                                <div style={{ fontSize: "15px", display: "inline" }}><i class="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
+                                                <div style={{ fontSize: "15px", display: "inline" }}><i className="fas fa-dollar-sign" style={{ width: "25px", height: "25px", color: "rgb(151, 140, 140)" }}></i></div>
                                             </div>
                                             <div style={{ borderColor: "white" }}>
-                                                <button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{ color: "white", fontSize: "20px" }}></i></button>
+                                                <button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i className="far fa-comment " style={{ color: "white", fontSize: "20px" }}></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -323,12 +321,12 @@ const SharingList = () => {
 
                             <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                                 {!(sharings.sharing.answeredNum > 0) && <div style={{ textAlign: "center", paddingLeft: "5px", paddingRight: "8px" }}>
-                                    <i class="fas fa-question" id="question-icon-mb" ></i>
+                                    <i className="fas fa-question" id="question-icon-mb" ></i>
                                     <h2 id="unanswered-header-mb" >Unanswered</h2>
 
                                 </div>}
                                 {sharings.sharing.answeredNum > 0 && <div style={{ textAlign: "center", paddingLeft: "8px", paddingRight: "15px" }}>
-                                    <i class="fas fa-check" id="check-icon-mb"></i>
+                                    <i className="fas fa-check" id="check-icon-mb"></i>
                                     <h2 id="answered-header-mb" >Answered</h2>
                                 </div>}
                             </div>
@@ -361,7 +359,7 @@ const SharingList = () => {
                                                 <h2 style={{ fontSize: "12px", fontWeight: "600", marginLeft: "0px", display: "inline", marginRight: "5px", color: "rgb(151, 140, 140)" }}>{sharings.sharing.payment}</h2>
                                             </div>
                                             <div style={{ borderColor: "white" }}>
-                                                <button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i class="far fa-comment " style={{ color: "white", fontSize: "12px" }}></i></button>
+                                                <button style={{ backgroundColor: "Transparent", border: "none", display: "inline" }} onClick={(event) => { makeSuggestion(event, sharings.sharingId) }}><i className="far fa-comment " style={{ color: "white", fontSize: "12px" }}></i></button>
                                             </div>
                                         </div>
                                     </div>

@@ -1,8 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import * as firebase from "firebase";
-import { MDBIcon } from "mdbreact";
-import { Redirect } from 'react-router-dom'
 import logo from '../assets/findappy-logo.png';
 import { db } from '../firebase/index';
 
@@ -25,7 +23,7 @@ const AddingApp = () => {
 			if (authUser) {
 				db.ref('/user').on('value', querySnapShot => {
 					querySnapShot.forEach((child) => {
-						if (child.val().email == authUser.email) {
+						if (child.val().email === authUser.email) {
 							setUser(child.val().username);
 						}
 					});
@@ -39,7 +37,6 @@ const AddingApp = () => {
     const shareApp = (event) => {
         event.preventDefault();
         
-        console.log(user);
         if(user!==""){
             var today = new Date();
             var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -58,7 +55,6 @@ const AddingApp = () => {
             db.ref('/app').push(data);
         }
         else{
-            console.log("giris yapınız");
         }
     }
 

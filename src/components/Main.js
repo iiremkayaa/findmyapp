@@ -1,7 +1,6 @@
 import React from 'react';
 import Sharing from './Sharing';
 import SharingList from './SharingList';
-import AppSlide from './AppSlide';
 import Page from 'react-page-loading'
 import { useMediaQuery } from 'react-responsive';
 const Desktop = ({ children }) => {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../firebase/index';
 import * as firebase from "firebase";
 import './MySharings.css';
-import { Modal, Form } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import Page from 'react-page-loading'
 import { useMediaQuery } from 'react-responsive';
 import { useHistory } from 'react-router-dom';
@@ -55,7 +55,7 @@ const MySharings = () => {
             if (authUser) {
                 db.ref('/user').on('value', querySnapShot => {
                     querySnapShot.forEach((child) => {
-                        if (child.val().email == authUser.email) {
+                        if (child.val().email === authUser.email) {
                             setUser(child.val().username);
                         }
                     });

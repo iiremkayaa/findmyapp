@@ -45,7 +45,7 @@ const Register = (props) => {
     async function returnedIsExistUsername() {
         setIsExistUsername(false);
         userList.forEach(user=>{
-            if(user.username==username){
+            if(user.username===username){
                 setIsExistUsername(true);
             }
         })
@@ -53,9 +53,8 @@ const Register = (props) => {
     }
     async function returnedIsExistMail() {
         setIsExistMail(false);
-        console.log(userList);
         userList.forEach(user=>{
-            if(user.email==email){
+            if(user.email===email){
                 setIsExistMail(true);
             }
         })
@@ -79,7 +78,6 @@ const Register = (props) => {
                     comments: [],
                 }
                
-                   console.log("helo");
                     db.ref('/user').push(data);
                     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
                     });
