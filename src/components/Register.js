@@ -1,4 +1,4 @@
-import React, { useState, } from 'react';
+import React, { useEffect, useState, } from 'react';
 import Form from 'react-bootstrap/Form';
 
 import * as firebase from "firebase";
@@ -26,71 +26,71 @@ const Register = (props) => {
     const [username, setUsername] = useState("");
     const [charControl, setCharControl] = useState(false);
     const [passControl, setPassControl] = useState(false);
-    const [isExistUsername, setIsExistUsername] = useState(false);
-    const [isExistMail, setIsExistMail] = useState(false);
-    const [fillWarning,setFillWarning]=useState("");
-    async function returnedIsExistUsername() {
-        let flag = false;
-        var dbFunc = await db.ref('/user').once('value', querySnapShot => {
+    const [isExistUsername, setIsExistUsername] = useState("");
+    const [isExistMail, setIsExistMail] = useState("");
+    const [fillWarning,setFillWarning]=useState(false);
+    const [userNameFlag,setUserNameFlag]=useState("");
+    const [emailFlag,setEmailFlag]=useState("");
+    const [userList,setUserList]=useState([]);
+    useEffect(() => {
+		var dbFunc = db.ref('/user').once('value', querySnapShot => {
             let values = [];
             querySnapShot.forEach((child) => {
-                if (child.val().username === username) {
-                    flag = true;
-                }
-
+                values.push(child.val())
             });
+            setUserList(values);
         });
-        return flag;
+        
+	}, []);
+    async function returnedIsExistUsername() {
+        setIsExistUsername(false);
+        userList.forEach(user=>{
+            if(user.username==username){
+                setIsExistUsername(true);
+            }
+        })
+       
     }
     async function returnedIsExistMail() {
-        let flag = false;
-        var dbFunc = await db.ref('/user').once('value', querySnapShot => {
-            let values = [];
-            querySnapShot.forEach((child) => {
-                if (child.val().email === email) {
-                    flag = true;
-                }
-
-            });
-        });
-        return flag;
+        setIsExistMail(false);
+        console.log(userList);
+        userList.forEach(user=>{
+            if(user.email==email){
+                setIsExistMail(true);
+            }
+        })
+       
     }
     const submit = async (event) => {
         event.preventDefault();
-        if(email=="" || password=="" || confirmPassword=="" || username==""){
-            console.log("geldi");
+        await returnedIsExistMail();
+        await returnedIsExistUsername();
+        if(email==="" || password==="" || confirmPassword==="" || username===""){
             setFillWarning(true);
         }
-        if(email!="" && password!="" && confirmPassword!="" && username!=""){
+        else if(email!=="" && password!=="" && confirmPassword!=="" && username!=="" ){
             setFillWarning(false);
-        }
-        const data = {
-            username: username,
-            password: password,
-            email: email,
-            sharings: [],
-            comments: [],
-        }
-
-        if (await returnedIsExistMail() === true) {
-            setIsExistMail(true);
-        }
-        
-        if (await returnedIsExistUsername() === true) {
-            setIsExistUsername(true);
-        }
-        
-        if (await returnedIsExistUsername() === false && await returnedIsExistMail() === false) {
-            db.ref('/user').push(data);
-            firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
-               
-
-            });
-            firebase.auth().onAuthStateChanged((authUser) => {
-                if (authUser !== null) {
-                    props.history.push(`/`);
+            if(!isExistMail && !isExistUsername){
+                const data = {
+                    username: username,
+                    password: password,
+                    email: email,
+                    sharings: [],
+                    comments: [],
                 }
-            })
+               
+                   console.log("helo");
+                    db.ref('/user').push(data);
+                    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+                    });
+                    firebase.auth().onAuthStateChanged((authUser) => {
+                        if (authUser !== null) {
+                            props.history.push(`/`);
+                        }
+                    })
+               
+            }      
+            
         }
 
 
@@ -125,6 +125,7 @@ const Register = (props) => {
     const handleUsername = (event) => {
         setUsername(event.target.value);
     }
+
     return (
         <div  >
             <Page loader={"bubble-spin"} color={"#A9A9A9"} size={4}>
@@ -159,13 +160,10 @@ const Register = (props) => {
                                 The password must match confirm password.
                         </Form.Text>}
                         </div>
-                        <div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
-                            <button type="submit" id="sign-up" onClick={event => submit(event)} >
-                                SIGN UP
-                    </button>
-                        </div>
-                    </Form>
-                    <div style={{ width: "100%", marginTop: "10px" }}>
+                        <div style={{ width: "100%", marginTop: "20px" }}>
+                         {fillWarning && <Form.Text id="message">
+                            You must fill all fields.
+                        </Form.Text>}
                         {isExistMail && <Form.Text id="message">
                             Email is already taken.
                         </Form.Text>}
@@ -173,6 +171,13 @@ const Register = (props) => {
                             Username  is already taken.
                         </Form.Text>}
                     </div>
+                        <div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
+                            <button type="submit" id="sign-up" onClick={event => submit(event)} >
+                                SIGN UP
+                    </button>
+                        </div>
+                    </Form>
+                    
                 </div>
                 </Desktop>
             </Page>
@@ -208,23 +213,24 @@ const Register = (props) => {
                                 The password must match confirm password.
                         </Form.Text>}
                         </div>
+                        <div style={{ width: "100%", marginTop: "20px" }}>
+                        {(fillWarning) && <Form.Text id="message">
+                            You must fill all fields.
+                        </Form.Text>}
+                        { isExistMail && <Form.Text id="message">
+                            Email is already taken.
+                        </Form.Text>}
+                        {  isExistUsername && <Form.Text id="message">
+                            Username  is already taken.
+                        </Form.Text>}
+                    </div>
                         <div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
                             <button type="submit" id="sign-up" onClick={event => submit(event)} >
                                 SIGN UP
                     </button>
                         </div>
                     </Form>
-                    <div style={{ width: "100%", marginTop: "10px" }}>
-                        {fillWarning && <Form.Text id="message">
-                            You must fill all fields.
-                        </Form.Text>}
-                        {!fillWarning && (isExistMail && <Form.Text id="message">
-                            Email is already taken.
-                        </Form.Text>)}
-                        { !fillWarning && (isExistUsername && <Form.Text id="message">
-                            Username  is already taken.
-                        </Form.Text>)}
-                    </div>
+                    
                 </div>
                 </Tablet>
             </Page>
@@ -261,6 +267,9 @@ const Register = (props) => {
                         </Form.Text>}
                         </div>
                         <div style={{ width: "100%", marginTop: "10px" }}>
+                        {fillWarning && <Form.Text id="message">
+                            You must fill all fields.
+                        </Form.Text>}
                         {isExistMail && <Form.Text id="message">
                             Email is already taken.
                         </Form.Text>}

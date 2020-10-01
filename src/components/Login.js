@@ -29,10 +29,7 @@ const Login = (props) => {
 
     const submit = (event) => {
         event.preventDefault();
-        console.log("ney");
-
         firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-            console.log("gell");
             var errorCode = error.code;
             var errorMessage = error.message;
             if (errorCode === "auth/invalid-email" || errorCode === "auth/wrong-password") {
@@ -47,7 +44,6 @@ const Login = (props) => {
                 props.history.push(`/`);
             }
         })
-        //setInCorrectUser(false);
     }
     const handleEmail = (event) => {
         setEmail(event.target.value);
@@ -95,7 +91,7 @@ const Login = (props) => {
                                 <Form.Control style={{ display: "table-cell" }} type="password" placeholder="Password" onChange={handlePassword} />
 
                             </div>
-                            <div style={{ width: "100%", marginTop: "10px" }}>
+                            <div style={{ width: "100%", marginTop: "20px" }}>
                                 {inCorrectUser && <Form.Text id="message">
                                     Username or password is incorrect.
                         </Form.Text>}
@@ -131,7 +127,7 @@ const Login = (props) => {
                                 <Form.Control style={{ display: "table-cell" }} type="password" placeholder="Password" onChange={handlePassword} />
 
                             </div>
-                            <div style={{ width: "100%", marginTop: "10px" }}>
+                            <div style={{ width: "100%", marginTop: "20px" }}>
                                 {inCorrectUser && <Form.Text id="message">
                                     Username or password is incorrect.
                         </Form.Text>}
@@ -172,7 +168,7 @@ const Login = (props) => {
                                     Username or password is incorrect.
                         </Form.Text>}
                             </div>
-                            <div style={{ textAlign: "center", width: "100%", marginTop: "30px" }}>
+                            <div style={{ textAlign: "center", width: "100%", marginTop: "20px" }}>
                                 <button id="sign-in-mb" type="submit" onClick={event => submit(event)} >
                                     SIGN IN
                         </button>
